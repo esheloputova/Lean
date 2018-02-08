@@ -1,24 +1,21 @@
 import configuration.ConfigProperties;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import pages.CreateUserPage;
 import pages.MainPage;
 import pages.Page;
 
-import java.lang.management.ManagementFactory;
-
 public class CreateUserTest {
 
 
+  @BeforeMethod
+  public void setUp() {
+    Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+  }
 
-    @Before
-    public void setUp() {
-      Page.getDriver().get(ConfigProperties.getTestProperty("url"));
-    }
-
-@Test
+  @Test
   public void createUser() {
-      new MainPage().clickCreateUser();
-      new CreateUserPage().createNewUser();
+    new MainPage().clickCreateUser();
+    new CreateUserPage().createNewUser();
   }
 }

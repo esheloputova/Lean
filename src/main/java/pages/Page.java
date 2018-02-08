@@ -6,7 +6,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public abstract  class Page {
+import java.util.concurrent.TimeUnit;
+
+public abstract class Page {
 
   protected static WebDriver driver;
   protected WebDriverWait wait;
@@ -23,8 +25,9 @@ public abstract  class Page {
     if (driver == null) {
       System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
       driver = new ChromeDriver();
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-        return driver;
+    return driver;
   }
 
   public WebDriverWait justWait() {
