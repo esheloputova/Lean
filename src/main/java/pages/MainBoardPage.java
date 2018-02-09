@@ -12,8 +12,8 @@ public class MainBoardPage extends Page{
   @FindBy(xpath = "//div[@class='avatar-icon layout-row']")
   WebElement avatarPhoto;
 
-  public MainBoardPage checkVisibilityAvatar() {
-    wait.until(ExpectedConditions.visibilityOf(avatarPhoto));
+  public MainBoardPage clickOnAvatarPhoto() {
+    avatarPhoto.click();
     return this;
   }
 
