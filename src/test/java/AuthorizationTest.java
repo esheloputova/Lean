@@ -32,9 +32,6 @@ public class AuthorizationTest {
     User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
     new LoginPage()
             .authorizationAnExistingUser(user1);
-//    new MainBoardPage().clickOnAvatarPhoto();
-//    new ProfilePage()
-//            .clickOnSignOut();
   }
 
   @Title("Negative scenario")
@@ -52,7 +49,6 @@ public class AuthorizationTest {
   @Step("Invalid email")
   @Test
   public void invalidEmail() {
-    // Page.getDriver().navigate().back();
     new MainPage().clickOnLoginButton();
     User user3 = new User(ConfigProperties.getTestProperty("invalidEmail"), ConfigProperties.getTestProperty("invalidPassword"));
     new LoginPage()

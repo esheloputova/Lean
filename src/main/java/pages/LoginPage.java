@@ -85,11 +85,17 @@ public class LoginPage extends Page {
     loginFormLoginButton.submit();
 
     String textErrorMissingEmail = loginFormErrorAboutMissingEmail.getText();
-    String textErrorMissingPasswor = loginFormErrorAboutMissingPassword.getText();
+    String textErrorMissingPassword = loginFormErrorAboutMissingPassword.getText();
 
     Assert.assertTrue("No error", textErrorMissingEmail.equals(textMissingEmail));
-    Assert.assertTrue("No error", textErrorMissingPasswor.equals(textMissingPasssword));
+    Assert.assertTrue("No error", textErrorMissingPassword.equals(textMissingPasssword));
     return this;
+  }
+
+  public PasswordResetForm clickOnFogotPasswordLink() {
+    loginFormForgotPasswordLink.click();
+    return new PasswordResetForm();
+
   }
 
 }
