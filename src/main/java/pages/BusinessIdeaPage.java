@@ -90,12 +90,12 @@ public class BusinessIdeaPage extends Page {
 	}
 
 	public BusinessIdeaPage selectWhatMakesYouUniqueSticky() {
-		chooseStick1.click();
-		chooseStick2.click();
-		chooseStick3.click();
-		giveNameIdea.click();
-		giveNameIdea.sendKeys("New idea");
-		addIdea.click();
+//		chooseStick1.click();
+//		chooseStick2.click();
+//		chooseStick3.click();
+//		giveNameIdea.click();
+//		giveNameIdea.sendKeys("New idea");
+//		addIdea.click();
 		linkBusinessModel.click();
 
 
