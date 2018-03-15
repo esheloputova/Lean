@@ -23,7 +23,7 @@ public class BusinessIdeaTest {
 
 	}
 
-	@Title("Possitive scenario")
+	@Title("Business idea")
 	@Step("Create business idea")
 	@Test
 	public void createNewBusinessIdeaTest() {
@@ -34,9 +34,9 @@ public class BusinessIdeaTest {
 		new MainBoardPage()
 						.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-						.createWhatMakesYouUnique()
-						.createWhatProblemWillYouSolve()
-						.createWhoWillHaveThisProblem()
+//						.createWhatMakesYouUnique()
+//						.createWhatProblemWillYouSolve()
+//						.createWhoWillHaveThisProblem()
 						.selectWhatMakesYouUniqueSticky();
 
 

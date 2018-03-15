@@ -16,11 +16,39 @@ public class BusinessIdeaPage extends Page {
 	WebElement fieldOfInputBusinessIdea;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][1]")
+	WebElement editStick1;
+
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
 	WebElement chooseStick1;
 
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]//idea-sticky[@ng-model='item'][1]")
+	WebElement editStick2;
+
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
+	WebElement chooseStick2;
+
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]//idea-sticky[@ng-model='item'][1]")
+	WebElement editStick3;
+
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
+	WebElement chooseStick3;
+
+	@FindBy(xpath = "//input[(@type='text') and contains(@placeholder, 'Give the new idea name')]")
+	WebElement giveNameIdea;
+
+	@FindBy(xpath = "//span[(@class='ng-binding ng-scope') and contains(text(), 'add')]")
+	WebElement addIdea;
+
+	@FindBy(xpath = "//div[(@ng-show='!vm.isEditingTitle[idea.id]')")
+	WebElement createdIdea;
+
+	@FindBy(xpath = "//a[text() = 'Business models']")
+	WebElement linkBusinessModel;
+
+	//span[text() = название идеи]
 
 
-	@FindBy(xpath = "(//div[contains(@class, 'md-raised') and (@type='button')])[2]")
+	@FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
 	WebElement whatMakesYouUniqueButtonSave;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]")
@@ -63,6 +91,14 @@ public class BusinessIdeaPage extends Page {
 
 	public BusinessIdeaPage selectWhatMakesYouUniqueSticky() {
 		chooseStick1.click();
+		chooseStick2.click();
+		chooseStick3.click();
+		giveNameIdea.click();
+		giveNameIdea.sendKeys("New idea");
+		addIdea.click();
+		linkBusinessModel.click();
+
+
 		return new BusinessIdeaPage();
 	}
 
