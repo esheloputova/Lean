@@ -33,9 +33,9 @@ public class BusinessModelTest {
 		new MainBoardPage()
 						.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-						.selectWhatMakesYouUniqueSticky();
+						.createBI();
 		new BusinessModelPage()
-						.createBM();
+						.createAllStickiesBM();
 
 
 

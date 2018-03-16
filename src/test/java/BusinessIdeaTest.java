@@ -34,10 +34,7 @@ public class BusinessIdeaTest {
 		new MainBoardPage()
 						.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-//						.createWhatMakesYouUnique()
-//						.createWhatProblemWillYouSolve()
-//						.createWhoWillHaveThisProblem()
-						.selectWhatMakesYouUniqueSticky();
+						.deleteAllStickiesBI();
 
 
 	}
