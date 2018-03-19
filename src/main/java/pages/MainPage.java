@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage extends Page{
 
-  @FindBy(xpath = "//span[text() = 'Create user']")
+  @FindBy(xpath = "//p[text() = 'Create user']")
   private WebElement createUserButton;
 
   @FindBy(xpath = "//span[text() = 'Login']")

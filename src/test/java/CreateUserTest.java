@@ -14,7 +14,7 @@ public class CreateUserTest {
     Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
   }
 
-  @Ignore
+
   @Test
   public void createUser() {
     new MainPage().clickCreateUser();

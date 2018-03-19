@@ -23,29 +23,61 @@ public class CreateUserPage extends Page{
   private WebElement lastNameField;
 
 
-  @FindBy(xpath = "//mat-select[@ng-reflect-placeholder = 'Country of origin']")
+  @FindBy(xpath = "(//div[@class = 'mat-select-value'])[1]")
   private WebElement countryOfOriginField;
 
   @FindBy(xpath = "//span[text() = 'Romania']")
   private WebElement chooseValueOfcountryOfOriginField;
 
-  @FindBy(xpath = "//mat-select[@ng-reflect-placeholder = 'User language']")
+  @FindBy(xpath = "//span[text() = 'RUB']")
+  private WebElement chooseValueOfCurrency;
+
+  @FindBy(xpath = "(//div[@class = 'mat-select-value'])[2]")
   private WebElement userLanguageField;
 
-  @FindBy(xpath = "//span[text() = 'English']")
+  @FindBy(xpath = "//span[contains(@class, 'mat-option-text') and (text() = 'English')]")
   private WebElement chooseValueOfLanguageField;
 
   @FindBy(xpath = "//span[@class = 'mat-checkbox-label']")
   private WebElement acceptionField;
 
+  @FindBy(xpath = "//span[(@class = 'mat-button-wrapper') and contains(text(), 'user')]")
+  private WebElement createUser;
+
   @FindBy(xpath = "//span[text() = 'Register']")
   private WebElement registerButton;
 
+  @FindBy(xpath = "(//div[(@class = 'mat-radio-label-content')])[1]")
+  private WebElement developingCompany;
 
-  public void createNewUser() {
+  @FindBy(xpath = "(//div[(@class = 'mat-radio-label-content')])[2]")
+  private WebElement limitedProject;
+
+  @FindBy(xpath = "(//div[(@class = 'mat-radio-label-content')])[3]")
+  private WebElement notRegisteredCompany;
+
+  @FindBy(xpath = "//input[(@formcontrolname = 'organisationNumber')]")
+  private WebElement organisationNumber;
+
+  @FindBy(xpath = "//input[(@formcontrolname = 'companyName')]")
+  private WebElement companyName;
+
+  @FindBy(xpath = "//mat-select[(@formcontrolname = 'countryOfRegistration')]")
+  private WebElement countryOfRegistration;
+
+  @FindBy(xpath = "//mat-select[(@formcontrolname = 'companyCurrency')]")
+  private WebElement companyCurrency;
+
+  @FindBy(xpath = "(//button[@type = 'submit'])[2]")
+  private WebElement createStep2;
+
+
+
+
+  public CreateUserPage createNewUser() {
     new WebDriverWait(getDriver(),10).until(ExpectedConditions.visibilityOf(emailField));
     emailField.click();
-    emailField.sendKeys("elena.sheloputova+2@nrg-soft.ru");
+    emailField.sendKeys("elena.sheloputova+11@nrg-soft.ru");
     passwordField.click();
     passwordField.sendKeys("Elena-4776547");
     repeatPasswordField.click();
@@ -59,8 +91,18 @@ public class CreateUserPage extends Page{
     userLanguageField.click();
     chooseValueOfLanguageField.click();
     acceptionField.click();
-    registerButton.click();
-    //return CompanyAndCasePage;
+    createUser.click();
+
+    developingCompany.click();
+    organisationNumber.click();
+    organisationNumber.sendKeys("It is number of organisation for test");
+    companyName.click();
+    companyName.sendKeys("Test nameeee");
+    countryOfOriginField.click();
+    chooseValueOfcountryOfOriginField.click();
+    companyCurrency.click();
+
+    return new CreateUserPage();
   }
 
 }

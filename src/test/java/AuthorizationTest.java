@@ -21,7 +21,6 @@ public class AuthorizationTest {
     Page.getDriver();
     Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
-
   }
 
   @Title("Possitive scenario")
