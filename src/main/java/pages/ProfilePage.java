@@ -36,8 +36,13 @@ public class ProfilePage extends Page {
 	@CacheLookup
 	WebElement profileSuccessfullySaved;
 
-//	@FindBy(xpath = "//div[contains(@aria-live, 'assertive') and contains(text(), 'Profile successfully saved!']")
+	//	@FindBy(xpath = "//div[contains(@aria-live, 'assertive') and contains(text(), 'Profile successfully saved!']")
 //	WebElement profileSuccessfullySaved;
+	@FindBy(xpath = "//span[@class = 'profile-sh__info_name ng-binding']")
+	WebElement profileData;
+
+
+
 
 
 	public MainPage clickSignOut() {
@@ -57,22 +62,21 @@ public class ProfilePage extends Page {
 		firstNameInput.clear();
 		firstNameInput.sendKeys(textFirstName);
 		saveProfileButton.click();
-		String textSucceedSaved = "Profile successfully saved!";
+//		String textSucceedSaved = "Profile successfully saved!";
 //		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.alertIsPresent());
 
-		String messageSucceedSaved = profileSuccessfullySaved.getText();
+//		String messageSucceedSaved = profileSuccessfullySaved.getText();
 //		ExpectedConditions.;
-		Assert.assertTrue("Text is not visible", messageSucceedSaved.equals(textSucceedSaved));
+//		Assert.assertTrue("Text is not visible", messageSucceedSaved.equals());
 		return new MainBoardPage();
 
 	}
 
-	public ProfilePage checkNameChange() {
-		String textFirstName = "Change the first name";
-		firstNameInput.click();
-		String firstNameText = firstNameInput.getText();
-		Assert.assertTrue("Текст не изменился", firstNameText.equals(textFirstName));
-		return this;
+	public MainBoardPage checkNameChange() {
+		String textPfofileDataChange = "Change the first name Sheloputova";
+		String getChangedFullName = profileData.getText();
+		Assert.assertTrue("Текст не изменился", getChangedFullName.equals(textPfofileDataChange));
+		return new MainBoardPage();
 	}
 
 

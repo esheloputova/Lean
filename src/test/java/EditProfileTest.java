@@ -37,5 +37,6 @@ public class EditProfileTest {
 		new ProfilePage()
 						.clickUserProfileButton()
 						.changeName();
+
 	}
 }

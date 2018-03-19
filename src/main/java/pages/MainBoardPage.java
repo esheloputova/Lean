@@ -24,13 +24,11 @@ public class MainBoardPage extends Page {
 	@FindBy(xpath = "//div[contains(@ng-class,'$ctrl.helpingIdeas') and contains(text(), 'Business Idea')]")
 	WebElement businessIdea;
 
-//	@FindBy(xpath = "//span[(@ng-if='$ctrl.activeIdeas.length')]")
-//	@CacheLookup
-//	WebElement businessIdea;
-
 
 	public MainBoardPage clickOnAvatarPhoto() {
+		new WebDriverWait(getDriver(), 3).until(ExpectedConditions.visibilityOf(avatarPhoto));
 		avatarPhoto.click();
+
 		return this;
 	}
 
