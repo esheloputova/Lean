@@ -15,7 +15,14 @@ public class BusinessIdeaPage extends Page {
 	WebElement whatMakesYouUniqueColumn;
 
 	@FindBys(@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]/idea-sticky"))
-	List<WebElement> allStickywhatMakesYouUniqueColumn;
+	List<WebElement> allStickyWhatMakesYouUniqueColumn;
+
+	@FindBys(@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]/idea-sticky"))
+	List<WebElement> allStickyWhatProblemWillYouSolveColumn;
+
+	@FindBys(@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]/idea-sticky"))
+	List<WebElement> allStickyWhoWillHaveThisProblemColumn;
+
 
 	@FindBy(xpath = "//input[(@type='text') and (@name='title')]")
 	WebElement fieldOfInputBusinessIdea;
@@ -87,6 +94,33 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
 	WebElement closeForm;
 
+	@FindBy(xpath = "(//span[@class = 'fa fa-caret-down'])[1]")
+	WebElement firsrTab;
+
+	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[1]")
+	WebElement firstDeactivate;
+
+	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[2]")
+	WebElement firstRename;
+
+	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[3]")
+	WebElement firstDelete;
+
+	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[4]")
+	WebElement firstEdit;
+
+	@FindBy(xpath = "(//div[@ng-repeat = 'idea in $ctrl.list'])[1]")
+	WebElement changeColorFirst;
+
+	@FindBy(xpath = "(//div[@ng-repeat = 'idea in $ctrl.list'])[2]")
+	WebElement changeColorSecond;
+
+
+	//div[@ng-repeat = 'idea in $ctrl.list']
+
+
+	//div[@aria-hidden = 'true']
+
 
 	//button[contains(@class, 'button-attach')]
 
@@ -130,9 +164,9 @@ public class BusinessIdeaPage extends Page {
 		return new BusinessIdeaPage();
 	}
 
-	public BusinessIdeaPage deleteAllStickiesBI() {
-			for (int i = 0; i < allStickywhatMakesYouUniqueColumn.size(); i++) {
-			allStickywhatMakesYouUniqueColumn.get(i).click();
+	public BusinessIdeaPage deleteAllStickiesBIFirst() {
+		for (int i = 0; i < allStickyWhatMakesYouUniqueColumn.size(); i++) {
+			allStickyWhatMakesYouUniqueColumn.get(i).click();
 			if (!Page.isNotElementExists("//div[@class='button button-remove ng-scope']")) {
 				deleteSticky.click();
 			} else {
@@ -141,6 +175,33 @@ public class BusinessIdeaPage extends Page {
 		}
 		return new BusinessIdeaPage();
 	}
+
+	public BusinessIdeaPage deleteAllStickiesBISecond() {
+		for (int i = 0; i < allStickyWhatProblemWillYouSolveColumn.size(); i++) {
+			allStickyWhatProblemWillYouSolveColumn.get(i).click();
+			if (!Page.isNotElementExists("//div[@class='button button-remove ng-scope']")) {
+				deleteSticky.click();
+			} else {
+				closeForm.click();
+			}
+		}
+		return new BusinessIdeaPage();
+	}
+
+	public BusinessIdeaPage deleteAllStickiesBIThird() {
+		for (int i = 0; i < allStickyWhoWillHaveThisProblemColumn.size(); i++) {
+			allStickyWhoWillHaveThisProblemColumn.get(i).click();
+			if (!Page.isNotElementExists("//div[@class='button button-remove ng-scope']")) {
+				deleteSticky.click();
+			} else {
+				closeForm.click();
+			}
+		}
+		return new BusinessIdeaPage();
+	}
+
+
+
 
 	public BusinessIdeaPage addAttachFile() {
 		attachmentFile.sendKeys("src/main/resources/Attachment.zip");

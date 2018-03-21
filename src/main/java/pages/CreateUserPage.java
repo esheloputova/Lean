@@ -91,7 +91,7 @@ public class CreateUserPage extends Page{
   private WebElement nameCase;
 
 //I am developing an existing company
-  public CreateUserPage createNewUser1() {
+public CreateUserPage createNewUser1() {
     new WebDriverWait(getDriver(),10).until(ExpectedConditions.visibilityOf(emailField));
     emailField.click();
     emailField.sendKeys("elena.sheloputova+" + Math.random()*3 +  "@nrg-soft.ru");

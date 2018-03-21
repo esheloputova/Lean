@@ -34,7 +34,9 @@ public class BusinessIdeaTest {
 		new MainBoardPage()
 						.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-						.deleteAllStickiesBI();
+//						.deleteAllStickiesBIFirst()
+						.deleteAllStickiesBISecond()
+						.deleteAllStickiesBIThird();
 
 
 	}

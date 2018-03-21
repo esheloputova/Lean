@@ -33,7 +33,7 @@ public class BusinessModelTest {
 		new MainBoardPage()
 						.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-						.createBI();
+						.goToBM();
 		new BusinessModelPage()
 						.createAllStickiesBM();
 
