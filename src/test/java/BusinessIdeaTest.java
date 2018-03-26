@@ -34,10 +34,8 @@ public class BusinessIdeaTest {
 		new MainBoardPage()
 						.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-//						.deleteAllStickiesBIFirst()
-						.deleteAllStickiesBISecond()
-						.deleteAllStickiesBIThird();
-
+//						.createBI()
+						.editBI();
 
 	}
 }

@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -31,19 +34,31 @@ public class BusinessIdeaPage extends Page {
 	WebElement editStick1;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
-	WebElement chooseStick1;
+	WebElement chooseStick11;
+
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][2]//div[@ng-dblclick ='$event.stopPropagation();']")
+	WebElement chooseStick12;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]//idea-sticky[@ng-model='item'][1]")
 	WebElement editStick2;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
-	WebElement chooseStick2;
+	WebElement chooseStick21;
+
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]//idea-sticky[@ng-model='item'][2]//div[@ng-dblclick ='$event.stopPropagation();']")
+	WebElement chooseStick22;
+
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]//idea-sticky[@ng-model='item'][1]")
 	WebElement editStick3;
 
+
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
-	WebElement chooseStick3;
+	WebElement chooseStick31;
+
+	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]//idea-sticky[@ng-model='item'][2]//div[@ng-dblclick ='$event.stopPropagation();']")
+	WebElement chooseStick32;
+
 
 	@FindBy(xpath = "//input[(@type='text') and contains(@placeholder, 'Give the new idea name')]")
 	WebElement giveNameIdea;
@@ -66,17 +81,13 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]")
 	WebElement whoWillHaveThisProblemColumn;
 
-//	@FindBy(xpath = "//div[@class='button button-remove ng-scope']")
-//	WebElement deleteSticky;
+	@FindBy(xpath = "(//span[@class='fa fa-caret-down'])[1]")
+	WebElement actionsWithSticky;
+
 
 	@FindBy(xpath = "//div[@class='button button-remove ng-scope']")
 	WebElement deleteSticky;
 
-	@FindBy(xpath = "//div[@class='button button-deactivate ng-scope']")
-	WebElement deactivateSticky;
-
-	@FindBy(xpath = "//div[@class='button button-activate ng-scope']")
-	WebElement activateSticky;
 
 	@FindBy(xpath = "//span[contains(@class,'button-more') and (text()='more')]")
 	WebElement moreInformationSticky;
@@ -94,14 +105,17 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
 	WebElement closeForm;
 
-	@FindBy(xpath = "(//span[@class = 'fa fa-caret-down'])[1]")
+	@FindBy(xpath = "(//div[@class='select-btn'])[1]")
 	WebElement firsrTab;
 
 	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[1]")
-	WebElement firstDeactivate;
+	WebElement firstDeactivateActivate;
 
 	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[2]")
 	WebElement firstRename;
+
+	@FindBy(xpath = "//input[@id = 'input6519']")
+	WebElement inputNewName;
 
 	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[3]")
 	WebElement firstDelete;
@@ -109,20 +123,15 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[4]")
 	WebElement firstEdit;
 
+	@FindBy(xpath = "//div[contains(@class, 'btn-save')]")
+	WebElement buttonSaveIdea;
+
+
 	@FindBy(xpath = "(//div[@ng-repeat = 'idea in $ctrl.list'])[1]")
 	WebElement changeColorFirst;
 
 	@FindBy(xpath = "(//div[@ng-repeat = 'idea in $ctrl.list'])[2]")
 	WebElement changeColorSecond;
-
-
-	//div[@ng-repeat = 'idea in $ctrl.list']
-
-
-	//div[@aria-hidden = 'true']
-
-
-	//button[contains(@class, 'button-attach')]
 
 	public BusinessIdeaPage createAllStickiesBI() {
 		whatMakesYouUniqueColumn.click();
@@ -132,9 +141,7 @@ public class BusinessIdeaPage extends Page {
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("Here you should add what makes you better suited to solve the problem than anyone else. " +
-						"Why should the customer choose you? What will make it difficult for the competition to copy you? " +
-						"Add as many cards as you need. One uniqueness can relate to one problem, or to many.");
+		descriptionSticky.sendKeys("Here you should add what makes you better suited to solve the problem than anyone else. ");
 		businessIdeaButtonSave.click();
 
 		whatProblemWillYouSolveColumn.click();
@@ -144,8 +151,7 @@ public class BusinessIdeaPage extends Page {
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("People are usually willing to pay good money if you solve a problem for them." +
-						" Given your uniqueness and resources; what problem can you solve? Try to be creative and let the wild ideas flow.");
+		descriptionSticky.sendKeys("People are usually willing to pay good money if you solve a problem for them.");
 		businessIdeaButtonSave.click();
 
 		whoWillHaveThisProblemColumn.click();
@@ -155,10 +161,7 @@ public class BusinessIdeaPage extends Page {
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("No point in solving problems if you do not know who has them. " +
-						"Try to think of the possible target groups for all imaginable problems you are solving. " +
-						"Don't make the target groups too wide and generic." +
-						" It is so much easier to reach out to a small and clearly defined group.");
+		descriptionSticky.sendKeys("No point in solving problems if you do not know who has them. ");
 		businessIdeaButtonSave.click();
 
 		return new BusinessIdeaPage();
@@ -201,8 +204,6 @@ public class BusinessIdeaPage extends Page {
 	}
 
 
-
-
 	public BusinessIdeaPage addAttachFile() {
 		attachmentFile.sendKeys("src/main/resources/Attachment.zip");
 		return new BusinessIdeaPage();
@@ -210,15 +211,73 @@ public class BusinessIdeaPage extends Page {
 
 
 	public BusinessIdeaPage createBI() {
-		chooseStick1.click();
-		chooseStick2.click();
-		chooseStick3.click();
+//		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick11));
+		chooseStick11.click();
+		chooseStick21.click();
+		chooseStick31.click();
 		giveNameIdea.click();
 		giveNameIdea.sendKeys("New idea");
 		addIdea.click();
 
 		return new BusinessIdeaPage();
 	}
+
+	public BusinessIdeaPage editBI() {
+
+		//deactivate
+		firsrTab.click();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstDeactivateActivate));
+		firstDeactivateActivate.click();
+
+		//activate
+		firsrTab.click();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstDeactivateActivate));
+		firstDeactivateActivate.click();
+
+		//rename BI
+		firsrTab.click();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstRename));
+		firstRename.click();
+		inputNewName.clear();
+		inputNewName.sendKeys("Change name BI 2");
+		inputNewName.sendKeys(Keys.ENTER);
+
+		//editBI
+		firsrTab.click();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstEdit));
+		firstEdit.click();
+		chooseStick12.click();
+		chooseStick22.click();
+		chooseStick32.click();
+		buttonSaveIdea.click();
+
+		//change color
+		firsrTab.click();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(changeColorSecond));
+		changeColorSecond.click();
+
+//		drag-and-drop
+		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
+		getDriver().navigate().refresh();
+
+		new Actions(getDriver()).dragAndDrop(chooseStick32, chooseStick21).perform();
+		getDriver().navigate().refresh();
+
+		new Actions(getDriver()).dragAndDrop(chooseStick22, chooseStick11).perform();
+
+		getDriver().navigate().refresh();
+		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick22).perform();
+
+		return new BusinessIdeaPage();
+	}
+
+	public BusinessIdeaPage deleteBI() {
+		firsrTab.click();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstDelete));
+		firstDelete.click();
+		return new BusinessIdeaPage();
+	}
+
 
 	public BusinessModelPage goToBM() {
 		linkBusinessModel.click();
