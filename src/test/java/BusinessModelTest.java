@@ -13,7 +13,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 public class BusinessModelTest {
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-	@Title("Authorization")
+	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp() {
 		logger.info("Test STARTED");
@@ -22,23 +22,18 @@ public class BusinessModelTest {
 
 	}
 
-	@Title("Business model")
-	@Step("Create business model")
+	@Title ("Business model")
+	@Step ("Create business model")
 	@Test
 	public void createNewBusinessModelTest() {
 		new MainPage().clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
-						.authorizationAnExistingUser(user1);
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-						.clickOnBusinessIdea();
-		new BusinessIdeaPage()
-						.goToBM();
+				.clickOnBusinessModel();
 		new BusinessModelPage()
-						.createAllStickiesBM();
-
-
-
+				.createAllStickiesBM();
 	}
 
 

@@ -24,6 +24,15 @@ public class MainBoardPage extends Page {
 	@FindBy(xpath = "//div[contains(@ng-class,'$ctrl.helpingIdeas') and contains(text(), 'Business Idea')]")
 	WebElement businessIdea;
 
+	@FindBy(xpath = "//div[contains(@ng-class,'$ctrl.helpingModels') and contains(text(), 'Business models')]")
+	WebElement businessModel;
+
+
+
+	@FindBy(xpath = "//img[@alt = 'Logo']")
+	WebElement goMainPage;
+
+
 
 	public MainBoardPage clickOnAvatarPhoto() {
 		new WebDriverWait(getDriver(), 3).until(ExpectedConditions.visibilityOf(avatarPhoto));
@@ -47,6 +56,21 @@ public class MainBoardPage extends Page {
 		businessIdea.click();
 		return new BusinessIdeaPage();
 	}
+
+	public BusinessModelPage clickOnBusinessModel() {
+		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(businessModel));
+		businessModel.click();
+		return new BusinessModelPage();
+	}
+
+
+
+	public MainBoardPage goMainPage() {
+		goMainPage.click();
+		return new MainBoardPage();
+	}
+
+
 
 
 }

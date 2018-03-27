@@ -72,6 +72,16 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//a[text() = 'Business models']")
 	WebElement linkBusinessModel;
 
+	@FindBy(xpath = "//a[text() = 'TESTS']")
+	WebElement linkTests;
+
+	@FindBy(xpath = "//a[text() = 'models']")
+	WebElement linkModels;
+
+
+
+
+
 	@FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
 	WebElement businessIdeaButtonSave;
 
@@ -114,8 +124,13 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[2]")
 	WebElement firstRename;
 
-	@FindBy(xpath = "//input[@id = 'input6519']")
+	@FindBy(xpath = "(//input[@ng-model = 'idea.title'])[2]")
 	WebElement inputNewName;
+
+	@FindBy(xpath = "(//input[@ng-model = 'idea.title'])[1]")
+	WebElement goAllCards;
+
+
 
 	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[3]")
 	WebElement firstDelete;
@@ -133,6 +148,8 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//div[@ng-repeat = 'idea in $ctrl.list'])[2]")
 	WebElement changeColorSecond;
 
+
+
 	public BusinessIdeaPage createAllStickiesBI() {
 		whatMakesYouUniqueColumn.click();
 		new Actions(driver).doubleClick(whatMakesYouUniqueColumn).build().perform();
@@ -141,7 +158,7 @@ public class BusinessIdeaPage extends Page {
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("Here you should add what makes you better suited to solve the problem than anyone else. ");
+		descriptionSticky.sendKeys("Here you should add? ");
 		businessIdeaButtonSave.click();
 
 		whatProblemWillYouSolveColumn.click();
@@ -151,7 +168,7 @@ public class BusinessIdeaPage extends Page {
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("People are usually willing to pay good money if you solve a problem for them.");
+		descriptionSticky.sendKeys("People are usually willing to pay good money ))) ");
 		businessIdeaButtonSave.click();
 
 		whoWillHaveThisProblemColumn.click();
@@ -161,7 +178,7 @@ public class BusinessIdeaPage extends Page {
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("No point in solving problems if you do not know who has them. ");
+		descriptionSticky.sendKeys("No point in solving problems )))");
 		businessIdeaButtonSave.click();
 
 		return new BusinessIdeaPage();
@@ -239,7 +256,7 @@ public class BusinessIdeaPage extends Page {
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstRename));
 		firstRename.click();
 		inputNewName.clear();
-		inputNewName.sendKeys("Change name BI 2");
+		inputNewName.sendKeys("Change name BI 22");
 		inputNewName.sendKeys(Keys.ENTER);
 
 		//editBI
@@ -256,16 +273,27 @@ public class BusinessIdeaPage extends Page {
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(changeColorSecond));
 		changeColorSecond.click();
 
-//		drag-and-drop
+		return new BusinessIdeaPage();
+	}
+
+	public BusinessIdeaPage gragAndDrop() {
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
 		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
-		getDriver().navigate().refresh();
+//		getDriver().navigate().refresh();
 
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick21));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
 		new Actions(getDriver()).dragAndDrop(chooseStick32, chooseStick21).perform();
-		getDriver().navigate().refresh();
+//		getDriver().navigate().refresh();
 
-		new Actions(getDriver()).dragAndDrop(chooseStick22, chooseStick11).perform();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
+		new Actions(getDriver()).dragAndDrop(chooseStick22, chooseStick22).perform();
+//		getDriver().navigate().refresh();
 
-		getDriver().navigate().refresh();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));
 		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick22).perform();
 
 		return new BusinessIdeaPage();
@@ -284,5 +312,13 @@ public class BusinessIdeaPage extends Page {
 
 		return new BusinessModelPage();
 	}
+
+	public TestsPage goToTests() {
+		linkTests.click();
+
+		return new TestsPage();
+	}
+
+
 
 }

@@ -14,7 +14,7 @@ public class BusinessIdeaTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-	@Title("Authorization")
+	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp() {
 		logger.info("Test STARTED");
@@ -23,19 +23,66 @@ public class BusinessIdeaTest {
 
 	}
 
-	@Title("Business idea")
-	@Step("Create business idea")
+	@Title ("Business idea")
+	@Step ("Create/ Edit/ Edit Business ideas")
 	@Test
 	public void createNewBusinessIdeaTest() {
 		new MainPage().clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
-						.authorizationAnExistingUser(user1);
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-						.clickOnBusinessIdea();
+				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-//						.createBI()
-						.editBI();
-
+				.createAllStickiesBI();
+		new MainBoardPage()
+				.goMainPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.createBI()
+				.editBI()
+				.deleteBI();
 	}
+
+	@Step ("Delete stickies of Business ideas")
+	@Test
+	public void deleteStickiesBusinessIdeaTest() {
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.deleteAllStickiesBIFirst()
+				.deleteAllStickiesBISecond()
+				.deleteAllStickiesBIThird();
+	}
+
+	@Step ("Drag-and-drop stickies of Business ideas")
+	@Test
+	public void dragAndDropStickiesBusinessIdeaTest() {
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.gragAndDrop();
+	}
+
+	@Step ("Go to Business Model from Business ideas by link")
+	@Test
+	public void goBMFromBIByLink() {
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.goToBM();
+	}
+
 }
