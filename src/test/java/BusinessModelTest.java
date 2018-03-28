@@ -33,7 +33,8 @@ public class BusinessModelTest {
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()
-				.createAllStickiesBM();
+//				.createBIStickiesBM()
+				.editStickyBM();
 	}
 
 

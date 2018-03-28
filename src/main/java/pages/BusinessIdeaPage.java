@@ -31,7 +31,7 @@ public class BusinessIdeaPage extends Page {
 	WebElement fieldOfInputBusinessIdea;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][1]")
-	WebElement editStick1;
+	WebElement clickStick1;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
 	WebElement chooseStick11;
@@ -78,10 +78,6 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//a[text() = 'models']")
 	WebElement linkModels;
 
-
-
-
-
 	@FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
 	WebElement businessIdeaButtonSave;
 
@@ -95,16 +91,21 @@ public class BusinessIdeaPage extends Page {
 	WebElement actionsWithSticky;
 
 
+// Beginning. Actions in the form
 	@FindBy(xpath = "//div[@class='button button-remove ng-scope']")
 	WebElement deleteSticky;
 
+	@FindBy(xpath = "//div[@class='button button-deactivate ng-scope']")
+	WebElement deactivateSticky;
+
+	@FindBy(xpath = "//div[@class='button button-activate ng-scope']")
+	WebElement activateSticky;
 
 	@FindBy(xpath = "//span[contains(@class,'button-more') and (text()='more')]")
 	WebElement moreInformationSticky;
 
 	@FindBy(xpath = "//textarea[contains(@ng-model,'description')]")
 	WebElement descriptionSticky;
-
 
 	@FindBy(xpath = "//span[contains(@class,'button-more') and (text()='less')]")
 	WebElement lessInformationSticky;
@@ -114,6 +115,7 @@ public class BusinessIdeaPage extends Page {
 
 	@FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
 	WebElement closeForm;
+//	End. Actions in the form
 
 	@FindBy(xpath = "(//div[@class='select-btn'])[1]")
 	WebElement firsrTab;
