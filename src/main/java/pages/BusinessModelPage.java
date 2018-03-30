@@ -6,6 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author Elena_Sheloputova
  */
@@ -23,10 +27,10 @@ public class BusinessModelPage extends Page {
 
 
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[2]//sticky[@ng-model='item'][1]")
-	WebElement businessModelHowWillYouMarketAndSell;
+	WebElement firstStickyBusinessModelHowWillYouMarketAndSell;
 
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[2]")
-	WebElement firstStickyBusinessModelHowWillYouMarketAndSell;
+	WebElement businessModelHowWillYouMarketAndSell;
 
 
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[3]")
@@ -103,6 +107,8 @@ public class BusinessModelPage extends Page {
 	@FindBy (xpath = "//div[@title = 'Remove attach']")
 	WebElement removeAttach;
 
+	public List<WebElement> listFirstStickies;
+
 
 //	End. Actions in the form
 
@@ -161,70 +167,116 @@ public class BusinessModelPage extends Page {
 		return this;
 	}
 
-	public BusinessModelPage editStickyBM() {
-		firstStickyBusinessModelWhoCanHelpYou.click();
-		fieldOfInputBM.click();
-		fieldOfInputBM.clear();
-		fieldOfInputBM.sendKeys("Edit edit");
-		buttonSave.click();
+	//Add attach + description + deactive + active
 
-		firstStickyBusinessModelWhoCanHelpYou.click();
-		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(deactivateSticky));
-		deactivateSticky.click();
-		buttonSave.click();
+	public List<WebElement> createList() {
+		listFirstStickies = new ArrayList<WebElement>();
+		listFirstStickies.add(firstStickyBusinessModelWhoCanHelpYou);
+		listFirstStickies.add(firstStickyBusinessModelHowWillYouMarketAndSell);
+		listFirstStickies.add(firstStickyBusinessModelHowWillYouCharge);
+		listFirstStickies.add(firstStickyBusinessModelWhatIsYourUniqueValueProposition);
+		listFirstStickies.add(firstStickyBusinessModelWhatFeaturesWillYourProductHave);
+		listFirstStickies.add(firstStickyBusinessModelWhoWillBeYourFirstCustomers);
+		return listFirstStickies;
+	}
 
-		firstStickyBusinessModelWhoCanHelpYou.click();
-		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(activateSticky));
-		activateSticky.click();
-		buttonSave.click();
+	public BusinessModelPage editNameStickiesBM() {
+		listFirstStickies = new ArrayList<WebElement>();
+		listFirstStickies.add(firstStickyBusinessModelWhoCanHelpYou);
+		listFirstStickies.add(firstStickyBusinessModelHowWillYouMarketAndSell);
+		listFirstStickies.add(firstStickyBusinessModelHowWillYouCharge);
+		listFirstStickies.add(firstStickyBusinessModelWhatIsYourUniqueValueProposition);
+		listFirstStickies.add(firstStickyBusinessModelWhatFeaturesWillYourProductHave);
+		listFirstStickies.add(firstStickyBusinessModelWhoWillBeYourFirstCustomers);
+		for (WebElement x : listFirstStickies) {
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			x.click();
+			fieldOfInputBM.click();
+			fieldOfInputBM.clear();
+			fieldOfInputBM.sendKeys("Edit");
+			buttonSave.click();
 
-		firstStickyBusinessModelWhoCanHelpYou.click();
-		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(moreInformationSticky));
-		moreInformationSticky.click();
-		descriptionSticky.click();
-		descriptionSticky.sendKeys("Created when I edit");
-		buttonSave.click();
+		}
+		return this;
+	}
 
-		firstStickyBusinessModelWhoCanHelpYou.click();
-		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
-		buttonSave.click();
+	public BusinessModelPage deactivateStickiesBM() {
+		for (WebElement x : listFirstStickies) {
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			x.click();
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(deactivateSticky));
+			deactivateSticky.click();
+			buttonSave.click();
+		}
+		return this;
+	}
 
-		firstStickyBusinessModelWhoCanHelpYou.click();
-		removeAttach.click();
-		buttonSave.click();
+	public BusinessModelPage activateStickiesBM() {
+		for (WebElement x : listFirstStickies) {
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			x.click();
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(activateSticky));
+			activateSticky.click();
+			buttonSave.click();
+		}
+		return this;
+	}
 
-//		_____________________________________________________________
-		firstStickyBusinessModelHowWillYouCharge.click();
-		fieldOfInputBM.click();
-		fieldOfInputBM.clear();
-		fieldOfInputBM.sendKeys("Edit edit");
-		buttonSave.click();
+	public BusinessModelPage addMoreInformationStickiesBM() {
+		for (WebElement x : listFirstStickies) {
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			x.click();
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(moreInformationSticky));
+			moreInformationSticky.click();
+			descriptionSticky.click();
+			descriptionSticky.sendKeys("Created when I edit");
+			buttonSave.click();
+		}
+		return this;
+	}
 
-		firstStickyBusinessModelHowWillYouCharge.click();
-		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(deactivateSticky));
-		deactivateSticky.click();
-		buttonSave.click();
+	public BusinessModelPage addAttachesBM() {
+		for (WebElement x : listFirstStickies) {
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			x.click();
+			attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
+			buttonSave.click();
+		}
+		return this;
+	}
 
-		firstStickyBusinessModelHowWillYouCharge.click();
-		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(activateSticky));
-		activateSticky.click();
-		buttonSave.click();
+	public BusinessModelPage deleteAttachesBM() {
+		for (WebElement x : listFirstStickies) {
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			x.click();
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(removeAttach));
+			removeAttach.click();
+			buttonSave.click();
+		}
+		return this;
+	}
 
-		firstStickyBusinessModelHowWillYouCharge.click();
-		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(moreInformationSticky));
-		moreInformationSticky.click();
-		descriptionSticky.click();
-		descriptionSticky.sendKeys("Created when I edit");
-		buttonSave.click();
+	public BusinessModelPage deleteAddInformationsBM() {
+		for (WebElement x : listFirstStickies) {
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			x.click();
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(descriptionSticky));
+			descriptionSticky.click();
+			descriptionSticky.clear();
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(lessInformationSticky));
+			lessInformationSticky.click();
+			buttonSave.click();
+		}
+		return this;
+	}
+	public BusinessModelPage gragAndDropBM() {
 
-		firstStickyBusinessModelHowWillYouCharge.click();
-		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
-		buttonSave.click();
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(firstStickyBusinessModelWhoCanHelpYou));
 
-		firstStickyBusinessModelHowWillYouCharge.click();
-		removeAttach.click();
-		buttonSave.click();
-
+		new Actions(getDriver()).clickAndHold(firstStickyBusinessModelWhoCanHelpYou).moveToElement(firstStickyBusinessModelHowWillYouMarketAndSell).release().build().perform();
+// 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf());
+//		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
+//		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
 		return this;
 	}
 

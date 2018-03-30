@@ -34,8 +34,14 @@ public class BusinessModelTest {
 				.clickOnBusinessModel();
 		new BusinessModelPage()
 //				.createBIStickiesBM()
-				.editStickyBM();
+//				.createAllStickiesBM()
+//				.editNameStickiesBM()
+//				.deactivateStickiesBM()
+//				.activateStickiesBM()
+//				.addMoreInformationStickiesBM()
+//				.addAttachesBM()
+//				.deleteAttachesBM()
+//				.deleteAddInformationsBM();
+				.gragAndDropBM();
 	}
-
-
 }
