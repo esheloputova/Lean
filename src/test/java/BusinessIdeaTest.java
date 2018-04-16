@@ -1,6 +1,7 @@
 import configuration.ConfigProperties;
 import models.User;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import pages.*;
@@ -44,6 +45,7 @@ public class BusinessIdeaTest {
 				.deleteBI();
 	}
 
+	@Ignore
 	@Step ("Delete stickies of Business ideas")
 	@Test
 	public void deleteStickiesBusinessIdeaTest() {

@@ -17,6 +17,7 @@ public class CreateUserTest {
   @Step("Create new user. I am developing an existing company")
   @Test
   public void createUserWithDevelopingCompany() {
+//    Page.getDriver().navigate().back();
     new MainPage().clickCreateUser();
     new CreateUserPage().createNewUser1();
   }
@@ -24,6 +25,7 @@ public class CreateUserTest {
   @Step("Create new user. I work with a limited project within an existing company")
   @Test
   public void createUserLimitedProject() {
+//    Page.getDriver().navigate().back();
     new MainPage().clickCreateUser();
     new CreateUserPage().createNewUser2();
   }
@@ -31,6 +33,7 @@ public class CreateUserTest {
   @Step("Create new user. I have not registered a company yet")
   @Test
   public void createUserNotRegisteredCompany() {
+//    Page.getDriver().navigate().back();
     new MainPage().clickCreateUser();
     new CreateUserPage().createNewUser3();
   }

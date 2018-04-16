@@ -37,7 +37,7 @@ public class AuthorizationTest {
   @Step("Authorization is not an existing user")
   @Test
   public void authorizationNotAnExistingUser() {
-    //Page.getDriver().navigate().back();
+    Page.getDriver().navigate().back();
     new MainPage().clickOnLoginButton();
     User user2 = new User(ConfigProperties.getTestProperty("notAnExistingLogin"), ConfigProperties.getTestProperty("inCorrectPassword"));
     new LoginPage()
@@ -48,6 +48,7 @@ public class AuthorizationTest {
   @Step("Invalid email")
   @Test
   public void invalidEmail() {
+    Page.getDriver().navigate().back();
     new MainPage().clickOnLoginButton();
     User user3 = new User(ConfigProperties.getTestProperty("invalidEmail"), ConfigProperties.getTestProperty("invalidPassword"));
     new LoginPage()
@@ -58,6 +59,7 @@ public class AuthorizationTest {
   @Step("Missing email and password")
   @Test
   public void missingEmailAndPasssword() {
+    Page.getDriver().navigate().back();
     new MainPage().clickOnLoginButton();
     new LoginPage().missingEmailAndPassword();
   }

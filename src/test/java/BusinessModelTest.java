@@ -33,15 +33,43 @@ public class BusinessModelTest {
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()
-//				.createBIStickiesBM()
-//				.createAllStickiesBM()
-//				.editNameStickiesBM()
-//				.deactivateStickiesBM()
-//				.activateStickiesBM()
-//				.addMoreInformationStickiesBM()
-//				.addAttachesBM()
-//				.deleteAttachesBM()
-//				.deleteAddInformationsBM();
-				.gragAndDropBM();
+				.createBIStickiesBM()
+				.createAllStickiesBM()
+
+
+				.editNameStickiesBM()
+				.deactivateStickiesBM()
+				.activateStickiesBM()
+//				.addMoreInformationStickiesBM(); - не работает
+				.addAttachesBM()
+				.deleteAttachesBM()
+				.deleteAddInformationsBM();
+//				.gragAndDropBM();
+	}
+
+	@Step ("Go to Gaps from BM")
+	@Test
+	public void goGaps() {
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.clickOnBusinessModel();
+		new BusinessModelPage()
+				.goGaps();
+	}
+
+	@Step ("Go to Tests from BM")
+	@Test
+	public void goTests() {
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.clickOnBusinessModel();
+		new BusinessModelPage()
+				.goTests();
 	}
 }

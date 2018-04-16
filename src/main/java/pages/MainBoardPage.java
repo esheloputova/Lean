@@ -27,6 +27,11 @@ public class MainBoardPage extends Page {
 	@FindBy(xpath = "//div[contains(@ng-class,'$ctrl.helpingModels') and contains(text(), 'Business models')]")
 	WebElement businessModel;
 
+	@FindBy(xpath = "//div[contains(@ng-class,'helpingGaps')]")
+	WebElement gaps;
+
+
+
 
 
 	@FindBy(xpath = "//img[@alt = 'Logo']")
@@ -61,6 +66,12 @@ public class MainBoardPage extends Page {
 		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(businessModel));
 		businessModel.click();
 		return new BusinessModelPage();
+	}
+
+	public GapsPage clickOnGap() {
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(gaps));
+		gaps.click();
+		return new GapsPage();
 	}
 
 

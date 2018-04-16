@@ -19,19 +19,17 @@ public class BusinessModelPage extends Page {
 	@FindBy (xpath = "(//div[@class = 'box-header'])[1]//button[@type = 'button']")
 	WebElement businessModelWhatMakesYouUniqueButtonPlus;
 
-	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[1]/sticky[@ng-model='item']")
+	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[1]")
 	WebElement businessModelWhoCanHelpYou;
 
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[1]//sticky[@ng-model='item'][1]")
 	WebElement firstStickyBusinessModelWhoCanHelpYou;
 
-
-	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[2]//sticky[@ng-model='item'][1]")
-	WebElement firstStickyBusinessModelHowWillYouMarketAndSell;
-
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[2]")
 	WebElement businessModelHowWillYouMarketAndSell;
 
+	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[2]//sticky[@ng-model='item'][1]")
+	WebElement firstStickyBusinessModelHowWillYouMarketAndSell;
 
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__models-cell ng-scope'])[3]")
 	WebElement businessModelHowWillYouCharge;
@@ -106,11 +104,28 @@ public class BusinessModelPage extends Page {
 
 	@FindBy (xpath = "//div[@title = 'Remove attach']")
 	WebElement removeAttach;
+	//	End. Actions in the form
+
+	@FindBy (xpath = "//a[text() = 'gaps']")
+	WebElement goGaps;
+
+	@FindBy (xpath = "//a[text() = 'test']")
+	WebElement goTests;
+
 
 	public List<WebElement> listFirstStickies;
 
+	public GapsPage goGaps() {
+		goGaps.click();
 
-//	End. Actions in the form
+		return new GapsPage();
+	}
+
+	public TestsPage goTests() {
+		goTests.click();
+
+		return new TestsPage();
+	}
 
 
 	public BusinessModelPage createAllStickiesBM() {
@@ -269,6 +284,7 @@ public class BusinessModelPage extends Page {
 		}
 		return this;
 	}
+
 	public BusinessModelPage gragAndDropBM() {
 
 		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(firstStickyBusinessModelWhoCanHelpYou));
