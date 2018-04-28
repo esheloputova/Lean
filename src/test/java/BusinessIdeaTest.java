@@ -19,8 +19,8 @@ public class BusinessIdeaTest {
 	@BeforeMethod
 	public void setUp() {
 		logger.info("Test STARTED");
-		Page.getDriver();
-		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		Page.getRegularDriver();
+		Page.getRegularDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
 	}
 
@@ -43,6 +43,7 @@ public class BusinessIdeaTest {
 				.createBI()
 				.editBI()
 				.deleteBI();
+
 	}
 
 	@Ignore

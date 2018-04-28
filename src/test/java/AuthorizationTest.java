@@ -18,8 +18,8 @@ public class AuthorizationTest {
   @BeforeMethod
   public void setUp() {
     logger.info("Test STARTED");
-    Page.getDriver();
-    Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+    Page.getRegularDriver();
+    Page.getRegularDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
   }
 
@@ -37,7 +37,7 @@ public class AuthorizationTest {
   @Step("Authorization is not an existing user")
   @Test
   public void authorizationNotAnExistingUser() {
-    Page.getDriver().navigate().back();
+    Page.getRegularDriver().navigate().back();
     new MainPage().clickOnLoginButton();
     User user2 = new User(ConfigProperties.getTestProperty("notAnExistingLogin"), ConfigProperties.getTestProperty("inCorrectPassword"));
     new LoginPage()
@@ -48,7 +48,7 @@ public class AuthorizationTest {
   @Step("Invalid email")
   @Test
   public void invalidEmail() {
-    Page.getDriver().navigate().back();
+    Page.getRegularDriver().navigate().back();
     new MainPage().clickOnLoginButton();
     User user3 = new User(ConfigProperties.getTestProperty("invalidEmail"), ConfigProperties.getTestProperty("invalidPassword"));
     new LoginPage()
@@ -59,7 +59,7 @@ public class AuthorizationTest {
   @Step("Missing email and password")
   @Test
   public void missingEmailAndPasssword() {
-    Page.getDriver().navigate().back();
+    Page.getRegularDriver().navigate().back();
     new MainPage().clickOnLoginButton();
     new LoginPage().missingEmailAndPassword();
   }
@@ -68,7 +68,7 @@ public class AuthorizationTest {
   @AfterClass
   public void tearDown() {
     logger.info("Test   ENDED");
-    Page.getDriver().quit();
+    Page.getRegularDriver().quit();
   }
 
 }

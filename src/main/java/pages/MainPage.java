@@ -40,7 +40,7 @@ public class MainPage extends Page{
 
   public CreateUserPage clickCreateUser() {
     createUserButton.click();
-    new WebDriverWait(getDriver(),10).until(ExpectedConditions.visibilityOf(emailField));
+    new WebDriverWait(getRegularDriver(),10).until(ExpectedConditions.visibilityOf(emailField));
     return new CreateUserPage();
   }
 

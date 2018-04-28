@@ -1,9 +1,6 @@
 package pages;
 
-import junit.framework.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,7 +37,7 @@ public class MainBoardPage extends Page {
 
 
 	public MainBoardPage clickOnAvatarPhoto() {
-		new WebDriverWait(getDriver(), 3).until(ExpectedConditions.visibilityOf(avatarPhoto));
+		new WebDriverWait(getRegularDriver(), 3).until(ExpectedConditions.visibilityOf(avatarPhoto));
 		avatarPhoto.click();
 
 		return this;
@@ -57,19 +54,19 @@ public class MainBoardPage extends Page {
 	}
 
 	public BusinessIdeaPage clickOnBusinessIdea() {
-		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(businessIdea));
+		new WebDriverWait(getRegularDriver(), 10).until(ExpectedConditions.visibilityOf(businessIdea));
 		businessIdea.click();
 		return new BusinessIdeaPage();
 	}
 
 	public BusinessModelPage clickOnBusinessModel() {
-		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(businessModel));
+		new WebDriverWait(getRegularDriver(), 10).until(ExpectedConditions.visibilityOf(businessModel));
 		businessModel.click();
 		return new BusinessModelPage();
 	}
 
 	public GapsPage clickOnGap() {
-		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(gaps));
+		new WebDriverWait(getRegularDriver(), 20).until(ExpectedConditions.visibilityOf(gaps));
 		gaps.click();
 		return new GapsPage();
 	}

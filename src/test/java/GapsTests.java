@@ -1,7 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import pages.*;
@@ -19,8 +18,8 @@ public class GapsTests {
 	@BeforeMethod
 	public void setUp() {
 		logger.info("Test STARTED");
-		Page.getDriver();
-		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		Page.getRegularDriver();
+		Page.getRegularDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
 	}
 

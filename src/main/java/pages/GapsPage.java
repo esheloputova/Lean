@@ -91,9 +91,9 @@ public class GapsPage extends Page {
 	WebElement linkStart;
 
 	public GapsPage createStickies() {
-//		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(gapsAddStickies));
+//		new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(gapsAddStickies));
 		gapsAddStickies.click();
-		new Actions(driver).doubleClick(gapsAddStickies).build().perform();
+		new Actions(regularDriver).doubleClick(gapsAddStickies).build().perform();
 
 //		nameCompetitor.click();
 //		nameCompetitor.sendKeys("Test competitor");
