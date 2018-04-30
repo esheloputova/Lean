@@ -130,32 +130,32 @@ public class BusinessModelPage extends Page {
 	public BusinessModelPage createAllStickiesBM() {
 
 		businessModelWhoCanHelpYou.click();
-		new Actions(regularDriver).doubleClick(businessModelWhoCanHelpYou).build().perform();
+		new Actions(driver).doubleClick(businessModelWhoCanHelpYou).build().perform();
 		fieldOfInputBusinessModel.sendKeys("Who can help you?");
 		buttonSave.click();
 
 		businessModelHowWillYouMarketAndSell.click();
-		new Actions(regularDriver).doubleClick(businessModelHowWillYouMarketAndSell).build().perform();
+		new Actions(driver).doubleClick(businessModelHowWillYouMarketAndSell).build().perform();
 		fieldOfInputBusinessModel.sendKeys("How will you market and sell?");
 		buttonSave.click();
 
 		businessModelHowWillYouCharge.click();
-		new Actions(regularDriver).doubleClick(businessModelHowWillYouCharge).build().perform();
+		new Actions(driver).doubleClick(businessModelHowWillYouCharge).build().perform();
 		fieldOfInputBusinessModel.sendKeys("How will you charge?");
 		buttonSave.click();
 
 		businessModelWhatIsYourUniqueValueProposition.click();
-		new Actions(regularDriver).doubleClick(businessModelWhatIsYourUniqueValueProposition).build().perform();
+		new Actions(driver).doubleClick(businessModelWhatIsYourUniqueValueProposition).build().perform();
 		fieldOfInputBusinessModel.sendKeys("What is your unique value proposition?");
 		buttonSave.click();
 
 		businessModelWhatFeaturesWillYourProductHave.click();
-		new Actions(regularDriver).doubleClick(businessModelWhatFeaturesWillYourProductHave).build().perform();
+		new Actions(driver).doubleClick(businessModelWhatFeaturesWillYourProductHave).build().perform();
 		fieldOfInputBusinessModel.sendKeys("What features will your product have?");
 		buttonSave.click();
 
 		businessModelWhoWillBeYourFirstCustomers.click();
-		new Actions(regularDriver).doubleClick(businessModelWhoWillBeYourFirstCustomers).build().perform();
+		new Actions(driver).doubleClick(businessModelWhoWillBeYourFirstCustomers).build().perform();
 		fieldOfInputBusinessModel.sendKeys("Who will be your first customers?");
 		buttonSave.click();
 
@@ -164,17 +164,17 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage createBIStickiesBM() {
 		businessModelIdea1WhatMakesYouUnique.click();
-		new Actions(regularDriver).doubleClick(businessModelIdea1WhatMakesYouUnique).build().perform();
+		new Actions(driver).doubleClick(businessModelIdea1WhatMakesYouUnique).build().perform();
 		fieldOfInputBusinessModel.sendKeys("What makes you unique? Add in BI");
 		buttonSave.click();
 
 		businessModelIdea2WhatProblemWillYouSolve.click();
-		new Actions(regularDriver).doubleClick(businessModelIdea2WhatProblemWillYouSolve).build().perform();
+		new Actions(driver).doubleClick(businessModelIdea2WhatProblemWillYouSolve).build().perform();
 		fieldOfInputBusinessModel.sendKeys("What makes you unique? Add in BI");
 		buttonSave.click();
 
 		businessModelIdea3WhoWillHaveThisProblem.click();
-		new Actions(regularDriver).doubleClick(businessModelIdea3WhoWillHaveThisProblem).build().perform();
+		new Actions(driver).doubleClick(businessModelIdea3WhoWillHaveThisProblem).build().perform();
 		fieldOfInputBusinessModel.sendKeys("Who will have this problem? Add in BI");
 		buttonSave.click();
 
@@ -203,7 +203,7 @@ public class BusinessModelPage extends Page {
 		listFirstStickies.add(firstStickyBusinessModelWhatFeaturesWillYourProductHave);
 		listFirstStickies.add(firstStickyBusinessModelWhoWillBeYourFirstCustomers);
 		for (WebElement x : listFirstStickies) {
-			new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
 			fieldOfInputBM.click();
 			fieldOfInputBM.clear();
@@ -216,9 +216,9 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage deactivateStickiesBM() {
 		for (WebElement x : listFirstStickies) {
-			new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
-			new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(deactivateSticky));
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(deactivateSticky));
 			deactivateSticky.click();
 			buttonSave.click();
 		}
@@ -227,9 +227,9 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage activateStickiesBM() {
 		for (WebElement x : listFirstStickies) {
-			new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
-			new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(activateSticky));
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(activateSticky));
 			activateSticky.click();
 			buttonSave.click();
 		}
@@ -238,9 +238,9 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage addMoreInformationStickiesBM() {
 		for (WebElement x : listFirstStickies) {
-			new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
-			new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(moreInformationSticky));
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(moreInformationSticky));
 			moreInformationSticky.click();
 			descriptionSticky.click();
 			descriptionSticky.sendKeys("Created when I edit");
@@ -251,7 +251,7 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage addAttachesBM() {
 		for (WebElement x : listFirstStickies) {
-			new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
 			attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
 			buttonSave.click();
@@ -261,9 +261,9 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage deleteAttachesBM() {
 		for (WebElement x : listFirstStickies) {
-			new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
-			new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(removeAttach));
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(removeAttach));
 			removeAttach.click();
 			buttonSave.click();
 		}
@@ -272,12 +272,12 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage deleteAddInformationsBM() {
 		for (WebElement x : listFirstStickies) {
-			new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(x));
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
-			new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(descriptionSticky));
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(descriptionSticky));
 			descriptionSticky.click();
 			descriptionSticky.clear();
-			new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(lessInformationSticky));
+			new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(lessInformationSticky));
 			lessInformationSticky.click();
 			buttonSave.click();
 		}
@@ -286,12 +286,12 @@ public class BusinessModelPage extends Page {
 
 	public BusinessModelPage gragAndDropBM() {
 
-		new WebDriverWait(getRegularDriver(), 5).until(ExpectedConditions.visibilityOf(firstStickyBusinessModelWhoCanHelpYou));
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(firstStickyBusinessModelWhoCanHelpYou));
 
-		new Actions(getRegularDriver()).clickAndHold(firstStickyBusinessModelWhoCanHelpYou).moveToElement(firstStickyBusinessModelHowWillYouMarketAndSell).release().build().perform();
-// 		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf());
-//		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
-//		new Actions(getRegularDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
+		new Actions(getDriver()).clickAndHold(firstStickyBusinessModelWhoCanHelpYou).moveToElement(firstStickyBusinessModelHowWillYouMarketAndSell).release().build().perform();
+// 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf());
+//		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
+//		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
 		return this;
 	}
 

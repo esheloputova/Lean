@@ -154,7 +154,7 @@ public class BusinessIdeaPage extends Page {
 
 	public BusinessIdeaPage createAllStickiesBI() {
 		whatMakesYouUniqueColumn.click();
-		new Actions(regularDriver).doubleClick(whatMakesYouUniqueColumn).build().perform();
+		new Actions(driver).doubleClick(whatMakesYouUniqueColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
 		fieldOfInputBusinessIdea.sendKeys("What makes you unique?");
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
@@ -164,7 +164,7 @@ public class BusinessIdeaPage extends Page {
 		businessIdeaButtonSave.click();
 
 		whatProblemWillYouSolveColumn.click();
-		new Actions(regularDriver).doubleClick(whatProblemWillYouSolveColumn).build().perform();
+		new Actions(driver).doubleClick(whatProblemWillYouSolveColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
 		fieldOfInputBusinessIdea.sendKeys("What problem will you solve?");
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
@@ -174,7 +174,7 @@ public class BusinessIdeaPage extends Page {
 		businessIdeaButtonSave.click();
 
 		whoWillHaveThisProblemColumn.click();
-		new Actions(regularDriver).doubleClick(whoWillHaveThisProblemColumn).build().perform();
+		new Actions(driver).doubleClick(whoWillHaveThisProblemColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
 		fieldOfInputBusinessIdea.sendKeys("Who will have this problem?");
 		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
@@ -230,7 +230,7 @@ public class BusinessIdeaPage extends Page {
 
 
 	public BusinessIdeaPage createBI() {
-//		new WebDriverWait(getRegularDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick11));
+//		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick11));
 		chooseStick11.click();
 		chooseStick21.click();
 		chooseStick31.click();
@@ -245,17 +245,17 @@ public class BusinessIdeaPage extends Page {
 
 		//deactivate
 		firsrTab.click();
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(firstDeactivateActivate));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstDeactivateActivate));
 		firstDeactivateActivate.click();
 
 		//activate
 		firsrTab.click();
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(firstDeactivateActivate));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstDeactivateActivate));
 		firstDeactivateActivate.click();
 
 		//rename BI
 		firsrTab.click();
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(firstRename));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstRename));
 		firstRename.click();
 		inputNewName.clear();
 		inputNewName.sendKeys("Change name BI 22");
@@ -263,7 +263,7 @@ public class BusinessIdeaPage extends Page {
 
 		//editBI
 		firsrTab.click();
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(firstEdit));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstEdit));
 		firstEdit.click();
 		chooseStick12.click();
 		chooseStick22.click();
@@ -272,38 +272,38 @@ public class BusinessIdeaPage extends Page {
 
 		//change color
 		firsrTab.click();
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(changeColorSecond));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(changeColorSecond));
 		changeColorSecond.click();
 
 		return new BusinessIdeaPage();
 	}
 
 	public BusinessIdeaPage gragAndDrop() {
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
-		new Actions(getRegularDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
-//		getRegularDriver().navigate().refresh();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
+		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
+//		getDriver().navigate().refresh();
 
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick21));
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
-		new Actions(getRegularDriver()).dragAndDrop(chooseStick32, chooseStick21).perform();
-//		getRegularDriver().navigate().refresh();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick21));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
+		new Actions(getDriver()).dragAndDrop(chooseStick32, chooseStick21).perform();
+//		getDriver().navigate().refresh();
 
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
-		new Actions(getRegularDriver()).dragAndDrop(chooseStick22, chooseStick22).perform();
-//		getRegularDriver().navigate().refresh();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
+		new Actions(getDriver()).dragAndDrop(chooseStick22, chooseStick22).perform();
+//		getDriver().navigate().refresh();
 
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));
-		new Actions(getRegularDriver()).dragAndDrop(chooseStick12, chooseStick22).perform();
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));
+		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick22).perform();
 
 		return new BusinessIdeaPage();
 	}
 
 	public BusinessIdeaPage deleteBI() {
 		firsrTab.click();
-		new WebDriverWait(getRegularDriver(), 2).until(ExpectedConditions.visibilityOf(firstDelete));
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstDelete));
 		firstDelete.click();
 		return new BusinessIdeaPage();
 	}

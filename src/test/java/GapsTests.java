@@ -18,8 +18,8 @@ public class GapsTests {
 	@BeforeMethod
 	public void setUp() {
 		logger.info("Test STARTED");
-		Page.getRegularDriver();
-		Page.getRegularDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		Page.getDriver();
+		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
 	}
 

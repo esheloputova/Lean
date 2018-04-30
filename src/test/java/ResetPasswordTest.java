@@ -21,8 +21,8 @@ public class ResetPasswordTest {
   @BeforeMethod
   public void setUp() {
     logger.info("Test STARTED");
-    Page.getRegularDriver();
-    Page.getRegularDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+    Page.getDriver();
+    Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
   }
 
@@ -50,7 +50,7 @@ public class ResetPasswordTest {
   @AfterClass
   public void tearDown() {
     logger.info("Test   ENDED");
-    Page.getRegularDriver().quit();
+    Page.getDriver().quit();
   }
 }
 

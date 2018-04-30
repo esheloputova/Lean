@@ -92,7 +92,7 @@ public class CreateUserPage extends Page {
 
 	//I am developing an existing company
 	public CreateUserPage createNewUser1() {
-		new WebDriverWait(getRegularDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
+		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
 		emailField.click();
 		emailField.sendKeys("elena.sheloputova+" + Math.random() * 3 + "@nrg-soft.ru");
 		passwordField.click();
@@ -110,20 +110,20 @@ public class CreateUserPage extends Page {
 		acceptionField.click();
 		createUser.click();
 
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
 		developingCompany.click();
 		organisationNumber.click();
 		organisationNumber.sendKeys("It is number of organisation for test");
 		companyName.click();
 		companyName.sendKeys("Test nameeee");
 		countryOfRegistration.click();
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 
 		chooseValueOfcountry.getSize();
 		chooseValueOfcountry.click();
 		companyCurrency.click();
 		createStep2.click();
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
 		goStep3.click();
 
 		return new CreateUserPage();
@@ -131,7 +131,7 @@ public class CreateUserPage extends Page {
 
 
 	public CreateUserPage createNewUser2() {
-		new WebDriverWait(getRegularDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
+		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
 		emailField.click();
 		emailField.sendKeys("elena.sheloputova+" + Math.random() * 3 + "@nrg-soft.ru");
 		passwordField.click();
@@ -149,7 +149,7 @@ public class CreateUserPage extends Page {
 		acceptionField.click();
 		createUser.click();
 
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
 		limitedProject.click();
 		nameCase.click();
 		nameCase.sendKeys("Name of case test");
@@ -158,20 +158,20 @@ public class CreateUserPage extends Page {
 		companyName.click();
 		companyName.sendKeys("Test nameeee");
     countryOfRegistration.click();
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 
 		chooseValueOfcountry.getSize();
 		chooseValueOfcountry.click();
 		companyCurrency.click();
 		createStep2.click();
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
 		goStep3.click();
 
 		return new CreateUserPage();
 	}
 
 	public CreateUserPage createNewUser3() {
-		new WebDriverWait(getRegularDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
+		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
 		emailField.click();
 		emailField.sendKeys("elena.sheloputova+" + Math.random() * 3 + "@nrg-soft.ru");
 		passwordField.click();
@@ -189,18 +189,18 @@ public class CreateUserPage extends Page {
 		acceptionField.click();
 		createUser.click();
 
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
 		notRegisteredCompany.click();
 		nameCase.click();
 		nameCase.sendKeys("Name of case test");
 //    countryOfRegistration.click();
-//    new WebDriverWait(getRegularDriver(),4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
+//    new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 
 //    chooseValueOfcountry.getSize();
 //    chooseValueOfcountry.click();
 //    companyCurrency.click();
 		createStep2.click();
-		new WebDriverWait(getRegularDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
 		goStep3.click();
 
 		return new CreateUserPage();

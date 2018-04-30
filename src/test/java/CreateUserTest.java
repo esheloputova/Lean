@@ -11,13 +11,13 @@ public class CreateUserTest {
 
   @BeforeMethod
   public void setUp() {
-    Page.getRegularDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+    Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
   }
 
   @Step("Create new user. I am developing an existing company")
   @Test
   public void createUserWithDevelopingCompany() {
-//    Page.getRegularDriver().navigate().back();
+//    Page.getDriver().navigate().back();
     new MainPage().clickCreateUser();
     new CreateUserPage().createNewUser1();
   }
@@ -25,7 +25,7 @@ public class CreateUserTest {
   @Step("Create new user. I work with a limited project within an existing company")
   @Test
   public void createUserLimitedProject() {
-//    Page.getRegularDriver().navigate().back();
+//    Page.getDriver().navigate().back();
     new MainPage().clickCreateUser();
     new CreateUserPage().createNewUser2();
   }
@@ -33,7 +33,7 @@ public class CreateUserTest {
   @Step("Create new user. I have not registered a company yet")
   @Test
   public void createUserNotRegisteredCompany() {
-//    Page.getRegularDriver().navigate().back();
+//    Page.getDriver().navigate().back();
     new MainPage().clickCreateUser();
     new CreateUserPage().createNewUser3();
   }

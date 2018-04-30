@@ -1,7 +1,5 @@
 package pages;
 
-import models.User;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -67,17 +65,17 @@ public class All10 extends Page {
 
 		for (WebElement webelement : allTexts) {
 
-//			try {
-//				// some code that can throw both checked and runtime exception
-//				Thread.sleep(2000);
-////				new Actions(getRegularDriver()).sendKeys(text).perform();
-//			} catch (RuntimeException e) {
-//				throw e;
-//			} catch (Exception e) {
-//				throw new RuntimeException(e);
-//			}
+			try {
+				// some code that can throw both checked and runtime exception
+				Thread.sleep(2000);
+//				new Actions(getDriver()).sendKeys(text).perform();
+			} catch (RuntimeException e) {
+				throw e;
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 
-			new Actions(getRegularDriver()).sendKeys(webelement.getText() + " ").perform();
+			new Actions(getDriver()).sendKeys(webelement.getText() + " ").perform();
 //		}
 		}
 			return this;
