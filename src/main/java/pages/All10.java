@@ -1,6 +1,7 @@
 package pages;
 
 import models.User;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -13,34 +14,42 @@ import java.util.List;
  */
 public class All10 extends Page {
 
-	@FindBy (xpath = "(//a[text()='Войти'])[1]")
+	@FindBy(xpath = "(//a[text()='Войти'])[1]")
 	WebElement login;
 
-	@FindBy (xpath = "//input[@name='login']")
+	@FindBy(xpath = "(//label[@for='rb2'])")
+	WebElement eng;
+
+
+	@FindBy(xpath = "//input[@name='login']")
 	WebElement email;
 
-	@FindBy (xpath = "//input[@id='password']")
+	@FindBy(xpath = "//input[@id='password']")
 	WebElement password;
 
-	@FindBy (xpath = "//input[@title='Войти на сайт']")
+	@FindBy(xpath = "//input[@title='Войти на сайт']")
 	WebElement goToSite;
 
-	@FindBy (xpath = "//a//div[text()='Сертификация']")
+	@FindBy(xpath = "//a//div[text()='Сертификация']")
 	WebElement goTOsertification;
 
-	@FindBy (xpath = "//input[@class='submit']")
+	@FindBy(xpath = "//input[@class='submit']")
 	WebElement sertification;
 
-	@FindBy (xpath = "//button[@class='submitNew']")
+	@FindBy(xpath = "//button[@class='submitNew']")
 	WebElement startSertification;
 
-	@FindBys (@FindBy(xpath = "//div[@class='mainTxt']"))
-	List<WebElement> allText;
+	@FindBys(@FindBy(xpath = "//div[@class='mainTxt']/span"))
+	List<WebElement> allTexts;
 
-	@FindBy (xpath = "//div[@class='divTextarea']")
+	@FindBy(xpath = "//div[@class='mainTxt']")
+	WebElement allText;
+
+
+	@FindBy(xpath = "//div[@class='divTextarea']")
 	WebElement inputField;
 
-	@FindBy (xpath = "//textarea[@spellcheck='false']")
+	@FindBy(xpath = "//textarea[@spellcheck='false']")
 	WebElement textarea;
 
 
@@ -50,43 +59,47 @@ public class All10 extends Page {
 	}
 
 	public All10 goSertifications() {
+
 		goTOsertification.click();
+		eng.click();
 		sertification.click();
 		startSertification.click();
 
-		return this;
-	}
+		for (WebElement webelement : allTexts) {
 
+//			try {
+//				// some code that can throw both checked and runtime exception
+//				Thread.sleep(2000);
+////				new Actions(getRegularDriver()).sendKeys(text).perform();
+//			} catch (RuntimeException e) {
+//				throw e;
+//			} catch (Exception e) {
+//				throw new RuntimeException(e);
+//			}
 
-	public All10 passTest()  {
-		for (int j=0; j<allText.; j++) {
-			String text = allText.get(j).getText();
-			new Actions(getRegularDriver()).sendKeys(text).perform();
+			new Actions(getRegularDriver()).sendKeys(webelement.getText() + " ").perform();
+//		}
 		}
-		String text = allText.get(0).;
-//		String text = allText.get(0).getText();
-//		textarea.click();
+			return this;
 
-
-//		new Actions(getRegularDriver()).pause(100).sendKeys(text).pause(100).perform();
-
-		return this;
 	}
-
-
-	public All10 loginAs(User user) {
-		email.click();
-		email.sendKeys(user.getLogin());
-
-		password.click();
-		password.sendKeys(user.getPassword());
-
-		goToSite.submit();
-		return this;
-	}
-
-
-
-
-
 }
+
+
+//		public All10 loginAs (User user){
+//			email.click();
+//			email.sendKeys(user.getLogin());
+//
+//			password.click();
+//			password.sendKeys(user.getPassword());
+//
+//			goToSite.submit();
+//			return this;
+//		}
+
+
+
+
+
+
+

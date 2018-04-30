@@ -26,7 +26,7 @@ public abstract class Page {
 
 	public static WebDriver getRegularDriver() {
 		if (regularDriver == null) {
-			System.setProperty("webdriver.chrome.regularDriver", "src/main/resources/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
 
 			regularDriver = new HighlightingWrapper(new ChromeDriver());
 //			EventFiringWebDriver driver = new EventFiringWebDriver(regularDriver);
