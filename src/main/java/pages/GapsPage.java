@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author Elena_Sheloputova
@@ -91,19 +93,19 @@ public class GapsPage extends Page {
 	WebElement linkStart;
 
 	public GapsPage createStickies() {
-//		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(gapsAddStickies));
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(gapsAddStickies));
 		gapsAddStickies.click();
 		new Actions(driver).doubleClick(gapsAddStickies).build().perform();
 
-//		nameCompetitor.click();
-//		nameCompetitor.sendKeys("Test competitor");
-//		clickBusinessModelCard.click();
-//		chooseBusinessModelCard.click();
-//		weaknessButton.click();
-//		moreInformationSticky.click();
-//		descriptionSticky.click();
-//		descriptionSticky.sendKeys("Test description");
-//		gapsButtonSave.click();
+		nameCompetitor.click();
+		nameCompetitor.sendKeys("Test competitor");
+		clickBusinessModelCard.click();
+		chooseBusinessModelCard.click();
+		weaknessButton.click();
+		moreInformationSticky.click();
+		descriptionSticky.click();
+		descriptionSticky.sendKeys("Test description");
+		gapsButtonSave.click();
 		return this;
 	}
 

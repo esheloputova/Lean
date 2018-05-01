@@ -61,9 +61,6 @@ public class BusinessModelPage extends Page {
 	@FindBy (xpath = "//input[(@type='text') and (@name='title')]")
 	WebElement fieldOfInputBusinessModel;
 
-	@FindBy (xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
-	WebElement buttonSave;
-
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__idea-cell ng-scope'])[1]")
 	WebElement businessModelIdea1WhatMakesYouUnique;
 
@@ -74,6 +71,9 @@ public class BusinessModelPage extends Page {
 	WebElement businessModelIdea3WhoWillHaveThisProblem;
 
 	// Beginning. Actions in the form
+
+	@FindBy (xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+	WebElement buttonSave;
 	@FindBy (xpath = "//div[@class='button button-remove ng-scope']")
 	WebElement deleteSticky;
 
@@ -165,17 +165,17 @@ public class BusinessModelPage extends Page {
 	public BusinessModelPage createBIStickiesBM() {
 		businessModelIdea1WhatMakesYouUnique.click();
 		new Actions(driver).doubleClick(businessModelIdea1WhatMakesYouUnique).build().perform();
-		fieldOfInputBusinessModel.sendKeys("What makes you unique? Add in BI");
+		fieldOfInputBusinessModel.sendKeys("Add in BI. What makes you unique?");
 		buttonSave.click();
 
 		businessModelIdea2WhatProblemWillYouSolve.click();
 		new Actions(driver).doubleClick(businessModelIdea2WhatProblemWillYouSolve).build().perform();
-		fieldOfInputBusinessModel.sendKeys("What makes you unique? Add in BI");
+		fieldOfInputBusinessModel.sendKeys("Add in BI. What makes you unique?");
 		buttonSave.click();
 
 		businessModelIdea3WhoWillHaveThisProblem.click();
 		new Actions(driver).doubleClick(businessModelIdea3WhoWillHaveThisProblem).build().perform();
-		fieldOfInputBusinessModel.sendKeys("Who will have this problem? Add in BI");
+		fieldOfInputBusinessModel.sendKeys("Add in BI. Who will have this problem?");
 		buttonSave.click();
 
 		return this;
@@ -207,7 +207,7 @@ public class BusinessModelPage extends Page {
 			x.click();
 			fieldOfInputBM.click();
 			fieldOfInputBM.clear();
-			fieldOfInputBM.sendKeys("Edit");
+			fieldOfInputBM.sendKeys("Edit2");
 			buttonSave.click();
 
 		}
@@ -253,7 +253,7 @@ public class BusinessModelPage extends Page {
 		for (WebElement x : listFirstStickies) {
 			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
-			attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
+			attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 			buttonSave.click();
 		}
 		return this;

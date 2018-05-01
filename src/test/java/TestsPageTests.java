@@ -7,10 +7,7 @@ import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
-/**
- * @author Elena_Sheloputova
- */
-public class GapsTests {
+public class TestsPageTests {
 
     final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
@@ -23,18 +20,20 @@ public class GapsTests {
 
     }
 
-    @Title("Gaps")
-    @Step("Create/ Edit/ Edit Gaps")
+    @Step("Go to Business Model from Business ideas by link")
     @Test
-    public void createNewGaps() {
+    public void goTestsFromBIByLink() {
         new MainPage().clickOnLoginButton();
         User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
         new LoginPage()
                 .authorizationAnExistingUser(user1);
         new MainBoardPage()
-                .goGapsfromToolBar();
-        new GapsPage()
-                .createStickies();
-    }
+                .clickOnBusinessIdea();
+        new BusinessIdeaPage()
+                .goToFirstTab()
+                .goToTests();
+        new TestsPage()
+                .addBussinesIdea();
 
+    }
 }

@@ -117,6 +117,9 @@ public class BusinessIdeaPage extends Page {
 	WebElement closeForm;
 //	End. Actions in the form
 
+	@FindBy(xpath = "(//span[@ng-if='$index !== 0'])[1]")
+	WebElement clickFirsrTab;
+
 	@FindBy(xpath = "(//div[@class='select-btn'])[1]")
 	WebElement firsrTab;
 
@@ -131,8 +134,6 @@ public class BusinessIdeaPage extends Page {
 
 	@FindBy(xpath = "(//input[@ng-model = 'idea.title'])[1]")
 	WebElement goAllCards;
-
-
 
 	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[3]")
 	WebElement firstDelete;
@@ -157,17 +158,17 @@ public class BusinessIdeaPage extends Page {
 		new Actions(driver).doubleClick(whatMakesYouUniqueColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
 		fieldOfInputBusinessIdea.sendKeys("What makes you unique?");
-		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
+		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("Here you should add? ");
+		descriptionSticky.sendKeys("Here you should add? AT");
 		businessIdeaButtonSave.click();
 
 		whatProblemWillYouSolveColumn.click();
 		new Actions(driver).doubleClick(whatProblemWillYouSolveColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
-		fieldOfInputBusinessIdea.sendKeys("What problem will you solve?");
-		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
+		fieldOfInputBusinessIdea.sendKeys("What problem will you solve? AT" );
+		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
 		descriptionSticky.sendKeys("People are usually willing to pay good money ))) ");
@@ -176,8 +177,9 @@ public class BusinessIdeaPage extends Page {
 		whoWillHaveThisProblemColumn.click();
 		new Actions(driver).doubleClick(whoWillHaveThisProblemColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
-		fieldOfInputBusinessIdea.sendKeys("Who will have this problem?");
-		attachmentFile.sendKeys("C:\\Elena\\Java\\Tests_start\\leanbusinessplatformcom\\src\\main\\resources\\Attachment.zip");
+		fieldOfInputBusinessIdea.sendKeys("Who will have this problem?  AT");
+		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+
 		moreInformationSticky.click();
 		descriptionSticky.click();
 		descriptionSticky.sendKeys("No point in solving problems )))");
@@ -230,12 +232,14 @@ public class BusinessIdeaPage extends Page {
 
 
 	public BusinessIdeaPage createBI() {
-//		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick11));
+		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick11));
 		chooseStick11.click();
+		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick21));
 		chooseStick21.click();
+		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick31));
 		chooseStick31.click();
 		giveNameIdea.click();
-		giveNameIdea.sendKeys("New idea");
+		giveNameIdea.sendKeys("New idea 2");
 		addIdea.click();
 
 		return new BusinessIdeaPage();
@@ -321,6 +325,11 @@ public class BusinessIdeaPage extends Page {
 		return new TestsPage();
 	}
 
+	public BusinessIdeaPage goToFirstTab() {
+		clickFirsrTab.click();
+
+		return new BusinessIdeaPage();
+		}
 
 
 }

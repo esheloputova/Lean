@@ -64,7 +64,6 @@ public class AuthorizationTest {
     new LoginPage().missingEmailAndPassword();
   }
 
-
   @AfterClass
   public void tearDown() {
     logger.info("Test   ENDED");
