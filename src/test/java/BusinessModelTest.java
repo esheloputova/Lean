@@ -2,6 +2,7 @@ import configuration.ConfigProperties;
 import models.User;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import pages.*;
@@ -39,7 +40,7 @@ public class BusinessModelTest {
         }
 
     @Title("Business model")
-    @Step("Edit stickies business model")
+    @Step("Edit stickies business model from creating form")
     @Test
     public void editBusinessModelTest() {
         new MainPage().clickOnLoginButton();
@@ -57,6 +58,25 @@ public class BusinessModelTest {
                 .deleteAttachesBM()
                 .deleteAddInformationsBM()
 				.gragAndDropBM();
+    }
+
+    @Ignore
+//    не работает т к пытается изменить все стики нужно изменить на стики только BM
+    @Title("Business model")
+    @Step("Edit stickies business model from main form")
+    @Test
+    public void editBusinessModelFromManeForm() {
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .clickOnBusinessModel();
+        new BusinessModelPage()
+                .editDeactivateAllStickies()
+                .editActivateAllStickies()
+                .editAllStickies()
+                .editDeleteAllStickies();
     }
 
     @Step("Go to Gaps from BM")

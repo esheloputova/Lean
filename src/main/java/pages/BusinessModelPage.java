@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -70,6 +71,15 @@ public class BusinessModelPage extends Page {
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__idea-cell ng-scope'])[3]")
 	WebElement businessModelIdea3WhoWillHaveThisProblem;
 
+	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[1]")
+	WebElement firstPlusBI;
+
+	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
+	WebElement secondPlusBI;
+
+	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
+	WebElement thirdPlusBI;
+
 	// Beginning. Actions in the form
 
 	@FindBy (xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
@@ -111,6 +121,20 @@ public class BusinessModelPage extends Page {
 	@FindBy (xpath = "//a[text() = 'test']")
 	WebElement goTests;
 
+	@FindBys(@FindBy(xpath = "//span[@popover-placement='bottom'][1]"))
+	List<WebElement> chooseEditAllList;
+
+	@FindBy(xpath = "(//span[@class='title ng-binding'])[1]")
+	WebElement editDeactivate;
+
+	@FindBy(xpath = "(//span[@class='title ng-binding'])[1]")
+	WebElement editActivate;
+
+	@FindBy(xpath = "(//span[@class='title ng-binding'])[2]")
+	WebElement editEdit;
+
+	@FindBy(xpath = "(//span[@class='title ng-binding'])[3]")
+	WebElement editDelete;
 
 	public List<WebElement> listFirstStickies;
 
@@ -163,18 +187,24 @@ public class BusinessModelPage extends Page {
 	}
 
 	public BusinessModelPage createBIStickiesBM() {
-		businessModelIdea1WhatMakesYouUnique.click();
-		new Actions(driver).doubleClick(businessModelIdea1WhatMakesYouUnique).build().perform();
+//		businessModelIdea1WhatMakesYouUnique.click();
+//		new Actions(driver).doubleClick(businessModelIdea1WhatMakesYouUnique).build().perform();
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(firstPlusBI));
+		firstPlusBI.click();
 		fieldOfInputBusinessModel.sendKeys("Add in BI. What makes you unique?");
 		buttonSave.click();
 
-		businessModelIdea2WhatProblemWillYouSolve.click();
-		new Actions(driver).doubleClick(businessModelIdea2WhatProblemWillYouSolve).build().perform();
+//		businessModelIdea2WhatProblemWillYouSolve.click();
+//		new Actions(driver).doubleClick(businessModelIdea2WhatProblemWillYouSolve).build().perform();
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(secondPlusBI));
+		secondPlusBI.click();
 		fieldOfInputBusinessModel.sendKeys("Add in BI. What makes you unique?");
 		buttonSave.click();
 
-		businessModelIdea3WhoWillHaveThisProblem.click();
-		new Actions(driver).doubleClick(businessModelIdea3WhoWillHaveThisProblem).build().perform();
+//		businessModelIdea3WhoWillHaveThisProblem.click();
+//		new Actions(driver).doubleClick(businessModelIdea3WhoWillHaveThisProblem).build().perform();
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(thirdPlusBI));
+		thirdPlusBI.click();
 		fieldOfInputBusinessModel.sendKeys("Add in BI. Who will have this problem?");
 		buttonSave.click();
 
@@ -293,6 +323,53 @@ public class BusinessModelPage extends Page {
 //		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
 //		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
 		return this;
+	}
+
+	public BusinessModelPage editDeactivateAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+			webElement.click();
+			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDeactivate));
+			editDeactivate.click();
+
+		}
+		return new BusinessModelPage();
+
+	}
+
+	public BusinessModelPage editActivateAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+			webElement.click();
+			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editActivate));
+			editActivate.click();
+
+		}
+		return new BusinessModelPage();
+
+	}
+
+	public BusinessModelPage editAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+			webElement.click();
+			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editEdit));
+			editEdit.click();
+			fieldOfInputBM.clear();
+			fieldOfInputBM.sendKeys("Edit BM BM BM");
+			buttonSave.click();
+
+		}
+		return new BusinessModelPage();
+
+	}
+
+	public BusinessModelPage editDeleteAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+			webElement.click();
+			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDelete));
+			editDelete.click();
+
+		}
+		return new BusinessModelPage();
+
 	}
 
 }
