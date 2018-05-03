@@ -3,8 +3,11 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 /**
  * @author Elena_Sheloputova
@@ -18,8 +21,15 @@ public class GapsPage extends Page {
 	@FindBy (xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]")
 	WebElement gapsAddStickies;
 
+	@FindBy (xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]")
+	WebElement competitorAddStickies;
+
 
 	// Beginning. Actions in the form
+
+	@FindBy (xpath = "//input[@name='title']")
+	WebElement nameGaps;
+
 	@FindBy (xpath = "//div[@class='button button-remove ng-scope']")
 	WebElement deleteSticky;
 
@@ -74,31 +84,55 @@ public class GapsPage extends Page {
 	WebElement formGapsNameCompetitor;
 
 	@FindBy (xpath = "(//div[@ng-transclude='stickies'])[2]")
-	WebElement firstCompetitor;
+	WebElement competitorFirst;
 
 	@FindBy (xpath = "(//div[@class='select-btn'])[1]")
-	WebElement editFirstCompetitor;
+	WebElement competitorEditFirst;
 
 	@FindBy (xpath = "(//span[@class='title ng-binding'])[1]")
-	WebElement deactivateOrActivateFirstCompetitor;
+	WebElement competitorDeactivateOrActivate;
 
 	@FindBy (xpath = "(//span[@class='title ng-binding'])[2]")
-	WebElement renameFirstCompetitor;
+	WebElement competitorRenameFirst;
 
 	@FindBy (xpath = "(//span[@class='title ng-binding'])[3]")
-	WebElement deleteFirstCompetitor;
+	WebElement competitorDelete;
 
 
 	@FindBy (xpath = "//a[contains(@ng-click, 'startAddingGaps')]")
 	WebElement linkStart;
+
+	//    Start. Edit Stickies
+	@FindBys (@FindBy (xpath = "//span[@popover-placement='bottom'][1]"))
+	List<WebElement> chooseEditAllList;
+
+	@FindBys (@FindBy (xpath = "//span[@class='title ng-binding']"))
+	List<WebElement> editAllActions;
+
+	@FindBy (xpath = "(//div[@class='select-btn'])")
+	WebElement editCompetitor;
+
+	@FindBy (xpath = "(//span[@class='title ng-binding'])[4]")
+	WebElement editDeactivate;
+
+	@FindBy (xpath = "(//span[@class='title ng-binding'])[4]")
+	WebElement editActivate;
+
+	@FindBy (xpath = "(//span[@class='title ng-binding'])[5]")
+	WebElement editEdit;
+
+	@FindBy (xpath = "(//span[@class='title ng-binding'])[6]")
+	WebElement editDelete;
+//    End
+
 
 	public GapsPage createStickies() {
 		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(gapsAddStickies));
 		gapsAddStickies.click();
 		new Actions(driver).doubleClick(gapsAddStickies).build().perform();
 
-		nameCompetitor.click();
-		nameCompetitor.sendKeys("Test competitor");
+		nameGaps.click();
+		nameGaps.sendKeys("Test Gaps");
 		clickBusinessModelCard.click();
 		chooseBusinessModelCard.click();
 		weaknessButton.click();
@@ -108,5 +142,104 @@ public class GapsPage extends Page {
 		gapsButtonSave.click();
 		return this;
 	}
+
+	public GapsPage createCompetitor() {
+		linkAddCompetitor.click();
+		nameGaps.click();
+		nameGaps.sendKeys("Test Competitor");
+		gapsButtonSave.click();
+		return this;
+	}
+
+	public GapsPage createStickiesCompetitor() {
+
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(competitorAddStickies));
+		competitorAddStickies.click();
+		new Actions(driver).doubleClick(competitorAddStickies).build().perform();
+
+		nameGaps.click();
+		nameGaps.sendKeys("Test Competitor Sticky");
+		clickBusinessModelCard.click();
+		chooseBusinessModelCard.click();
+		strengthButton.click();
+		moreInformationSticky.click();
+		descriptionSticky.click();
+		descriptionSticky.sendKeys("Test description for competitor");
+		gapsButtonSave.click();
+		return this;
+	}
+
+	public GapsPage editDeactivateAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+			webElement.click();
+			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDeactivate));
+			editDeactivate.click();
+
+		}
+		return this;
+
+	}
+
+	public GapsPage editActivateAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+			webElement.click();
+			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editActivate));
+			editActivate.click();
+
+		}
+		return this;
+
+	}
+
+	public GapsPage editAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+//			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(webElement));
+			webElement.click();
+			new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(editEdit));
+			editEdit.click();
+			nameGaps.clear();
+			nameGaps.sendKeys("Edit Gaps");
+			gapsButtonSave.click();
+
+		}
+		return this;
+
+	}
+
+	public GapsPage editDeleteAllStickies() {
+		for (WebElement webElement : chooseEditAllList) {
+			webElement.click();
+			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDelete));
+			editDelete.click();
+
+		}
+		return this;
+
+	}
+
+	public GapsPage editCompetitorDeactivate() {
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(competitorEditFirst));
+		competitorEditFirst.click();
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(competitorDeactivateOrActivate));
+		competitorDeactivateOrActivate.click();
+		return this;
+	}
+
+	public GapsPage editCompetitorActivate() {
+		competitorEditFirst.click();
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(competitorDeactivateOrActivate));
+		competitorDeactivateOrActivate.click();
+
+		return this;
+	}
+
+	public GapsPage editCompetitorDelete() {
+		competitorEditFirst.click();
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(competitorDelete));
+		competitorDelete.click();
+
+		return this;
+	}
+
 
 }

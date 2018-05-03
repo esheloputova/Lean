@@ -77,7 +77,7 @@ public class BusinessModelPage extends Page {
 	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
 	WebElement secondPlusBI;
 
-	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
+	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[3]")
 	WebElement thirdPlusBI;
 
 	// Beginning. Actions in the form

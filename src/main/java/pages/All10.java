@@ -78,7 +78,7 @@ public class All10 extends Page {
 			new Actions(getDriver()).sendKeys(webelement.getText() + " ").perform();
 //		}
 		}
-			return this;
+		return this;
 
 	}
 }
@@ -94,9 +94,6 @@ public class All10 extends Page {
 //			goToSite.submit();
 //			return this;
 //		}
-
-
-
 
 
 
