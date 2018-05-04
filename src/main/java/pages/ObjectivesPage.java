@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,6 +41,15 @@ public class ObjectivesPage extends Page {
 
     @FindBys(@FindBy(xpath = "//tbody[@class='ng-scope']//td"))
     List<WebElement> listValue;
+
+    @FindBy(xpath = "//tbody[@class='ng-scope']//td[1]")
+    WebElement firstValue;
+
+    @FindBy(xpath = "//tbody[@class='ng-scope']//td[2]")
+    WebElement secondValue;
+
+    @FindBy(xpath = "//tbody[@class='ng-scope']//td[3]")
+    WebElement thirdValue;
 
 
     @FindBy(xpath = "//lb-select[contains(@list, '$ctrl.types')]//option[1]")
@@ -122,6 +132,9 @@ public class ObjectivesPage extends Page {
 
     public List<WebElement> plusFirstAndSecond;
 
+    public List<WebElement> values123;
+
+
     public ObjectivesPage createAllStickyByDefault() {
         for (WebElement webElement : listPluses) {
             webElement.click();
@@ -146,17 +159,22 @@ public class ObjectivesPage extends Page {
         plusFirstAndSecond.add(firstPlus);
         plusFirstAndSecond.add(secondPlus);
 
-        for(WebElement webElementPlus: plusFirstAndSecond) {
+        for (WebElement webElementPlus : plusFirstAndSecond) {
 //            for(WebElement webElementType: listObjectiveType) {
-                webElementPlus.click();
-                objectiveTypeNumeric.click();
-                fieldOfInput.click();
-                fieldOfInput.sendKeys("Numeric Test");
+            webElementPlus.click();
+            objectiveTypeNumeric.click();
+            fieldOfInput.click();
+            fieldOfInput.sendKeys("Numeric Test");
 
-                for (WebElement webElementValue: listValue) {
-                    new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOfAllElements(listValue));
-                    webElementValue.click();
-                    webElementValue.sendKeys("123");
+            values123 = new ArrayList<>();
+            values123.add(firstValue);
+            values123.add(secondValue);
+            values123.add(thirdValue);
+
+            for (WebElement webElementValue : listValue) {
+//                    new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOfAllElements(listValue));
+               new Actions(driver).moveToElement(webElementValue).click().sendKeys("123").build().perform();
+
             }
             attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
             buttonSave.click();
