@@ -2,54 +2,170 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Elena_Sheloputova
  */
 public class ObjectivesPage extends Page {
 
-	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[1]")
-	WebElement firstPlus;
 
-	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
-	WebElement secondPlus;
+    @FindBys(@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])"))
+    List<WebElement> listPluses;
 
-	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[3]")
-	WebElement thirdPlus;
+    @FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[1]")
+    WebElement firstPlus;
 
-	// Beginning. Actions in the form
+    @FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
+    WebElement secondPlus;
 
-	@FindBy (xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
-	WebElement buttonSave;
+    @FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[3]")
+    WebElement thirdPlus;
 
-	@FindBy (xpath = "//div[@class='button button-remove ng-scope']")
-	WebElement deleteSticky;
+    // Beginning. Actions in the form
 
-	@FindBy (xpath = "//div[@class='button button-deactivate ng-scope']")
-	WebElement deactivateSticky;
+    @FindBy(xpath = "//input[@type='number']")
+    WebElement cost;
 
-	@FindBy (xpath = "//div[@class='button button-activate ng-scope']")
-	WebElement activateSticky;
+    @FindBy(xpath = "//lb-select[contains(@list, '$ctrl.types')]")
+    WebElement objectiveType;
 
-	@FindBy (xpath = "//span[contains(@class,'button-more') and (text()='more')]")
-	WebElement moreInformationSticky;
+    @FindBys(@FindBy(xpath = "//lb-select[contains(@list, '$ctrl.types')]//option"))
+    List<WebElement> listObjectiveType;
 
-	@FindBy (xpath = "//textarea[contains(@ng-model,'description')]")
-	WebElement descriptionSticky;
+    @FindBys(@FindBy(xpath = "//tbody[@class='ng-scope']//td"))
+    List<WebElement> listValue;
 
-	@FindBy (xpath = "//span[contains(@class,'button-more') and (text()='less')]")
-	WebElement lessInformationSticky;
 
-	@FindBy (xpath = "//input[@type ='file']")
-	WebElement attachmentFile;
+    @FindBy(xpath = "//lb-select[contains(@list, '$ctrl.types')]//option[1]")
+    WebElement objectiveTypeNumeric;
 
-	@FindBy (xpath = "//div[contains(@class, 'dialog-close')]")
-	WebElement closeForm;
+    @FindBy(xpath = "//lb-select[contains(@list, '$ctrl.types')]//option[2]")
+    WebElement objectiveTypeMilestone;
 
-	@FindBy (xpath = "//input[(@type='text') and (@name='title')]")
-	WebElement fieldOfInput;
+    @FindBy(xpath = "//lb-select[contains(@list, '$ctrl.nextMonths')]")
+    WebElement nextMonthObjective;
 
-	@FindBy (xpath = "//div[@title = 'Remove attach']")
-	WebElement removeAttach;
-	//	End. Actions in the form
+    @FindBy(xpath = "//lb-select[contains(@list, '$ctrl.nextMonths')]//option[3]")
+    WebElement chooseThirdMonthObjective;
+
+    @FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+    WebElement buttonSave;
+
+    @FindBy(xpath = "//div[@class='button button-remove ng-scope']")
+    WebElement deleteSticky;
+
+    @FindBy(xpath = "//div[@class='button button-deactivate ng-scope']")
+    WebElement deactivateSticky;
+
+    @FindBy(xpath = "//div[@class='button button-activate ng-scope']")
+    WebElement activateSticky;
+
+    @FindBy(xpath = "//span[contains(@class,'button-more') and (text()='more')]")
+    WebElement moreInformationSticky;
+
+    @FindBy(xpath = "//textarea[contains(@ng-model,'description')]")
+    WebElement descriptionSticky;
+
+    @FindBy(xpath = "//span[contains(@class,'button-more') and (text()='less')]")
+    WebElement lessInformationSticky;
+
+    @FindBy(xpath = "//input[@type ='file']")
+    WebElement attachmentFile;
+
+    @FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
+    WebElement closeForm;
+
+    @FindBy(xpath = "//input[(@type='text') and (@name='title')]")
+    WebElement fieldOfInput;
+
+    @FindBy(xpath = "//div[@title = 'Remove attach']")
+    WebElement removeAttach;
+
+    @FindBy(xpath = "//span[contains(@class, 'add-sub-obj-btn')]")
+    WebElement addSubObjective;
+
+    @FindBy(xpath = "//input[@ng-model='subItem.title']")
+    WebElement nameSubObjective;
+
+    @FindBy(xpath = "//lb-select[contains(@list, '_nextMonths')]")
+    WebElement nextMonthsSubObjective;
+
+    @FindBy(xpath = "//lb-select[contains(@list, '_nextMonths')]//option[2]")
+    WebElement chooseNextMonthSubObjective;
+
+    @FindBy(xpath = "//button[@class='button button-remove']")
+    WebElement removeSubObjective;
+
+    @FindBy(xpath = "(//div[@class='button button-deactivate ng-scope'])[2]")
+    WebElement deactivateSubObjective;
+
+    @FindBy(xpath = "//div[@class='button button-activate ng-scope']")
+    WebElement activateSubObjective;
+
+    @FindBy(xpath = "//span[contains(@class,'more-btn') and (text()='more')]")
+    WebElement moreSubObjective;
+
+    @FindBy(xpath = "(//textarea[contains(@ng-model,'description')])[2]")
+    WebElement descriptionSubObjective;
+
+
+    //	End. Actions in the form
+
+//	@FindBy (xpath = "//div[@title = 'Remove attach']")
+//	WebElement removeAttach;
+
+    public List<WebElement> plusFirstAndSecond;
+
+    public ObjectivesPage createAllStickyByDefault() {
+        for (WebElement webElement : listPluses) {
+            webElement.click();
+
+            fieldOfInput.click();
+            fieldOfInput.sendKeys("Create stickies in Objective by default");
+            moreInformationSticky.click();
+            descriptionSticky.click();
+            descriptionSticky.sendKeys("It's description for this stickies");
+//            nextMonthObjective.click();
+//            chooseThirdMonthObjective.click();
+            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+            buttonSave.click();
+        }
+
+        return this;
+    }
+
+    public ObjectivesPage createStickyEveryTypeFirst() {
+        plusFirstAndSecond = new ArrayList<WebElement>();
+
+        plusFirstAndSecond.add(firstPlus);
+        plusFirstAndSecond.add(secondPlus);
+
+        for(WebElement webElementPlus: plusFirstAndSecond) {
+//            for(WebElement webElementType: listObjectiveType) {
+                webElementPlus.click();
+                objectiveTypeNumeric.click();
+                fieldOfInput.click();
+                fieldOfInput.sendKeys("Numeric Test");
+
+                for (WebElement webElementValue: listValue) {
+                    new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOfAllElements(listValue));
+                    webElementValue.click();
+                    webElementValue.sendKeys("123");
+            }
+            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+            buttonSave.click();
+        }
+
+        return this;
+
+
+    }
+
+
 }

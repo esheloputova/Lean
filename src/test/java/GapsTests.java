@@ -53,20 +53,60 @@ public class GapsTests {
 	}
 
 	@Title ("Gaps")
-	@Step ("Edit stickies in Gaps")
+	@Step ("Edit stickies in Gaps. Deactivate")
 	@Test
-	public void editStickiesGaps() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goGapsfromToolBar();
-		new GapsPage()
-//				.editDeactivateAllStickies()
-//				.editActivateAllStickies()
-//				.editAllStickies()
-				.editDeleteAllStickies();
+	public void editDeactivateStickiesGaps() {
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .goGapsfromToolBar();
+        new GapsPage()
+                .editDeactivateAllStikies();
+    }
+
+    @Title ("Gaps")
+    @Step ("Edit stickies in Gaps. Activate")
+    @Test
+    public void editActivateStickiesGaps() {
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .goGapsfromToolBar();
+        new GapsPage()
+                .editActivateAllStikies();
+
+    }
+
+    @Title ("Gaps")
+    @Step ("Edit stickies in Gaps. Edit")
+    @Test
+    public void editEditStickiesGaps() {
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .goGapsfromToolBar();
+        new GapsPage()
+                .editFirstStickyGap();
+    }
+
+    @Title ("Gaps")
+    @Step ("Edit stickies in Gaps. Delete")
+    @Test
+    public void editDeleteteStickiesGaps() {
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .goGapsfromToolBar();
+        new GapsPage()
+				.editDeleteFirstStickyGap();
 	}
 
 	@Title ("Gaps")
