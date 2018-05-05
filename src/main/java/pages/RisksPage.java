@@ -163,10 +163,14 @@ public class RisksPage extends Page {
     public RisksPage editDeactivateAllStickies() {
         for (WebElement webElement : chooseEditAllList) {
             webElement.click();
-            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDeactivate));
-            editDeactivate.click();
 
+            try {
+                new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDeactivate));
+                editDeactivate.click();
+            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            }
         }
+
         return new RisksPage();
 
     }
@@ -174,9 +178,13 @@ public class RisksPage extends Page {
     public RisksPage editActivateAllStickies() {
         for (WebElement webElement : chooseEditAllList) {
             webElement.click();
-            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editActivate));
-            editActivate.click();
 
+            try {
+                new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editActivate));
+                editActivate.click();
+            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+
+            }
         }
         return new RisksPage();
 
@@ -185,12 +193,16 @@ public class RisksPage extends Page {
     public RisksPage editAllStickies() {
         for (WebElement webElement : chooseEditAllList) {
             webElement.click();
-            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editEdit));
-            editEdit.click();
-            nameRisk.clear();
-            nameRisk.sendKeys("Edit Risk");
-            buttonSaveRisk.click();
 
+            try {
+                new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editEdit));
+                editEdit.click();
+                nameRisk.clear();
+                nameRisk.sendKeys("Edit Risk");
+                buttonSaveRisk.click();
+            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+
+            }
         }
         return new RisksPage();
 
@@ -199,8 +211,13 @@ public class RisksPage extends Page {
     public RisksPage editDeleteAllStickies() {
         for (WebElement webElement : chooseEditAllList) {
             webElement.click();
-            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDelete));
-            editDelete.click();
+
+            try {
+                new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDelete));
+                editDelete.click();
+            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+
+            }
 
         }
         return new RisksPage();

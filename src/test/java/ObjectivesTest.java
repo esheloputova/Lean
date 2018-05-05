@@ -23,7 +23,7 @@ public class ObjectivesTest {
     @Title("Gaps")
     @Step("Create stickies Gaps")
     @Test
-    public void createNewGaps() {
+    public void createNewObjectives() {
         new MainPage().clickOnLoginButton();
         User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
         new LoginPage()
@@ -31,8 +31,15 @@ public class ObjectivesTest {
         new MainBoardPage()
                 .goObjectivesfromToolBar();
         new ObjectivesPage()
-//                .createAllStickyByDefault();
-                .createStickyEveryTypeFirst();
+//                .createAllStickyByDefault()
+//                .createStickyNumetic()
+//                .createStickyMilestone()
+//                .createStickyMoneySalesRevenue()
+//                .createStickyMoneyNewEquity()
+//                .createStickyMoneyNewGrants()
+//                .createStickyMoneyNewCreditNewLoan()
+//                .createStickyMoneyNewCreditNewOverfraft();
+                .editActivateAllStickies();
     }
 
 }
