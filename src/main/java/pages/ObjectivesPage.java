@@ -152,6 +152,16 @@ public class ObjectivesPage extends Page {
     @FindBy(xpath = "//div[@class='button button-activate ng-scope']")
     WebElement activateSubObjective;
 
+    @FindBy(xpath = "(//tbody[@class='ng-scope']//td)[8]")
+    WebElement current1MonthSubObjective;
+
+    @FindBy(xpath = "(//tbody[@class='ng-scope']//td)[9]")
+    WebElement current2MonthSubObjective;
+
+    @FindBy(xpath = "(//tbody[@class='ng-scope']//td)[10]")
+    WebElement next1MonthSubObjective;
+
+
     @FindBy(xpath = "//span[contains(@class,'more-btn') and (text()='more')]")
     WebElement moreSubObjective;
 
@@ -184,7 +194,26 @@ public class ObjectivesPage extends Page {
     @FindBy(xpath = "(//span[@class='title ng-binding'])[3]")
     WebElement editDelete;
 
+    @FindBy(xpath = "//objectives-board[@stickies='$ctrl.stickies']/board-box[1]//sticky")
+    WebElement boardStickies1;
 
+    @FindBy(xpath = "(//objectives-board[@stickies='$ctrl.stickies']/board-box[1]//sticky//span)[1]")
+    WebElement editBoard1FirstSticky;
+
+    @FindBy(xpath = "(//objectives-board[@stickies='$ctrl.stickies']/board-box[1]//sticky)[1]")
+    WebElement board1FirstSticky;
+
+    @FindBy(xpath = "(//objectives-board[@stickies='$ctrl.stickies']/board-box[2]//sticky//span)[1]")
+    WebElement editBoard2FirstSticky;
+
+    @FindBy(xpath = "(//objectives-board[@stickies='$ctrl.stickies']/board-box[2]//sticky)[1]")
+    WebElement board2FirstSticky;
+
+    @FindBy(xpath = "(//objectives-board[@stickies='$ctrl.stickies']/board-box[3]//sticky//span)[1]")
+    WebElement editBoard3FirstSticky;
+
+    @FindBy(xpath = "(//objectives-board[@stickies='$ctrl.stickies']/board-box[3]//sticky)[1]")
+    WebElement board3FirstSticky;
 //    End
 
 
@@ -196,7 +225,9 @@ public class ObjectivesPage extends Page {
 
     public List<WebElement> plusFirstAndSecond;
 
-    public List<WebElement> values123;
+    public List<WebElement> editFirstStickies;
+
+    public List<WebElement> chooseFirstStickies;
 
 
     public ObjectivesPage createAllStickyByDefault() {
@@ -360,77 +391,71 @@ public class ObjectivesPage extends Page {
 
     }
 
-    public ObjectivesPage editDeactivateAllStickies() {
-        for (WebElement webElement : chooseEditAllList) {
+    public ObjectivesPage editDeactivateFirstStickyEveryBoard() {
 
+        creatingList();
+
+        for (WebElement webElement : editFirstStickies) {
             webElement.click();
 
-            try {
-                new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDeactivate));
-                editDeactivate.click();
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-
-            }
+            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDeactivate));
+            editDeactivate.click();
         }
+
         return this;
 
     }
 
-    public Boolean waiting() {
-        boolean breakIt = true;
-        while (true) {
-            breakIt = true;
-            try {
-                // write your code here
-            } catch (Exception e) {
-                if (e.getMessage().contains("element is not attached")) {
-                    breakIt = false;
-                }
-            }
-            if (breakIt) {
-                break;
-            }
+    public ObjectivesPage editActivateFirstStickyEveryBoard() {
 
-        }
-        return true;
-    }
+        creatingList();
 
-
-    public ObjectivesPage editActivateAllStickies() {
-            for (WebElement webElement : chooseEditAllList) {
-                webElement.click();
-
-                try {
-                    new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editActivate));
-                    editActivate.click();
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                }
-            }
-        return this;
-
-    }
-
-    public ObjectivesPage editAllStickies() {
-        for (WebElement webElement : chooseEditAllList) {
+        for (WebElement webElement : editFirstStickies) {
             webElement.click();
 
-            try {
-                new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editEdit));
-                editEdit.click();
-                fieldOfInput.click();
-                fieldOfInput.clear();
-                fieldOfInput.sendKeys("Edit Objectives");
-                buttonSave.click();
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editActivate));
+            editActivate.click();
+        }
 
-            }
+        return this;
+
+    }
+
+    public ArrayList<WebElement> creatingList() {
+        editFirstStickies = new ArrayList<WebElement>();
+        editFirstStickies.add(editBoard1FirstSticky);
+        editFirstStickies.add(editBoard2FirstSticky);
+        editFirstStickies.add(editBoard3FirstSticky);
+
+        return new ArrayList<>();
+    }
+
+    public ObjectivesPage editEditFirstStickyEveryBoard() {
+//        editFirstStickies = new ArrayList<>();
+//        editFirstStickies.add(editBoard1FirstSticky);
+//        editFirstStickies.add(editBoard2FirstSticky);
+//        editFirstStickies.add(editBoard3FirstSticky);
+
+        creatingList();
+        for (WebElement webElement : editFirstStickies) {
+            webElement.click();
+
+            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editEdit));
+            editEdit.click();
+            fieldOfInput.click();
+            fieldOfInput.clear();
+            fieldOfInput.sendKeys("Edit Objectives");
+            buttonSave.click();
         }
         return this;
 
     }
 
-    public ObjectivesPage editDeleteAllStickies() {
-        for (WebElement webElement : chooseEditAllList) {
+    public ObjectivesPage editDeleteFirstStickyEveryBoard() {
+
+        creatingList();
+
+        for (WebElement webElement : editFirstStickies) {
             webElement.click();
             new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editDelete));
             editDelete.click();
@@ -441,14 +466,45 @@ public class ObjectivesPage extends Page {
 
     }
 
-//    public RisksPage dragANDdrap() {
-//        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(hightFirst));
-//
-//        new Actions(getDriver()).clickAndHold(hightFirst).moveToElement(hightLast).release().build().perform();
-//
-//        return new RisksPage();
-//
-//    }
+    public ObjectivesPage addSubObjectives() {
+
+        chooseFirstStickies = new ArrayList<>();
+        chooseFirstStickies.add(board1FirstSticky);
+        chooseFirstStickies.add(board2FirstSticky);
+        chooseFirstStickies.add(board3FirstSticky);
+
+        for (WebElement webElement : chooseFirstStickies) {
+            webElement.click();
+
+            new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(addSubObjective));
+            addSubObjective.click();
+            nameSubObjective.click();
+            nameSubObjective.sendKeys("Test sub-objective");
+            moreSubObjective.click();
+            descriptionSubObjective.sendKeys("Addition information");
+//            chooseNextMonthSubObjective.click();
+
+            new Actions(driver).moveToElement(current1MonthSubObjective).click().sendKeys("155").build().perform();
+            new Actions(driver).moveToElement(current2MonthSubObjective).click().sendKeys("256").build().perform();
+            new Actions(driver).moveToElement(next1MonthSubObjective).click().sendKeys("301").build().perform();
+
+            buttonSave.click();
+
+        }
+
+
+        return this;
+
+    }
+
+    public ObjectivesPage dragANDdrap() {
+        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(board1FirstSticky));
+
+        new Actions(getDriver()).clickAndHold(board1FirstSticky).moveToElement(board2FirstSticky).release().build().perform();
+
+        return this;
+
+    }
 
 
 }

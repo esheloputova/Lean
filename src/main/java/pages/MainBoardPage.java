@@ -180,5 +180,10 @@ public class MainBoardPage extends Page {
         return new MainPage();
     }
 
+public SharingPage goSharefromToolBar() {
+        shareToolBar.click();
+        return new SharingPage();
+    }
+
 
 }
