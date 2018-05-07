@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
@@ -25,7 +26,7 @@ public class GapsTests {
 
 	@Title ("Gaps")
 	@Step ("Create stickies Gaps")
-	@Test
+	@Test(priority = -3)
 	public void createNewGaps() {
 		new MainPage().clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -39,12 +40,12 @@ public class GapsTests {
 
 	@Title ("Gaps")
 	@Step ("Create Competitor and Sticky for Competitor in Gaps")
-	@Test
+	@Test(priority = -2)
 	public void createCompetitorGaps() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goGapsfromToolBar();
 		new GapsPage()
@@ -54,12 +55,12 @@ public class GapsTests {
 
 	@Title ("Gaps")
 	@Step ("Edit stickies in Gaps. Deactivate")
-	@Test
+	@Test(priority = -1)
 	public void editDeactivateStickiesGaps() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goGapsfromToolBar();
         new GapsPage()
@@ -68,12 +69,12 @@ public class GapsTests {
 
     @Title ("Gaps")
     @Step ("Edit stickies in Gaps. Activate")
-    @Test
+    @Test(priority = 1)
     public void editActivateStickiesGaps() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goGapsfromToolBar();
         new GapsPage()
@@ -83,12 +84,12 @@ public class GapsTests {
 
     @Title ("Gaps")
     @Step ("Edit stickies in Gaps. Edit")
-    @Test
+    @Test(priority = 2)
     public void editEditStickiesGaps() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goGapsfromToolBar();
         new GapsPage()
@@ -97,12 +98,12 @@ public class GapsTests {
 
     @Title ("Gaps")
     @Step ("Edit stickies in Gaps. Delete")
-    @Test
+    @Test(priority = 3)
     public void editDeleteteStickiesGaps() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goGapsfromToolBar();
         new GapsPage()
@@ -111,17 +112,23 @@ public class GapsTests {
 
 	@Title ("Gaps")
 	@Step ("Edit stickies in Competitor")
-	@Test
+	@Test(priority = 4)
 	public void deleteCompetitorGaps() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goGapsfromToolBar();
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
+//		new MainBoardPage()
+//				.goGapsfromToolBar();
 		new GapsPage()
 //				.editCompetitorDeactivate()
 //				.editCompetitorActivate()
 				.editCompetitorDelete();
+	}
+
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+		Page.getDriver().quit();
 	}
 }

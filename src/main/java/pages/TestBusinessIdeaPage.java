@@ -11,7 +11,7 @@ public class TestBusinessIdeaPage extends Page {
     @FindBy(xpath = "//div[@class='md-datepicker-expand-triangle ng-scope']")
     WebElement clickDate;
 
-    @FindBy(xpath = "(//span[@class='md-calendar-date-selection-indicator'])[5]")
+    @FindBy(xpath = "(//span[@class='md-calendar-date-selection-indicator'])[28]")
     WebElement chooseDate;
 
     @FindBy(xpath = "(//select[@ng-model='$ctrl.currentOption'])[2]")

@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
@@ -21,7 +22,7 @@ public class RisksTest {
 
     @Title("Risks")
     @Step("Create stickies in Risks")
-    @Test
+    @Test(priority = -3)
     public void createStickiesRisks() {
         new MainPage().clickOnLoginButton();
         User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -35,12 +36,12 @@ public class RisksTest {
 
     @Title("Risks")
     @Step("Edit stickies in Risks")
-    @Test
+    @Test(priority = -2)
     public void editStickiesRisks() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
@@ -52,12 +53,12 @@ public class RisksTest {
 
     @Title("Risks")
     @Step("Drag-and-drop stickies in Risks")
-    @Test
+    @Test(priority = -1)
     public void dragANDdropStickiesRisks() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
@@ -66,12 +67,12 @@ public class RisksTest {
 
     @Title("Risks")
     @Step("Add risk from helper")
-    @Test
+    @Test(priority = 1)
     public void addRiskFromHelper() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
@@ -80,15 +81,21 @@ public class RisksTest {
 
     @Title("Risks")
     @Step("Go to Task from Risks")
-    @Test
+    @Test(priority = 2)
     public void goTaskStickiesRisks() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
                 .goTasks();
+    }
+
+    @AfterClass
+    public void tearDown() {
+        logger.info("Test   ENDED");
+        Page.getDriver().quit();
     }
 }

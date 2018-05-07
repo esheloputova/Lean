@@ -151,7 +151,7 @@ public class BusinessModelPage extends Page {
 	}
 
 
-	public BusinessModelPage createAllStickiesBM() {
+	public BusinessModelPage createAllStickiesBM1() {
 
 		businessModelWhoCanHelpYou.click();
 		new Actions(driver).doubleClick(businessModelWhoCanHelpYou).build().perform();
@@ -186,7 +186,13 @@ public class BusinessModelPage extends Page {
 		return this;
 	}
 
-	public BusinessModelPage createBIStickiesBM() {
+	public BusinessModelPage createAllStickiesBM2() {
+		createAllStickiesBM1();
+
+		return new BusinessModelPage();
+	}
+
+	public BusinessModelPage createBIStickiesBM1() {
 //		businessModelIdea1WhatMakesYouUnique.click();
 //		new Actions(driver).doubleClick(businessModelIdea1WhatMakesYouUnique).build().perform();
 		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(firstPlusBI));
@@ -210,7 +216,6 @@ public class BusinessModelPage extends Page {
 
 		return this;
 	}
-
 	//Add attach + description + deactive + active
 
 	public List<WebElement> createList() {

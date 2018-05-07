@@ -50,7 +50,7 @@ public class ResetPasswordTest {
   @AfterClass
   public void tearDown() {
     logger.info("Test   ENDED");
-    Page.getDriver().quit();
+    Page.getDriver().close();
   }
 }
 
