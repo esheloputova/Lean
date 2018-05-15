@@ -18,7 +18,7 @@ public class AuthorizationTest {
   @BeforeMethod
   public void setUp() {
     logger.info("Test STARTED");
-    Page.getDriver();
+//    Page.getDriver();
     Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
   }
@@ -67,7 +67,7 @@ public class AuthorizationTest {
   @AfterClass
   public void tearDown() {
     logger.info("Test   ENDED");
-    Page.getDriver().quit();
+    Page.getDriver().close();
   }
 
 }

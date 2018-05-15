@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
@@ -12,30 +13,37 @@ import ru.yandex.qatools.allure.annotations.Title;
  */
 public class CreateNewCaseTest {
 
-  final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-  @Title("Creating new case")
-  @BeforeMethod
-  public void setUp() {
-    logger.info("Test STARTED");
-    Page.getDriver();
-    Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+	@Title ("Creating new case")
+	@BeforeMethod
+	public void setUp() {
+		logger.info("Test STARTED");
+		Page.getDriver();
+		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
-  }
+	}
 
-  @Title("Possitive scenario")
-  @Step("Creating new case")
-  @Test
-  public void createNewCase() {
-    new MainPage().clickOnLoginButton();
-    User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-    new LoginPage()
-            .authorizationAnExistingUser(user1);
-    new MainBoardPage()
-            .clickOnCasesText()
-            .clickNewCaseButton();
-    new CreateNewCaseForm()
-            .creatingNewCase();
-  }
+	@Title ("Possitive scenario")
+	@Step ("Creating new case")
+	@Test
+	public void createNewCase() {
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.clickOnCasesText()
+				.clickNewCaseButton();
+		new CreateNewCaseForm()
+				.creatingNewCase()
+				.createNewUser1();
 
+	}
+
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+		Page.getDriver().quit();
+	}
 }

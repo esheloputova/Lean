@@ -1,9 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -27,7 +24,7 @@ public class BusinessIdeaTest {
 
     @Title("Business idea")
     @Step("Create stickies in BI")
-    @Test
+    @Test(priority = -13 )
     public void createStickiesBusinessIdeaTest() {
         new MainPage().clickOnLoginButton();
         User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -42,12 +39,12 @@ public class BusinessIdeaTest {
 
     @Title("Business idea")
     @Step("Create New Business idea")
-    @Test
+    @Test(priority = -12)
     public void createNewBusinessIdeaTest() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .clickOnBusinessIdea();
         new BusinessIdeaPage()
@@ -56,12 +53,12 @@ public class BusinessIdeaTest {
 
     @Title("Business idea")
     @Step("Edit Business ideas")
-    @Test
+    @Test (priority = -10)
     public void editBusinessIdeaTest() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .clickOnBusinessIdea();
         new BusinessIdeaPage()
@@ -71,12 +68,12 @@ public class BusinessIdeaTest {
 
 
     @Step("Delete stickies of Business ideas")
-    @Test
+    @Test (priority = -5)
     public void deleteStickiesBusinessIdeaTest() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .clickOnBusinessIdea();
         new BusinessIdeaPage()
@@ -86,38 +83,40 @@ public class BusinessIdeaTest {
     }
 
     @Step("Drag-and-drop stickies of Business ideas")
-    @Test
+    @Test (priority = -6)
     public void dragAndDropStickiesBusinessIdeaTest() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .clickOnBusinessIdea();
         new BusinessIdeaPage()
                 .gragAndDrop();
     }
 
+    @Ignore
     @Step("Go to Business Model from Business ideas by link")
-    @Test
+    @Test (priority = 2)
     public void goBMFromBIByLink() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .clickOnBusinessIdea();
         new BusinessIdeaPage()
                 .goToBM();
     }
 
+    @Ignore
     @Step("Go to Tests from Business ideas by link")
-    @Test
+    @Test(priority = 3)
     public void goTestsFromBIByLink() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .clickOnBusinessIdea();
         new BusinessIdeaPage()
@@ -125,7 +124,7 @@ public class BusinessIdeaTest {
                 .goToTests();
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         logger.info("Test   ENDED");
         Page.getDriver().quit();

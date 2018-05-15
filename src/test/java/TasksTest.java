@@ -8,7 +8,7 @@ import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
-public class ObjectivesTest {
+public class TasksTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
@@ -21,90 +21,83 @@ public class ObjectivesTest {
 
 	}
 
-	@Title ("Objectives")
-	@Step ("Create stickies Objectives")
-	@Test(priority = -3)
-	public void createNewObjectives() {
+	@Title("Objectives")
+	@Step ("Create task all of Cost group")
+	@Test(priority = 1)
+	public void createTask() {
 		new MainPage().clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
 				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.createStickyNumetic()
-				.createStickyMilestone()
-				.createStickyMoneySalesRevenue()
-				.createStickyMoneyNewEquity()
-				.createStickyMoneyNewGrants()
-				.createStickyMoneyNewCreditNewLoan()
-				.createStickyMoneyNewCreditNewOverfraft()
+				.goTasksfromToolBar();
+		new TasksPage()
+				.createStickiesToDo()
+				.createStickiesDoingCurrentMonth()
+				.createStickiesDoingNextMonth()
+				.createStickiesMonthlyCostDefault()
+				.createStickiesMonthlyCostVariable();
 
-				.addSubObjectives();
 	}
 
-	@Title ("Objectives")
-	@Step ("Edit. Deactivate stickies Objectives")
-	@Test(priority = 1)
+
+	@Title ("Tasks")
+	@Step ("Edit. Deactivate stickies Tasks")
+	@Test(priority = 2)
 	public void editDeactivateStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
+				.goTasksfromToolBar();
+		new TasksPage()
 				.editDeactivateFirstStickyEveryBoard();
 
 	}
 
-	@Title ("Objectives")
-	@Step ("Edit. Activate stickies Objectives")
-	@Test(priority = 2)
-	public void editStickiesObjectives() {
+	@Step ("Edit. Activate stickies Tasks")
+	@Test(priority = 3)
+	public void editActivateStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
+				.goTasksfromToolBar();
+		new TasksPage()
 				.editActivateFirstStickyEveryBoard();
 
 	}
 
-	@Title ("Objectives")
-	@Step ("Edit. Edit, rename stickies Objectives")
-	@Test(priority = 3)
-	public void editRenameStickiesObjectives() {
+	@Step ("Edit. Edit stickies Tasks")
+	@Test(priority = 4)
+	public void editEditStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
+				.goTasksfromToolBar();
+		new TasksPage()
 				.editEditFirstStickyEveryBoard();
-
 	}
 
-	@Title ("Objectives")
-	@Step ("Edit. Delete stickies Objectives")
-	@Test(priority = 4)
+	@Step ("Edit. Delete stickies Tasks")
+	@Test(priority = 5)
 	public void editDeleteStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
+				.goTasksfromToolBar();
+		new TasksPage()
 				.editDeleteFirstStickyEveryBoard();
-
 	}
 
-	@Title ("Objectives")
-	@Step ("Drag-and-drop stickies Objectives")
+	@Title ("Tasks")
+	@Step ("Drag-and-drop stickies to DONE-CURRENT MONTH")
 	@Test(priority = 6)
 	public void dragAndDropStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
@@ -112,9 +105,10 @@ public class ObjectivesTest {
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.dragANDdrap();
+				.goTasksfromToolBar();
+		new TasksPage()
+				.dragANDdrapFromToDOToDoing()
+				.dragANDdrapFromMonthlyToDone();
 	}
 
 	@AfterClass
@@ -122,4 +116,5 @@ public class ObjectivesTest {
 		logger.info("Test   ENDED");
 		Page.getDriver().quit();
 	}
+
 }

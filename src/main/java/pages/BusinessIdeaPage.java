@@ -158,7 +158,7 @@ public class BusinessIdeaPage extends Page {
 		new Actions(driver).doubleClick(whatMakesYouUniqueColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
 		fieldOfInputBusinessIdea.sendKeys("What makes you unique?");
-		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
 		descriptionSticky.sendKeys("Here you should add? AT");
@@ -168,7 +168,7 @@ public class BusinessIdeaPage extends Page {
 		new Actions(driver).doubleClick(whatProblemWillYouSolveColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
 		fieldOfInputBusinessIdea.sendKeys("What problem will you solve? AT" );
-		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
 		descriptionSticky.sendKeys("People are usually willing to pay good money ))) ");
@@ -178,7 +178,7 @@ public class BusinessIdeaPage extends Page {
 		new Actions(driver).doubleClick(whoWillHaveThisProblemColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
 		fieldOfInputBusinessIdea.sendKeys("Who will have this problem?  AT");
-		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 
 		moreInformationSticky.click();
 		descriptionSticky.click();

@@ -34,7 +34,7 @@ public class TestPageBusinessIdeaTest {
                 .addBussinesIdea();
         new TestBusinessIdeaPage()
                 .addName()
-                .addDate()
+//                .addDate()
                 .addTargetAudience()
                 .addComments()
                 .addGeneralComments()

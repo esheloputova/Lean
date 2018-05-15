@@ -241,7 +241,7 @@ public class ObjectivesPage extends Page {
             descriptionSticky.sendKeys("It's description for this stickies");
 //            nextMonthObjective.click();
 //            chooseThirdMonthObjective.click();
-            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
             buttonSave.click();
         }
 
@@ -267,7 +267,7 @@ public class ObjectivesPage extends Page {
                 new Actions(driver).moveToElement(webElementValue).click().sendKeys("123").build().perform();
 
             }
-            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
             buttonSave.click();
         }
 
@@ -292,7 +292,7 @@ public class ObjectivesPage extends Page {
             nextMonthObjective.click();
             chooseThirdMonthObjective.click();
 
-            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
             buttonSave.click();
         }
         return this;
@@ -310,7 +310,7 @@ public class ObjectivesPage extends Page {
             new Actions(driver).moveToElement(webElementValue).click().sendKeys("123").build().perform();
         }
 
-        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
         buttonSave.click();
         return this;
 
@@ -326,7 +326,7 @@ public class ObjectivesPage extends Page {
             new Actions(driver).moveToElement(webElementValue).click().sendKeys("52").build().perform();
         }
 
-        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
         buttonSave.click();
         return this;
 
@@ -342,7 +342,7 @@ public class ObjectivesPage extends Page {
             new Actions(driver).moveToElement(webElementValue).click().sendKeys("45").build().perform();
         }
 
-        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
         buttonSave.click();
         return this;
 
@@ -362,7 +362,7 @@ public class ObjectivesPage extends Page {
         numberOfMonths.sendKeys("6");
         interestRateInPercent.click();
         interestRateInPercent.sendKeys("12.9");
-        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
         buttonSave.click();
 
         return this;
@@ -384,7 +384,7 @@ public class ObjectivesPage extends Page {
 //        availableAmount.click();
 //        availableAmount.sendKeys("552018");
 
-        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//        attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
         buttonSave.click();
 
         return this;

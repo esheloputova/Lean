@@ -29,7 +29,7 @@ public class CreateUserPage extends Page {
 	@FindBy (xpath = "(//div[@class = 'mat-select-value'])[1]")
 	private WebElement countryOfOriginField;
 
-	@FindBy (xpath = "//span[text() = 'Norway']")
+	@FindBy (xpath = "//div[@id='cdk-overlay-0']//mat-option[1]")
 	private WebElement chooseValueOfcountryOfOriginField;
 
 	@FindBy (xpath = "//span[text() = 'RUB']")
@@ -103,10 +103,10 @@ public class CreateUserPage extends Page {
 		firstNameField.sendKeys("Testov1");
 		lastNameField.click();
 		lastNameField.sendKeys("Test1");
-		countryOfOriginField.click();
-		chooseValueOfcountryOfOriginField.click();
-		userLanguageField.click();
-		chooseValueOfLanguageField.click();
+//		countryOfOriginField.click();
+//		chooseValueOfcountryOfOriginField.click();
+//		userLanguageField.click();
+//		chooseValueOfLanguageField.click();
 		acceptionField.click();
 		createUser.click();
 
@@ -116,15 +116,14 @@ public class CreateUserPage extends Page {
 		organisationNumber.sendKeys("It is number of organisation for test");
 		companyName.click();
 		companyName.sendKeys("Test nameeee");
-		countryOfRegistration.click();
-		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
+//		countryOfRegistration.click();
+//		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 
-		chooseValueOfcountry.getSize();
-		chooseValueOfcountry.click();
-		companyCurrency.click();
+//		chooseValueOfcountry.click();
+//		companyCurrency.click();
 		createStep2.click();
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
-		goStep3.click();
+		goStep3.submit();
 
 		return new CreateUserPage();
 	}
@@ -142,10 +141,10 @@ public class CreateUserPage extends Page {
 		firstNameField.sendKeys("Testov1");
 		lastNameField.click();
 		lastNameField.sendKeys("Test1");
-		countryOfOriginField.click();
-		chooseValueOfcountryOfOriginField.click();
-		userLanguageField.click();
-		chooseValueOfLanguageField.click();
+//		countryOfOriginField.click();
+//		chooseValueOfcountryOfOriginField.click();
+//		userLanguageField.click();
+//		chooseValueOfLanguageField.click();
 		acceptionField.click();
 		createUser.click();
 
@@ -157,15 +156,15 @@ public class CreateUserPage extends Page {
 		organisationNumber.sendKeys("It is number of organisation for test");
 		companyName.click();
 		companyName.sendKeys("Test nameeee");
-    countryOfRegistration.click();
+//    countryOfRegistration.click();
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 
-		chooseValueOfcountry.getSize();
-		chooseValueOfcountry.click();
-		companyCurrency.click();
+//		chooseValueOfcountry.getSize();
+//		chooseValueOfcountry.click();
+//		companyCurrency.click();
 		createStep2.click();
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
-		goStep3.click();
+		goStep3.submit();
 
 		return new CreateUserPage();
 	}
@@ -182,10 +181,10 @@ public class CreateUserPage extends Page {
 		firstNameField.sendKeys("Testov1");
 		lastNameField.click();
 		lastNameField.sendKeys("Test1");
-		countryOfOriginField.click();
-		chooseValueOfcountryOfOriginField.click();
-		userLanguageField.click();
-		chooseValueOfLanguageField.click();
+//		countryOfOriginField.click();
+//		chooseValueOfcountryOfOriginField.click();
+//		userLanguageField.click();
+//		chooseValueOfLanguageField.click();
 		acceptionField.click();
 		createUser.click();
 
@@ -201,7 +200,7 @@ public class CreateUserPage extends Page {
 //    companyCurrency.click();
 		createStep2.click();
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(goStep3));
-		goStep3.click();
+		goStep3.submit();
 
 		return new CreateUserPage();
 	}

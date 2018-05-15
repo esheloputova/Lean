@@ -12,7 +12,7 @@ public class MainBoardPage extends Page {
     @FindBy(xpath = "//div[@class='avatar-icon layout-row']")
     WebElement avatarPhoto;
 
-    @FindBy(xpath = "//i[contains(@class, 'cases']")
+    @FindBy(xpath = "//i[contains(@class, 'cases')]")
     WebElement casesToolBar;
 
     @FindBy(xpath = "//i[contains(@class, 'boards')]")
