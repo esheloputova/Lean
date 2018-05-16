@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -12,75 +13,89 @@ import java.util.List;
  */
 public class All10 extends Page {
 
-	@FindBy(xpath = "(//a[text()='Войти'])[1]")
-	WebElement login;
+    @FindBy(xpath = "(//a[text()='Войти'])[1]")
+    WebElement login;
 
-	@FindBy(xpath = "(//label[@for='rb2'])")
-	WebElement eng;
-
-
-	@FindBy(xpath = "//input[@name='login']")
-	WebElement email;
-
-	@FindBy(xpath = "//input[@id='password']")
-	WebElement password;
-
-	@FindBy(xpath = "//input[@title='Войти на сайт']")
-	WebElement goToSite;
-
-	@FindBy(xpath = "//a//div[text()='Сертификация']")
-	WebElement goTOsertification;
-
-	@FindBy(xpath = "//input[@class='submit']")
-	WebElement sertification;
-
-	@FindBy(xpath = "//button[@class='submitNew']")
-	WebElement startSertification;
-
-	@FindBys(@FindBy(xpath = "//div[@class='mainTxt']/span"))
-	List<WebElement> allTexts;
-
-	@FindBy(xpath = "//div[@class='mainTxt']")
-	WebElement allText;
+    @FindBy(xpath = "(//label[@for='rb2'])")
+    WebElement eng;
 
 
-	@FindBy(xpath = "//div[@class='divTextarea']")
-	WebElement inputField;
+    @FindBy(xpath = "//input[@name='login']")
+    WebElement email;
 
-	@FindBy(xpath = "//textarea[@spellcheck='false']")
-	WebElement textarea;
+    @FindBy(xpath = "//input[@id='password']")
+    WebElement password;
+
+    @FindBy(xpath = "//input[@title='Войти на сайт']")
+    WebElement goToSite;
+
+    @FindBy(xpath = "//a//div[text()='Сертификация']")
+    WebElement goTOsertification;
+
+    @FindBy(xpath = "//input[@class='submit']")
+    WebElement sertification;
+
+    @FindBy(xpath = "//button[@class='submitNew']")
+    WebElement startSertification;
+
+    @FindBys(@FindBy(xpath = "//div[@class='mainTxt']/span"))
+    List<WebElement> allTexts;
+
+    @FindBy(xpath = "//div[@class='mainTxt']")
+    WebElement allText;
 
 
-	public All10 goTologin() {
-		login.click();
-		return this;
-	}
+    @FindBy(xpath = "//div[@class='divTextarea']")
+    WebElement inputField;
 
-	public All10 goSertifications() {
+    @FindBy(xpath = "//textarea[@spellcheck='false']")
+    WebElement textarea;
 
-		goTOsertification.click();
+
+    public All10 goTologin() {
+        login.click();
+        return this;
+    }
+
+    public All10 goSertifications() {
+        email.click();
+        email.sendKeys("esheloputova@jtconsulting.ru");
+        password.click();
+        password.sendKeys("4776547");
+        goToSite.click();
+
+        goTOsertification.click();
 		eng.click();
-		sertification.click();
-		startSertification.click();
+        sertification.click();
+        startSertification.click();
+        new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
+        new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
+		new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
+		new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
 
-		for (WebElement webelement : allTexts) {
 
-			try {
-				// some code that can throw both checked and runtime exception
-				Thread.sleep(2000);
+        for (WebElement webelement : allTexts) {
+
+            try {
+                // some code that can throw both checked and runtime exception
+                Thread.sleep(1300);
 //				new Actions(getDriver()).sendKeys(text).perform();
-			} catch (RuntimeException e) {
-				throw e;
-			} catch (Exception e) {
-				throw new RuntimeException(e);
-			}
+            } catch (RuntimeException e) {
+                throw e;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+//
 
-			new Actions(getDriver()).sendKeys(webelement.getText() + " ").perform();
+//			new Actions(getDriver()).
+
+            new Actions(getDriver()).sendKeys(webelement.getText() + " ").perform();
+
 //		}
-		}
-		return this;
+        }
+        return this;
 
-	}
+    }
 }
 
 
