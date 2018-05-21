@@ -69,7 +69,7 @@ public class RisksTest {
     @Step("Add risk from helper")
     @Test(priority = 1)
     public void addRiskFromHelper() {
-//        new MainPage().clickOnLoginButton();
+        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);

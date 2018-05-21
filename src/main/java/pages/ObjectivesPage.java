@@ -70,9 +70,6 @@ public class ObjectivesPage extends Page {
     @FindBy(xpath = "//input[contains(@ng-model, 'overdraftLimit')]")
     WebElement overdraftLimit;
 
-//    @FindBy(xpath = "//input[contains(@ng-model, 'interestRate')]")
-//    WebElement overdraftRate;
-
     @FindBy(xpath = "//input[contains(@ng-model, 'remainingMonths')]")
     WebElement numberOfMonths;
 
@@ -175,7 +172,6 @@ public class ObjectivesPage extends Page {
     WebElement deleteStickyCancel;
 
     //    Start. Edit Stickies
-
     @FindBys(@FindBy(xpath = "//span[@popover-placement='bottom'][1]"))
     List<WebElement> chooseEditAllList;
 
@@ -214,13 +210,9 @@ public class ObjectivesPage extends Page {
 
     @FindBy(xpath = "(//objectives-board[@stickies='$ctrl.stickies']/board-box[3]//sticky)[1]")
     WebElement board3FirstSticky;
-//    End
-
+    //    End
 
     //	End. Actions in the form
-
-//	@FindBy (xpath = "//div[@title = 'Remove attach']")
-//	WebElement removeAttach;
 
 
     public List<WebElement> plusFirstAndSecond;
@@ -431,11 +423,6 @@ public class ObjectivesPage extends Page {
     }
 
     public ObjectivesPage editEditFirstStickyEveryBoard() {
-//        editFirstStickies = new ArrayList<>();
-//        editFirstStickies.add(editBoard1FirstSticky);
-//        editFirstStickies.add(editBoard2FirstSticky);
-//        editFirstStickies.add(editBoard3FirstSticky);
-
         creatingList();
         for (WebElement webElement : editFirstStickies) {
             webElement.click();
@@ -466,12 +453,19 @@ public class ObjectivesPage extends Page {
 
     }
 
-    public ObjectivesPage addSubObjectives() {
-
+    public ArrayList<WebElement> createListChooseFirstStickies() {
         chooseFirstStickies = new ArrayList<>();
         chooseFirstStickies.add(board1FirstSticky);
         chooseFirstStickies.add(board2FirstSticky);
         chooseFirstStickies.add(board3FirstSticky);
+
+        return new ArrayList<>();
+
+    }
+
+    public ObjectivesPage addSubObjectives() {
+
+        createListChooseFirstStickies();
 
         for (WebElement webElement : chooseFirstStickies) {
             webElement.click();
@@ -484,17 +478,14 @@ public class ObjectivesPage extends Page {
             descriptionSubObjective.sendKeys("Addition information");
 //            chooseNextMonthSubObjective.click();
 
-            new Actions(driver).moveToElement(current1MonthSubObjective).click().sendKeys("155").build().perform();
-            new Actions(driver).moveToElement(current2MonthSubObjective).click().sendKeys("256").build().perform();
-            new Actions(driver).moveToElement(next1MonthSubObjective).click().sendKeys("301").build().perform();
+//            new Actions(driver).moveToElement(current1MonthSubObjective).click().sendKeys("155").build().perform();
+//            new Actions(driver).moveToElement(current2MonthSubObjective).click().sendKeys("256").build().perform();
+//            new Actions(driver).moveToElement(next1MonthSubObjective).click().sendKeys("301").build().perform();
 
             buttonSave.click();
-
         }
 
-
         return this;
-
     }
 
     public ObjectivesPage dragANDdrap() {

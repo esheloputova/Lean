@@ -32,13 +32,13 @@ public class ObjectivesTest {
 		new MainBoardPage()
 				.goObjectivesfromToolBar();
 		new ObjectivesPage()
-				.createStickyNumetic()
-				.createStickyMilestone()
-				.createStickyMoneySalesRevenue()
-				.createStickyMoneyNewEquity()
-				.createStickyMoneyNewGrants()
-				.createStickyMoneyNewCreditNewLoan()
-				.createStickyMoneyNewCreditNewOverfraft()
+//				.createStickyNumetic()
+//				.createStickyMilestone()
+//				.createStickyMoneySalesRevenue()
+//				.createStickyMoneyNewEquity()
+//				.createStickyMoneyNewGrants()
+//				.createStickyMoneyNewCreditNewLoan()
+//				.createStickyMoneyNewCreditNewOverfraft()
 
 				.addSubObjectives();
 	}

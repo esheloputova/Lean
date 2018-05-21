@@ -2,6 +2,7 @@ import configuration.ConfigProperties;
 import models.User;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import pages.*;
@@ -56,6 +57,7 @@ public class TasksTest {
 
 	}
 
+	@Ignore
 	@Step ("Edit. Activate stickies Tasks")
 	@Test(priority = 3)
 	public void editActivateStickiesObjectives() {
