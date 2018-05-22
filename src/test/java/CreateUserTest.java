@@ -13,6 +13,7 @@ public class CreateUserTest {
 
 	@BeforeMethod
 	public void setUp() {
+		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 	}
 
