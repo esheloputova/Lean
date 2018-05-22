@@ -41,10 +41,10 @@ public class BusinessIdeaTest {
     @Step("Create New Business idea")
     @Test(priority = -12)
     public void createNewBusinessIdeaTest() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .clickOnBusinessIdea();
         new BusinessIdeaPage()
@@ -124,10 +124,10 @@ public class BusinessIdeaTest {
                 .goToTests();
     }
 
-    @AfterClass
-    public void tearDown() {
-        logger.info("Test   ENDED");
-        Page.getDriver().quit();
-    }
+//    @AfterClass
+//    public void tearDown() {
+//        logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+//    }
 
 }

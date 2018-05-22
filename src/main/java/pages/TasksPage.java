@@ -99,7 +99,6 @@ public class TasksPage extends Page {
 // End.
 
 	//    Start. Edit Stickies
-
 	@FindBys(@FindBy(xpath = "//span[@popover-placement='bottom'][1]"))
 	List<WebElement> chooseEditAllList;
 
@@ -117,7 +116,6 @@ public class TasksPage extends Page {
 
 	@FindBy(xpath = "(//span[@class='title ng-binding'])[3]")
 	WebElement editDelete;
-
 //	End
 
 	@FindBy (xpath = "(//lb-select[contains(@list, 'attachedList')]//option)[3]")

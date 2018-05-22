@@ -358,7 +358,7 @@ public class BusinessModelPage extends Page {
 			new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(editEdit));
 			editEdit.click();
 			fieldOfInputBM.clear();
-			fieldOfInputBM.sendKeys("Edit BM BM BM");
+			fieldOfInputBM.sendKeys("Edit BM");
 			buttonSave.click();
 
 		}

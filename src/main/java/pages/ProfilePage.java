@@ -10,39 +10,33 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProfilePage extends Page {
 
-	@FindBy(xpath = "//*[@id='profile-popover']//div[@class='profile-sh__footer']/div[text()='Sign Out']")
+	@FindBy (xpath = "//*[@id='profile-popover']//div[@class='profile-sh__footer']/div[text()='Sign Out']")
 	WebElement signOutButton;
 
-	@FindBy(xpath = "//div[contains(@ng-click, '$ctrl.onEdit()') and contains(text(), 'User profile')]")
+	@FindBy (xpath = "//div[contains(@ng-click, '$ctrl.onEdit()') and contains(text(), 'User profile')]")
 	WebElement userProfileButton;
 
-	@FindBy(xpath = "//div[contains(@ng-click, '$ctrl.onSettings()') and contains(text(), 'Case settings')]")
+	@FindBy (xpath = "//div[contains(@ng-click, '$ctrl.onSettings()') and contains(text(), 'Case settings')]")
 	WebElement caseSettingsButton;
 
-	@FindBy(xpath = "//select[@ng-model='$ctrl.currentOption']")
+	@FindBy (xpath = "//select[@ng-model='$ctrl.currentOption']")
 	WebElement languagesButton;
 
-	@FindBy(xpath = "//input[@placeholder='First Name']")
+	@FindBy (xpath = "//input[@placeholder='First Name']")
 	WebElement firstNameInput;
 
-	@FindBy(xpath = "//input[@placeholder='Last Name']")
+	@FindBy (xpath = "//input[@placeholder='Last Name']")
 	WebElement lastNameInput;
 
-	@FindBy(xpath = "//span[contains(@class,'mat-button-wrapper') and contains(text(),'Save')]")
+	@FindBy (xpath = "//span[contains(@class,'mat-button-wrapper') and contains(text(),'Save')]")
 	WebElement saveProfileButton;
 
-	@FindBy(xpath = "//div[contains(@aria-live, 'assertive')]")
+	@FindBy (xpath = "//div[contains(@aria-live, 'assertive')]")
 	@CacheLookup
 	WebElement profileSuccessfullySaved;
 
-	//	@FindBy(xpath = "//div[contains(@aria-live, 'assertive') and contains(text(), 'Profile successfully saved!']")
-//	WebElement profileSuccessfullySaved;
-	@FindBy(xpath = "//span[@class = 'profile-sh__info_name ng-binding']")
+	@FindBy (xpath = "//span[@class = 'profile-sh__info_name ng-binding']")
 	WebElement profileData;
-
-
-
-
 
 	public MainPage clickSignOut() {
 		signOutButton.click();

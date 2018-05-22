@@ -58,7 +58,7 @@ public class BusinessModelTest {
 				.gragAndDropBM();
 	}
 
-	@Ignore
+
 //    не работает т к пытается изменить все стики нужно изменить на стики только BM
 	@Title ("Business model")
 	@Step ("Edit stickies business model from main form")
@@ -103,11 +103,11 @@ public class BusinessModelTest {
 				.goTests();
 	}
 
-	@AfterClass
-	public void tearDown() {
-		logger.info("Test   ENDED");
-		Page.getDriver().quit();
-	}
+//	@AfterClass
+//	public void tearDown() {
+//		logger.info("Test   ENDED");
+//		Page.getDriver().quit();
+//	}
 
 
 }

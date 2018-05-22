@@ -10,7 +10,6 @@ import pages.Page;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
-
 public class AuthorizationTest {
   final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
@@ -64,10 +63,10 @@ public class AuthorizationTest {
     new LoginPage().missingEmailAndPassword();
   }
 
-  @AfterClass
-  public void tearDown() {
-    logger.info("Test   ENDED");
-    Page.getDriver().close();
-  }
+//  @AfterClass
+//  public void tearDown() {
+//    logger.info("Test   ENDED");
+//    Page.getDriver().close();
+//  }
 
 }

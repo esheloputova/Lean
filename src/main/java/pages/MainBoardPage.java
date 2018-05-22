@@ -72,9 +72,6 @@ public class MainBoardPage extends Page {
     @FindBy(xpath = "//div[contains(@ng-class,'$ctrl.helpingGaps')]")
     WebElement gaps;
 
-
-
-
     @FindBy(xpath = "//img[@alt = 'Logo']")
     WebElement goMainPage;
 

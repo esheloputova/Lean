@@ -1,5 +1,14 @@
+.idea/compiler.xml
 target/
-
-*.iml
-
 .idea/
+*.iml
+src/test/resources/report/
+report/
+reports/
+target.zip
+src/test/java/TesterFindElementOnPage.java
+/src/test/java/TesterForJson.java
+/src/main/java/testCallable/
+project.log
+/src/main/resources/*.properties
+qa-testng-tests/.logs/images
