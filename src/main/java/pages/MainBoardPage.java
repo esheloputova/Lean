@@ -117,10 +117,10 @@ public class MainBoardPage extends Page {
         return new MainBoardPage();
     }
 
-    public ResoucesPage goResourcesfromToolBar() {
+    public ResourcesPage goResourcesfromToolBar() {
         boardsToolBar.click();
         resourcesFromToolBar.click();
-        return new ResoucesPage();
+        return new ResourcesPage();
     }
 
     public BusinessIdeaPage goBIfromToolBar() {
