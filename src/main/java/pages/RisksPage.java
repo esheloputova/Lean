@@ -74,7 +74,7 @@ public class RisksPage extends Page {
     @FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
     WebElement closeForm;
 
-    @FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+    @FindBy(xpath = "//button[@type='submit']")
     WebElement buttonSaveRisk;
     //    End
 

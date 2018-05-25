@@ -32,13 +32,13 @@ public class ObjectivesTest {
 		new MainBoardPage()
 				.goObjectivesfromToolBar();
 		new ObjectivesPage()
-//				.createStickyNumetic()
-//				.createStickyMilestone()
-//				.createStickyMoneySalesRevenue()
-//				.createStickyMoneyNewEquity()
-//				.createStickyMoneyNewGrants()
-//				.createStickyMoneyNewCreditNewLoan()
-//				.createStickyMoneyNewCreditNewOverfraft()
+				.createStickyNumetic()
+				.createStickyMilestone()
+				.createStickyMoneySalesRevenue()
+				.createStickyMoneyNewEquity()
+				.createStickyMoneyNewGrants()
+				.createStickyMoneyNewCreditNewLoan()
+				.createStickyMoneyNewCreditNewOverfraft()
 
 				.addSubObjectives();
 	}
@@ -47,10 +47,10 @@ public class ObjectivesTest {
 	@Step ("Edit. Deactivate stickies Objectives")
 	@Test(priority = 1)
 	public void editDeactivateStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goObjectivesfromToolBar();
 		new ObjectivesPage()

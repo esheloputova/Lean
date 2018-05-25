@@ -66,7 +66,7 @@ public class GapsPage extends Page {
     @FindBy(xpath = "//div[contains(@class, 'item-bad')]")
     WebElement weaknessButton;
 
-    @FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
     WebElement gapsButtonSave;
 
 //	End. Actions in the form

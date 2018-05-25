@@ -63,16 +63,16 @@ public class BusinessModelTest {
 	@Title ("Business model")
 	@Step ("Edit stickies business model from main form")
 	@Test
-	public void editBusinessModelFromManeForm() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+	public void editBusinessModelFromMainForm() {
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()
-				.editDeactivateAllStickies()
-				.editActivateAllStickies()
+//				.editDeactivateAllStickies()
+//				.editActivateAllStickies()
 				.editAllStickies()
 				.editDeleteAllStickies();
 	}

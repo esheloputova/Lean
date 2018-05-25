@@ -41,14 +41,14 @@ public class CreateUserTest {
 		new CreateUserPage().createNewUser3();
 	}
 
-	@AfterMethod
-	public void tear() {
-		Page.getDriver().close();
-	}
-
-	@AfterClass
-	public void tearDown() {
-		Page.getDriver().quit();
-	}
+//	@AfterMethod
+//	public void tear() {
+//		Page.getDriver().close();
+//	}
+//
+//	@AfterClass
+//	public void tearDown() {
+//		Page.getDriver().quit();
+//	}
 
 }

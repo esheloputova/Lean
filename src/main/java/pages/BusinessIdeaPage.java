@@ -78,7 +78,7 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//a[text() = 'models']")
 	WebElement linkModels;
 
-	@FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+	@FindBy(xpath = "//button[@type='submit']")
 	WebElement businessIdeaButtonSave;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]")

@@ -82,7 +82,7 @@ public class BusinessModelPage extends Page {
 
 	// Beginning. Actions in the form
 
-	@FindBy (xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+	@FindBy (xpath = "//button[@type='submit']")
 	WebElement buttonSave;
 	@FindBy (xpath = "//div[@class='button button-remove ng-scope']")
 	WebElement deleteSticky;

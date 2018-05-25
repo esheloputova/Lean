@@ -55,10 +55,10 @@ public class RisksTest {
     @Step("Drag-and-drop stickies in Risks")
     @Test(priority = -1)
     public void dragANDdropStickiesRisks() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
@@ -70,9 +70,9 @@ public class RisksTest {
     @Test(priority = 1)
     public void addRiskFromHelper() {
         new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
@@ -83,10 +83,10 @@ public class RisksTest {
     @Step("Go to Task from Risks")
     @Test(priority = 2)
     public void goTaskStickiesRisks() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()

@@ -42,10 +42,10 @@ public class GapsTests {
 	@Step ("Create Competitor and Sticky for Competitor in Gaps")
 	@Test(priority = -2)
 	public void createCompetitorGaps() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goGapsfromToolBar();
 		new GapsPage()
@@ -93,17 +93,17 @@ public class GapsTests {
         new MainBoardPage()
                 .goGapsfromToolBar();
         new GapsPage()
-                .editFirstStickyGap();
+		        .editFirstStickyGap();
     }
 
     @Title ("Gaps")
     @Step ("Edit stickies in Gaps. Delete")
     @Test(priority = 3)
-    public void editDeleteteStickiesGaps() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+    public void editDeleteStickiesGaps() {
+        new MainPage().clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goGapsfromToolBar();
         new GapsPage()
@@ -114,12 +114,12 @@ public class GapsTests {
 	@Step ("Edit stickies in Competitor")
 	@Test(priority = 4)
 	public void deleteCompetitorGaps() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-//		new MainBoardPage()
-//				.goGapsfromToolBar();
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.goGapsfromToolBar();
 		new GapsPage()
 //				.editCompetitorDeactivate()
 //				.editCompetitorActivate()

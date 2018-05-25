@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 public class CreateUserPage extends Page {
@@ -90,11 +92,15 @@ public class CreateUserPage extends Page {
 	@FindBy (xpath = "//input[@formcontrolname = 'caseTitle']")
 	private WebElement nameCase;
 
+	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
 	//I am developing an existing company
 	public CreateUserPage createNewUser1() {
+
+
 		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
 		emailField.click();
-		emailField.sendKeys("elena.sheloputova+" + Math.random() * 3 + "@nrg-soft.ru");
+		emailField.sendKeys("elena.sheloputova+" + timeStamp + "@nrg-soft.ru");
 		passwordField.click();
 		passwordField.sendKeys("Elena-4776547");
 		repeatPasswordField.click();
@@ -108,6 +114,8 @@ public class CreateUserPage extends Page {
 //		userLanguageField.click();
 //		chooseValueOfLanguageField.click();
 		acceptionField.click();
+
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(createUser));
 		createUser.click();
 
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
@@ -132,7 +140,7 @@ public class CreateUserPage extends Page {
 	public CreateUserPage createNewUser2() {
 		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
 		emailField.click();
-		emailField.sendKeys("elena.sheloputova+" + Math.random() * 3 + "@nrg-soft.ru");
+		emailField.sendKeys("elena.sheloputova+" + timeStamp + "@nrg-soft.ru");
 		passwordField.click();
 		passwordField.sendKeys("Elena-4776547");
 		repeatPasswordField.click();
@@ -146,6 +154,8 @@ public class CreateUserPage extends Page {
 //		userLanguageField.click();
 //		chooseValueOfLanguageField.click();
 		acceptionField.click();
+
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(createUser));
 		createUser.click();
 
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
@@ -172,7 +182,7 @@ public class CreateUserPage extends Page {
 	public CreateUserPage createNewUser3() {
 		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
 		emailField.click();
-		emailField.sendKeys("elena.sheloputova+" + Math.random() * 3 + "@nrg-soft.ru");
+		emailField.sendKeys("elena.sheloputova+" + timeStamp + "@nrg-soft.ru");
 		passwordField.click();
 		passwordField.sendKeys("Elena-4776547");
 		repeatPasswordField.click();
@@ -186,6 +196,8 @@ public class CreateUserPage extends Page {
 //		userLanguageField.click();
 //		chooseValueOfLanguageField.click();
 		acceptionField.click();
+
+		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(createUser));
 		createUser.click();
 
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));

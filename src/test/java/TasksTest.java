@@ -75,10 +75,10 @@ public class TasksTest {
 	@Step ("Edit. Edit stickies Tasks")
 	@Test(priority = 4)
 	public void editEditStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goTasksfromToolBar();
 		new TasksPage()
@@ -88,10 +88,10 @@ public class TasksTest {
 	@Step ("Edit. Delete stickies Tasks")
 	@Test(priority = 5)
 	public void editDeleteStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goTasksfromToolBar();
 		new TasksPage()

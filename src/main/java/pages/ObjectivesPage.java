@@ -95,7 +95,7 @@ public class ObjectivesPage extends Page {
     @FindBy(xpath = "//lb-select[contains(@list, '$ctrl.nextMonths')]//option[3]")
     WebElement chooseThirdMonthObjective;
 
-    @FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+    @FindBy(xpath = "//button[@type='submit']")
     WebElement buttonSave;
 
     @FindBy(xpath = "//div[@class='button button-remove ng-scope']")

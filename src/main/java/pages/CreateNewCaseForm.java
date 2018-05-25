@@ -4,6 +4,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import sun.util.calendar.BaseCalendar;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author Elena_Sheloputova
@@ -81,7 +86,8 @@ public class CreateNewCaseForm extends Page {
 		organisationNumber.click();
 		organisationNumber.sendKeys("It is number of organisation for test");
 		companyName.click();
-		companyName.sendKeys("Test nameeee");
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		companyName.sendKeys("Test namee" + timeStamp);
 //		countryOfRegistration.click();
 //		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 

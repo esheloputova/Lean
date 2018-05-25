@@ -31,7 +31,7 @@ public class ResourcesPage extends Page {
 	WebElement goBI;
 
 	//	Start. Actions on form
-	@FindBy (xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")
+	@FindBy (xpath = "//button[@type='submit']")
 	WebElement buttonSave;
 
 	@FindBy (xpath = "//div[@class='button button-remove ng-scope']")
