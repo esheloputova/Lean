@@ -6,12 +6,12 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="url" value="http://new.leanbusinessplanner.com/"/>
         <classes>
-            <!--<class name="CreateNewCaseTest"/>-->
+            <class name="CreateNewCaseTest"/>
             <!--<class name="CreateUserTest"/>-->
             <!--<class name="AuthorizationTest"/>-->
             <!--<class name="ResetPasswordTest"/>-->
             <class name="BusinessIdeaTest"/>
-            <class name="BusinessModelTest"/>
+            <!--<class name="BusinessModelTest"/>-->
 
             <!--<class name="EditProfileTest"/>-->
             <!--<class name="GapsTests"/>-->

@@ -87,7 +87,7 @@ public class CreateNewCaseForm extends Page {
 		organisationNumber.sendKeys("It is number of organisation for test");
 		companyName.click();
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-		companyName.sendKeys("Test namee" + timeStamp);
+		companyName.sendKeys("Test name_" + timeStamp);
 //		countryOfRegistration.click();
 //		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 

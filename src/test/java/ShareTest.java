@@ -1,5 +1,4 @@
 import configuration.ConfigProperties;
-import data.AccDataProvider;
 import models.User;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;

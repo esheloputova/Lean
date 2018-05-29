@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -151,7 +153,7 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//div[@ng-repeat = 'idea in $ctrl.list'])[2]")
 	WebElement changeColorSecond;
 
-
+	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
 	public BusinessIdeaPage createAllStickiesBI() {
 		whatMakesYouUniqueColumn.click();
@@ -161,13 +163,13 @@ public class BusinessIdeaPage extends Page {
 //		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
-		descriptionSticky.sendKeys("Here you should add? AT");
+		descriptionSticky.sendKeys("Here you should add? AT_" + timeStamp);
 		businessIdeaButtonSave.click();
 
 		whatProblemWillYouSolveColumn.click();
 		new Actions(driver).doubleClick(whatProblemWillYouSolveColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
-		fieldOfInputBusinessIdea.sendKeys("What problem will you solve? AT" );
+		fieldOfInputBusinessIdea.sendKeys("What problem will you solve? AT_" + timeStamp );
 //		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
@@ -177,7 +179,7 @@ public class BusinessIdeaPage extends Page {
 		whoWillHaveThisProblemColumn.click();
 		new Actions(driver).doubleClick(whoWillHaveThisProblemColumn).build().perform();
 		fieldOfInputBusinessIdea.click();
-		fieldOfInputBusinessIdea.sendKeys("Who will have this problem?  AT");
+		fieldOfInputBusinessIdea.sendKeys("Who will have this problem?  AT_" + timeStamp);
 //		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 
 		moreInformationSticky.click();
@@ -239,7 +241,7 @@ public class BusinessIdeaPage extends Page {
 		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick31));
 		chooseStick31.click();
 		giveNameIdea.click();
-		giveNameIdea.sendKeys("New idea 2");
+		giveNameIdea.sendKeys("New idea_" + timeStamp );
 		addIdea.click();
 
 		return new BusinessIdeaPage();
