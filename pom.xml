@@ -141,6 +141,12 @@
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                     </argLine>
+                    <systemProperties>
+                        <allure.max.title.length>10000</allure.max.title.length>
+                    </systemProperties>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                     <properties>
                         <property>
                             <name>listener</name>
@@ -162,7 +168,7 @@
 
         <resources>
             <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
+                <directory>src/test/resources</directory>
                 <includes>
                     <include>**/*.exe</include>
                 </includes>
@@ -177,6 +183,9 @@
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
                 <version>2.6</version>
+                <configuration>
+                    <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>
