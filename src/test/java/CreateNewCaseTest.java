@@ -1,8 +1,7 @@
 import configuration.ConfigProperties;
 import models.User;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.openqa.selenium.Cookie;
+import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -14,6 +13,12 @@ import ru.yandex.qatools.allure.annotations.Title;
 public class CreateNewCaseTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+
+//	@BeforeSuite
+//	public void startBrowser() {
+//
+//		Page.getDriver();
+//	}
 
 	@Title ("Creating new case")
 	@BeforeMethod
@@ -38,12 +43,15 @@ public class CreateNewCaseTest {
 		new CreateNewCaseForm()
 				.creatingNewCase()
 				.createNewUser1();
-
 	}
 
-	@AfterClass
+	@AfterSuite
 	public void tearDown() {
 		logger.info("Test   ENDED");
-		Page.getDriver().quit();
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
 }

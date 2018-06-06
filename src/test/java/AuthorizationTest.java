@@ -1,12 +1,11 @@
 import configuration.ConfigProperties;
 import models.User;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
-import pages.LoginPage;
-import pages.MainPage;
-import pages.Page;
+import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
@@ -24,19 +23,23 @@ public class AuthorizationTest {
 
     @Title("Possitive scenario")
     @Step("Authorization is an existing user")
-    @Test
+    @Test(priority = -7)
     public void authorizationAnExistingUser() {
         new MainPage().clickOnLoginButton();
         User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
         new LoginPage()
                 .authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .clickOnAvatarPhoto();
+//        new ProfilePage()
+//                .clickSignOut();
     }
 
     @Title("Negative scenario")
     @Step("Authorization is not an existing user")
-    @Test
+    @Test(priority = -8)
     public void authorizationNotAnExistingUser() {
-        Page.getDriver().navigate().back();
+//        Page.getDriver().navigate().back();
         new MainPage().clickOnLoginButton();
         User user2 = new User(ConfigProperties.getTestProperty("notAnExistingLogin"), ConfigProperties.getTestProperty("inCorrectPassword"));
         new LoginPage()
@@ -45,9 +48,9 @@ public class AuthorizationTest {
 
     @Title("Negative scenario")
     @Step("Invalid email")
-    @Test
+    @Test(priority = -9)
     public void invalidEmail() {
-        Page.getDriver().navigate().back();
+//        Page.getDriver().navigate().back();
         new MainPage().clickOnLoginButton();
         User user3 = new User(ConfigProperties.getTestProperty("invalidEmail"), ConfigProperties.getTestProperty("invalidPassword"));
         new LoginPage()
@@ -56,17 +59,21 @@ public class AuthorizationTest {
 
     @Title("Negative scenario")
     @Step("Missing email and password")
-    @Test
+    @Test(priority = -10)
     public void missingEmailAndPasssword() {
-        Page.getDriver().navigate().back();
+//        Page.getDriver().navigate().back();
         new MainPage().clickOnLoginButton();
         new LoginPage().missingEmailAndPassword();
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() {
         logger.info("Test   ENDED");
-        Page.getDriver().quit();
+//        Page.getDriver().quit();
+        new MainBoardPage()
+                .clickOnAvatarPhoto();
+        new ProfilePage()
+                .clickSignOut();
     }
 
 }

@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
@@ -41,10 +42,10 @@ public class ResourcesTest {
 	@Step ("Create stickies Resources")
 	@Test (priority = -2)
 	public void editResources() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goResourcesfromToolBar();
 		new ResourcesPage()
@@ -52,5 +53,15 @@ public class ResourcesTest {
 				.editAactivate()
 				.editEdit()
 				.editDelete();
+	}
+
+	@AfterSuite
+	public void tearDown() {
+		logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
 }

@@ -25,10 +25,10 @@ public class BusinessModelTest {
 	@Step ("Create business model")
 	@Test (priority = -1)
 	public void createNewBusinessModelTest() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()
@@ -64,10 +64,10 @@ public class BusinessModelTest {
 	@Step ("Edit stickies business model from main form")
 	@Test
 	public void editBusinessModelFromMainForm() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()
@@ -103,11 +103,15 @@ public class BusinessModelTest {
 				.goTests();
 	}
 
-//	@AfterClass
-//	public void tearDown() {
-//		logger.info("Test   ENDED");
-//		Page.getDriver().quit();
-//	}
+	@AfterSuite
+	public void tearDown() {
+		logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 
 
 }

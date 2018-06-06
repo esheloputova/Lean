@@ -47,10 +47,10 @@ public class ResetPasswordTest {
   }
 
 
-  @AfterClass
-  public void tearDown() {
-    logger.info("Test   ENDED");
-    Page.getDriver().close();
-  }
+//  @AfterClass
+//  public void tearDown() {
+//    logger.info("Test   ENDED");
+//    Page.getDriver().close();
+//  }
 }
 

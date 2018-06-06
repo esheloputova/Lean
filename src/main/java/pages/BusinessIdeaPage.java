@@ -241,7 +241,7 @@ public class BusinessIdeaPage extends Page {
 		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick31));
 		chooseStick31.click();
 		giveNameIdea.click();
-		giveNameIdea.sendKeys("New idea_" + timeStamp );
+		giveNameIdea.sendKeys("New idea_" + timeStamp);
 		addIdea.click();
 
 		return new BusinessIdeaPage();

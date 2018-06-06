@@ -39,6 +39,7 @@ public class ProfilePage extends Page {
 	WebElement profileData;
 
 	public MainPage clickSignOut() {
+		new WebDriverWait(getDriver(), 7).until(ExpectedConditions.visibilityOf(signOutButton));
 		signOutButton.click();
 		return new MainPage();
 	}

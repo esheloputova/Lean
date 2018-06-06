@@ -1,6 +1,7 @@
 import configuration.ConfigProperties;
 import models.User;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
@@ -47,10 +48,10 @@ public class ObjectivesTest {
 	@Step ("Edit. Deactivate stickies Objectives")
 	@Test(priority = 1)
 	public void editDeactivateStickiesObjectives() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goObjectivesfromToolBar();
 		new ObjectivesPage()
@@ -116,10 +117,13 @@ public class ObjectivesTest {
 		new ObjectivesPage()
 				.dragANDdrap();
 	}
-
-	@AfterClass
+	@AfterSuite
 	public void tearDown() {
 		logger.info("Test   ENDED");
-		Page.getDriver().quit();
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
 }

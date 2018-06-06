@@ -1,9 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -18,7 +15,7 @@ public class TasksTest {
 	public void setUp() {
 		logger.info("Test STARTED");
 		Page.getDriver();
-		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+//		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
 	}
 
@@ -88,10 +85,10 @@ public class TasksTest {
 	@Step ("Edit. Delete stickies Tasks")
 	@Test(priority = 5)
 	public void editDeleteStickiesObjectives() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goTasksfromToolBar();
 		new TasksPage()
@@ -112,11 +109,13 @@ public class TasksTest {
 				.dragANDdrapFromToDOToDoing()
 				.dragANDdrapFromMonthlyToDone();
 	}
-
-	@AfterClass
+	@AfterSuite
 	public void tearDown() {
 		logger.info("Test   ENDED");
-		Page.getDriver().quit();
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
-
 }

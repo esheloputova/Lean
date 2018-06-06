@@ -130,12 +130,17 @@ public class BusinessIdeaTest {
         new BusinessIdeaPage()
                 .goToFirstTab()
                 .goToTests();
+
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() {
-        logger.info("Test   ENDED");
-        Page.getDriver().quit();
+//        logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+	    new MainBoardPage()
+			    .clickOnAvatarPhoto();
+	    new ProfilePage()
+			    .clickSignOut();
     }
 
 }

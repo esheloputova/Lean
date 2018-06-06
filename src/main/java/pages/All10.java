@@ -59,9 +59,9 @@ public class All10 extends Page {
 
     public All10 goSertifications() {
         email.click();
-        email.sendKeys("esheloputova@jtconsulting.ru");
+        email.sendKeys("dilara.badretdinova@yandex.ru");
         password.click();
-        password.sendKeys("4776547");
+        password.sendKeys("2908");
         goToSite.click();
 
         goTOsertification.click();
@@ -71,7 +71,7 @@ public class All10 extends Page {
         new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
         new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
 		new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
-		new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
+//		new Actions(getDriver()).sendKeys(" ").sendKeys(Keys.BACK_SPACE).perform();
 
 
         for (WebElement webelement : allTexts) {

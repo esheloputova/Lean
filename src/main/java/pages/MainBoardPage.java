@@ -9,7 +9,7 @@ public class MainBoardPage extends Page {
 
     WebDriverWait wait;
 
-    @FindBy(xpath = "//div[@class='avatar-icon layout-row']")
+    @FindBy(xpath = "(//user-avatar[@user='$ctrl.user'])[1]")
     WebElement avatarPhoto;
 
     @FindBy(xpath = "//i[contains(@class, 'cases')]")

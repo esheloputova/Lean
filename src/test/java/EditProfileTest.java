@@ -28,10 +28,10 @@ public class EditProfileTest {
 	@Step("Reset password is an existing user")
 	@Test
 	public void editFirstName() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-						.authorizationAnExistingUser(user1);
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//						.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 						.clickUserProfileButton()
