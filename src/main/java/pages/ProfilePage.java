@@ -1,6 +1,7 @@
 package pages;
 
 import junit.framework.Assert;
+import org.apache.xpath.operations.Equals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -9,6 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProfilePage extends Page {
+
+	@FindBy (xpath = "//div[contains(@ng-class ,'helpingResources')]")
+	WebElement resource;
 
 	@FindBy (xpath = "//*[@id='profile-popover']//div[@class='profile-sh__footer']/div[text()='Sign Out']")
 	WebElement signOutButton;
@@ -21,6 +25,13 @@ public class ProfilePage extends Page {
 
 	@FindBy (xpath = "//select[@ng-model='$ctrl.currentOption']")
 	WebElement languagesButton;
+
+	@FindBy (xpath = "//select[@ng-model='$ctrl.currentOption']/option[2]")
+	WebElement changeLanguageOnNorsk;
+
+	@FindBy (xpath = "//select[@ng-model='$ctrl.currentOption']/option[1]")
+	WebElement changeLanguageOnEnglish;
+
 
 	@FindBy (xpath = "//input[@placeholder='First Name']")
 	WebElement firstNameInput;
@@ -76,6 +87,39 @@ public class ProfilePage extends Page {
 
 	public ProfilePage clickCaseSettingsButton() {
 		caseSettingsButton.click();
+		return this;
+
+	}
+
+	public ProfilePage changeLanguageOnNorsk() {
+		languagesButton.click();
+		changeLanguageOnNorsk.click();
+
+		String resourceTranslateEng = "RESOURCES";
+
+		new WebDriverWait(getDriver(), 10);
+//				.until(ExpectedConditions.stalenessOf(resource));
+		String getTextResource = resource.getText();
+		System.out.println(getTextResource);
+		Assert.assertTrue("Success", resourceTranslateEng.equals(getTextResource));
+
+		return this;
+
+	}
+
+	public ProfilePage changeLanguageOnEnglish() {
+
+		languagesButton.click();
+		changeLanguageOnEnglish.click();
+
+		String resourceTranslateNor = "RESSURSER";
+
+		new WebDriverWait(getDriver(), 10);
+		String getTextResource = resource.getText();
+		System.out.println(getTextResource);
+
+		Assert.assertTrue("Success", resourceTranslateNor.equals(getTextResource));
+
 		return this;
 
 	}

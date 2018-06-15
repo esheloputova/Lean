@@ -13,7 +13,6 @@ public class BusinessIdeaTest {
 
     final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-    @Title("Authorization")
     @BeforeMethod
     public void setUp() {
         logger.info("Test STARTED");
@@ -22,7 +21,6 @@ public class BusinessIdeaTest {
 
     }
 
-    @Title("Business idea")
     @Step("Create stickies in BI")
     @Test(priority = -13)
     public void createStickiesBusinessIdeaTest() {
@@ -38,7 +36,6 @@ public class BusinessIdeaTest {
 
     }
 
-    @Title("Business idea")
     @Step("Create New first Business idea")
     @Test(priority = -12)
     public void createNewBusinessIdeaTest() {
@@ -52,14 +49,12 @@ public class BusinessIdeaTest {
                 .createBI();
     }
 
-    @Title("Business idea")
     @Step("Create Second Business idea")
     @Test(priority = -11)
     public void createSecondBusinessIdeaTest() {
         createNewBusinessIdeaTest();
     }
 
-    @Title("Business idea")
     @Step("Edit Business ideas")
     @Test(priority = -10)
     public void editBusinessIdeaTest() {

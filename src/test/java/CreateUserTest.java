@@ -5,11 +5,6 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 public class CreateUserTest {
 
-//	@BeforeSuite
-//	public void startBrowser() {
-//		Page.getDriver();
-//	}
-
 	@BeforeMethod
 	public void setUp() {
 		Page.getDriver();
@@ -18,16 +13,16 @@ public class CreateUserTest {
 
 	@Step ("Create new user. I am developing an existing company")
 	@Test (priority = -3)
-	public void createUserWithDevelopingCompany() {
-//		Page.getDriver().navigate().back();
-		new MainPage().clickCreateUser();
+	public void createUserWithDevelopingCompany(){
+		new MainPage()
+				.clickOnAccept()
+				.clickCreateUser();
 		new CreateUserPage().createNewUser1();
 	}
 
 	@Step ("Create new user. I work with a limited project within an existing company")
 	@Test (priority = -2)
 	public void createUserLimitedProject() {
-//		Page.getDriver().navigate().refresh();
 		new MainPage().clickCreateUser();
 		new CreateUserPage().createNewUser2();
 	}
@@ -35,15 +30,9 @@ public class CreateUserTest {
 	@Step ("Create new user. I have not registered a company yet")
 	@Test (priority = -1)
 	public void createUserNotRegisteredCompany() {
-//		Page.getDriver().navigate().refresh();
 		new MainPage().clickCreateUser();
 		new CreateUserPage().createNewUser3();
 	}
-
-//		@AfterMethod
-//	public void tear() {
-//		Page.getDriver().close();
-//	}
 
 	@AfterMethod
 	public void tearDown() {

@@ -13,38 +13,40 @@ import ru.yandex.qatools.allure.annotations.Title;
 /**
  * @author Elena_Sheloputova
  */
+
 public class ResetPasswordTest {
 
-  final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-  @Title("Authorization")
-  @BeforeMethod
-  public void setUp() {
-    logger.info("Test STARTED");
-    Page.getDriver();
-    Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+	@BeforeMethod
+	public void setUp() {
+		logger.info("Test STARTED");
+		Page.getDriver();
+		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
-  }
+	}
 
-  @Title("Possitive scenario")
-  @Step("Reset password is an existing user")
-  @Test
-  public void resetPasswordAnExistingUser() {
-    new MainPage().clickOnLoginButton();
-    new LoginPage().clickOnFogotPasswordLink();
-    new PasswordResetForm()
-            .ExistingUser();
-  }
+	@Title ("Possitive scenario")
+	@Step ("Reset password is an existing user")
+	@Test (priority = 1)
+	public void resetPasswordAnExistingUser() {
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
+		new LoginPage().clickOnFogotPasswordLink();
+		new PasswordResetForm()
+				.ExistingUser();
+	}
 
-  @Title("Negative scenario")
-  @Step("Reset password is an invalid user")
-  @Test
-  public void resetPasswordAnInvalidUser() {
-    new MainPage().clickOnLoginButton();
-    new LoginPage().clickOnFogotPasswordLink();
-    new PasswordResetForm()
-            .checkUnAvailabilityButtonSendMessage();
-  }
+	@Title ("Negative scenario")
+	@Step ("Reset password is an invalid user")
+	@Test (priority = 2)
+	public void resetPasswordAnInvalidUser() {
+		new MainPage().clickOnLoginButton();
+		new LoginPage().clickOnFogotPasswordLink();
+		new PasswordResetForm()
+				.checkUnAvailabilityButtonSendMessage();
+	}
 
 
 //  @AfterClass

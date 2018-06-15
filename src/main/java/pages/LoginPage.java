@@ -4,6 +4,8 @@ import junit.framework.Assert;
 import models.User;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends Page {
 
@@ -31,6 +33,10 @@ public class LoginPage extends Page {
 
   @FindBy(xpath = "//div[contains(@ng-message,'required') and contains(text(),'Password is required.')]")
   WebElement loginFormErrorAboutMissingPassword;
+
+
+
+
 
   public MainBoardPage authorizationAnExistingUser(User user) {
     loginFormEmailField.click();
