@@ -26,7 +26,9 @@ public class ShareTest {
 	@Step ("Invite viewer")
 	@Test (priority = 1)
 	public void inviteUserAsViewer() {
-		new MainPage().clickOnLoginButton();
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
 				.authorizationAnExistingUser(user1);

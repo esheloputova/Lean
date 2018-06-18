@@ -31,8 +31,6 @@ public abstract class Page {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-
 		}
 		return driver;
 
@@ -67,9 +65,6 @@ public abstract class Page {
 	public static boolean isNotElementExists(String xpath) {
 		return getDriver().findElements(By.xpath(xpath)).isEmpty();
 	}
-
-
-
 
 
 }

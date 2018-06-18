@@ -28,7 +28,9 @@ public class GoAllPagesTest {
     @Step("Go to Business Idea")
     @Test(priority = -1)
     public void goBIfromToolBar() {
-        new MainPage().clickOnLoginButton();
+        new MainPage()
+                .clickOnAccept()
+                .clickOnLoginButton();
         login();
         new MainBoardPage()
                 .goBIfromToolBar();

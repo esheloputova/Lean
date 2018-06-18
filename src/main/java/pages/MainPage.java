@@ -57,6 +57,9 @@ public class MainPage extends Page {
 	}
 
 	public LoginPage clickOnLoginButton() {
+		if (accept.isDisplayed()){
+			accept.click();
+		}
 		loginButton.click();
 		return new LoginPage();
 

@@ -76,6 +76,8 @@ public class CreateNewCaseForm extends Page {
 	@FindBy (xpath = "(//span[(@class = 'mat-button-wrapper') and (text()='go')])")
 	private WebElement goStep3;
 
+	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
 	public CreateNewCaseForm creatingNewCase() {
 		nameCase.click();
 		nameCase.sendKeys("Test test");
@@ -85,24 +87,31 @@ public class CreateNewCaseForm extends Page {
 		return new CreateNewCaseForm();
 	}
 
-	public CreateNewCaseForm copyCase() {
-		copyCase.click();
+	public CreateNewCaseForm prepareDataNewCase() {
 		nameCase.click();
-		nameCase.sendKeys("Test case copy");
+		nameCase.sendKeys("Test case from data preparation" + timeStamp);
+		strategyAndProjectText.click();
+		radioButtonIwant.click();
 		createButton.click();
 		return new CreateNewCaseForm();
 	}
 
+	public CreateNewCaseForm copyCase() {
+		copyCase.click();
+		nameCase.click();
+		nameCase.sendKeys("Copy case" + timeStamp);
+		createButton.click();
+		return new CreateNewCaseForm();
+	}
 
-
-	public MainBoardPage createNewUser1() {
+	public MainBoardPage createNewUserNewCase() {
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
 		developingCompany.click();
 		organisationNumber.click();
 		organisationNumber.sendKeys("It is number of organisation for test");
 		companyName.click();
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-		companyName.sendKeys("Test name_" + timeStamp);
+
+		companyName.sendKeys("Company name" + timeStamp);
 //		countryOfRegistration.click();
 //		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOfAllElements(listCountry));
 

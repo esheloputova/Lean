@@ -23,12 +23,14 @@ public class BusinessModelTest {
 
 	@Title ("Business model")
 	@Step ("Create business model")
-	@Test (priority = -1)
+	@Test (priority =1)
 	public void createNewBusinessModelTest() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()
@@ -39,7 +41,7 @@ public class BusinessModelTest {
 
 	@Title ("Business model")
 	@Step ("Edit stickies business model from creating form")
-	@Test
+	@Test(priority = 2)
 	public void editBusinessModelTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -52,8 +54,8 @@ public class BusinessModelTest {
 				.deactivateStickiesBM()
 				.activateStickiesBM()
 				.addMoreInformationStickiesBM()
-				.addAttachesBM()
-				.deleteAttachesBM()
+//				.addAttachesBM()
+//				.deleteAttachesBM()
 				.deleteAddInformationsBM()
 				.gragAndDropBM();
 	}
@@ -62,7 +64,7 @@ public class BusinessModelTest {
 //    не работает т к пытается изменить все стики нужно изменить на стики только BM
 	@Title ("Business model")
 	@Step ("Edit stickies business model from main form")
-	@Test
+	@Test(priority = 3)
 	public void editBusinessModelFromMainForm() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -78,7 +80,7 @@ public class BusinessModelTest {
 	}
 
 	@Step ("Go to Gaps from BM")
-	@Test
+	@Test(priority = 4)
 	public void goGaps() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -91,7 +93,7 @@ public class BusinessModelTest {
 	}
 
 	@Step ("Go to Tests from BM")
-	@Test
+	@Test(priority = 5)
 	public void goTests() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));

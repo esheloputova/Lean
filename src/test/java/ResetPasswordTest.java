@@ -48,11 +48,5 @@ public class ResetPasswordTest {
 				.checkUnAvailabilityButtonSendMessage();
 	}
 
-
-//  @AfterClass
-//  public void tearDown() {
-//    logger.info("Test   ENDED");
-//    Page.getDriver().close();
-//  }
 }
 

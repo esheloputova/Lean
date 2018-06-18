@@ -25,7 +25,9 @@ public class RisksTest {
     @Step("Create stickies in Risks")
     @Test(priority = -3)
     public void createStickiesRisks() {
-        new MainPage().clickOnLoginButton();
+        new MainPage()
+                .clickOnAccept()
+                .clickOnLoginButton();
         User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
         new LoginPage()
                 .authorizationAnExistingUser(user1);

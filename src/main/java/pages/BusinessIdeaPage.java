@@ -29,8 +29,7 @@ public class BusinessIdeaPage extends Page {
 	List<WebElement> allStickyWhoWillHaveThisProblemColumn;
 
 
-	@FindBy(xpath = "//input[(@type='text') and (@name='title')]")
-	WebElement fieldOfInputBusinessIdea;
+
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][1]")
 	WebElement clickStick1;
@@ -94,6 +93,10 @@ public class BusinessIdeaPage extends Page {
 
 
 // Beginning. Actions in the form
+
+	@FindBy(xpath = "//input[(@type='text') and (@name='title')]")
+	WebElement nameOfSticky;
+
 	@FindBy(xpath = "//div[@class='button button-remove ng-scope']")
 	WebElement deleteSticky;
 
@@ -155,11 +158,40 @@ public class BusinessIdeaPage extends Page {
 
 	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
+	@FindBys(@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])"))
+	List<WebElement> listPluses;
+
+	@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[1]")
+	WebElement firstPlus;
+
+	@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
+	WebElement secondPlus;
+
+	@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[3]")
+	WebElement thirdPlus;
+
+	public BusinessIdeaPage createAllStickyByDefault() {
+		for (WebElement webElement : listPluses) {
+			webElement.click();
+
+			nameOfSticky.click();
+			nameOfSticky.sendKeys("Create stickies in BI by default");
+			moreInformationSticky.click();
+			descriptionSticky.click();
+			descriptionSticky.sendKeys("It's description for this stickies");
+//            nextMonthObjective.click();
+//            chooseThirdMonthObjective.click();
+//            attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+			businessIdeaButtonSave.click();
+		}
+		return this;
+	}
+
 	public BusinessIdeaPage createAllStickiesBI() {
 		whatMakesYouUniqueColumn.click();
 		new Actions(driver).doubleClick(whatMakesYouUniqueColumn).build().perform();
-		fieldOfInputBusinessIdea.click();
-		fieldOfInputBusinessIdea.sendKeys("What makes you unique?");
+		nameOfSticky.click();
+		nameOfSticky.sendKeys("What makes you unique?");
 //		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
@@ -168,8 +200,8 @@ public class BusinessIdeaPage extends Page {
 
 		whatProblemWillYouSolveColumn.click();
 		new Actions(driver).doubleClick(whatProblemWillYouSolveColumn).build().perform();
-		fieldOfInputBusinessIdea.click();
-		fieldOfInputBusinessIdea.sendKeys("What problem will you solve? AT_" + timeStamp );
+		nameOfSticky.click();
+		nameOfSticky.sendKeys("What problem will you solve? AT_" + timeStamp );
 //		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 		moreInformationSticky.click();
 		descriptionSticky.click();
@@ -178,8 +210,8 @@ public class BusinessIdeaPage extends Page {
 
 		whoWillHaveThisProblemColumn.click();
 		new Actions(driver).doubleClick(whoWillHaveThisProblemColumn).build().perform();
-		fieldOfInputBusinessIdea.click();
-		fieldOfInputBusinessIdea.sendKeys("Who will have this problem?  AT_" + timeStamp);
+		nameOfSticky.click();
+		nameOfSticky.sendKeys("Who will have this problem?  AT_" + timeStamp);
 //		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 
 		moreInformationSticky.click();
@@ -234,12 +266,13 @@ public class BusinessIdeaPage extends Page {
 
 
 	public BusinessIdeaPage createBI() {
-		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick11));
-		chooseStick11.click();
-		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick21));
+
+		new WebDriverWait(getDriver(),6).until(ExpectedConditions.visibilityOf(chooseStick21));
 		chooseStick21.click();
-		new WebDriverWait(getDriver(),4).until(ExpectedConditions.visibilityOf(chooseStick31));
+		new WebDriverWait(getDriver(),6).until(ExpectedConditions.visibilityOf(chooseStick31));
 		chooseStick31.click();
+		new WebDriverWait(getDriver(),6).until(ExpectedConditions.visibilityOf(chooseStick11));
+		chooseStick11.click();
 		giveNameIdea.click();
 		giveNameIdea.sendKeys("New idea_" + timeStamp);
 		addIdea.click();

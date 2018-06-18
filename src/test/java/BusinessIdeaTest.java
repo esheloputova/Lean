@@ -11,131 +11,130 @@ import ru.yandex.qatools.allure.annotations.Title;
  */
 public class BusinessIdeaTest {
 
-    final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-    @BeforeMethod
-    public void setUp() {
-        logger.info("Test STARTED");
-        Page.getDriver();
-        Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+	@BeforeMethod
+	public void setUp() {
+		logger.info("Test STARTED");
+		Page.getDriver();
+		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 
-    }
+	}
 
-    @Step("Create stickies in BI")
-    @Test(priority = -13)
-    public void createStickiesBusinessIdeaTest() {
+	@Step ("Create stickies in BI")
+	@Test (priority = 1)
+	public void createStickiesBusinessIdeaTest() {
+		new MainPage()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.createAllStickiesBI();
+	}
+
+	@Step ("Create New first Business idea")
+	@Test (priority = 2)
+	public void createNewBusinessIdeaTest() {
         new MainPage().clickOnLoginButton();
         User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
         new LoginPage()
                 .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .clickOnBusinessIdea();
-        new BusinessIdeaPage()
-                .createAllStickiesBI()
-                .createAllStickiesBI();
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.createBI();
+	}
 
-    }
+	@Step ("Create Second Business idea")
+	@Test (priority = 3)
+	public void createSecondBusinessIdeaTest() {
+		createNewBusinessIdeaTest();
+	}
 
-    @Step("Create New first Business idea")
-    @Test(priority = -12)
-    public void createNewBusinessIdeaTest() {
+	@Step ("Edit Business ideas")
+	@Test (priority = -10)
+	public void editBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .clickOnBusinessIdea();
-        new BusinessIdeaPage()
-                .createBI();
-    }
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.editBI()
+				.deleteBI();
+	}
 
-    @Step("Create Second Business idea")
-    @Test(priority = -11)
-    public void createSecondBusinessIdeaTest() {
-        createNewBusinessIdeaTest();
-    }
 
-    @Step("Edit Business ideas")
-    @Test(priority = -10)
-    public void editBusinessIdeaTest() {
+	@Step ("Delete stickies of Business ideas")
+	@Test (priority = -5)
+	public void deleteStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .clickOnBusinessIdea();
-        new BusinessIdeaPage()
-                .editBI()
-                .deleteBI();
-    }
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.deleteAllStickiesBIFirst()
+				.deleteAllStickiesBISecond()
+				.deleteAllStickiesBIThird();
+	}
 
-
-    @Step("Delete stickies of Business ideas")
-    @Test(priority = -5)
-    public void deleteStickiesBusinessIdeaTest() {
+	@Step ("Drag-and-drop stickies of Business ideas")
+	@Test (priority = -6)
+	public void dragAndDropStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .clickOnBusinessIdea();
-        new BusinessIdeaPage()
-                .deleteAllStickiesBIFirst()
-                .deleteAllStickiesBISecond()
-                .deleteAllStickiesBIThird();
-    }
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.gragAndDrop();
+	}
 
-    @Step("Drag-and-drop stickies of Business ideas")
-    @Test(priority = -6)
-    public void dragAndDropStickiesBusinessIdeaTest() {
+	@Ignore
+	@Step ("Go to Business Model from Business ideas by link")
+	@Test (priority = 2)
+	public void goBMFromBIByLink() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .clickOnBusinessIdea();
-        new BusinessIdeaPage()
-                .gragAndDrop();
-    }
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.goToBM();
+	}
 
-    @Ignore
-    @Step("Go to Business Model from Business ideas by link")
-    @Test(priority = 2)
-    public void goBMFromBIByLink() {
+	@Ignore
+	@Step ("Go to Tests from Business ideas by link")
+	@Test (priority = 3)
+	public void goTestsFromBIByLink() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .clickOnBusinessIdea();
-        new BusinessIdeaPage()
-                .goToBM();
-    }
+		new MainBoardPage()
+				.clickOnBusinessIdea();
+		new BusinessIdeaPage()
+				.goToFirstTab()
+				.goToTests();
 
-    @Ignore
-    @Step("Go to Tests from Business ideas by link")
-    @Test(priority = 3)
-    public void goTestsFromBIByLink() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .clickOnBusinessIdea();
-        new BusinessIdeaPage()
-                .goToFirstTab()
-                .goToTests();
+	}
 
-    }
-
-    @AfterSuite
-    public void tearDown() {
+	@AfterSuite
+	public void tearDown() {
 //        logger.info("Test   ENDED");
 //        Page.getDriver().quit();
-	    new MainBoardPage()
-			    .clickOnAvatarPhoto();
-	    new ProfilePage()
-			    .clickSignOut();
-    }
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 
 }

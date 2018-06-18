@@ -20,8 +20,18 @@ public class ProfilePage extends Page {
 	@FindBy (xpath = "//div[contains(@ng-click, '$ctrl.onEdit()') and contains(text(), 'User profile')]")
 	WebElement userProfileButton;
 
-	@FindBy (xpath = "//div[contains(@ng-click, '$ctrl.onSettings()') and contains(text(), 'Case settings')]")
+	@FindBy (xpath = "//div[contains(@ng-click, '$ctrl.onSettings()')]")
 	WebElement caseSettingsButton;
+
+	@FindBy (xpath = "//span[contains(@class, 'mat-button-wrapper') and contains(text(),'Delete')]")
+	WebElement deleteCase;
+
+	@FindBy (xpath = "//span[contains(@class, 'mat-button-wrapper') and contains(text(),'Yes')]")
+	WebElement deleteYes;
+
+	@FindBy (xpath = "//span[contains(@class, 'mat-button-wrapper') and contains(text(),'No')]")
+	WebElement deleteNo;
+
 
 	@FindBy (xpath = "//select[@ng-model='$ctrl.currentOption']")
 	WebElement languagesButton;
@@ -31,7 +41,6 @@ public class ProfilePage extends Page {
 
 	@FindBy (xpath = "//select[@ng-model='$ctrl.currentOption']/option[1]")
 	WebElement changeLanguageOnEnglish;
-
 
 	@FindBy (xpath = "//input[@placeholder='First Name']")
 	WebElement firstNameInput;
@@ -88,8 +97,17 @@ public class ProfilePage extends Page {
 	public ProfilePage clickCaseSettingsButton() {
 		caseSettingsButton.click();
 		return this;
-
 	}
+
+	public MainBoardPage deleteCase() {
+		deleteCase.click();
+
+		if (deleteYes.isDisplayed()) {
+			deleteYes.click();
+		}
+		return new MainBoardPage();
+	}
+
 
 	public ProfilePage changeLanguageOnNorsk() {
 		languagesButton.click();

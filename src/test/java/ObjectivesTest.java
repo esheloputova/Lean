@@ -26,7 +26,9 @@ public class ObjectivesTest {
 	@Step ("Create stickies Objectives")
 	@Test(priority = -3)
 	public void createNewObjectives() {
-		new MainPage().clickOnLoginButton();
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
 				.authorizationAnExistingUser(user1);

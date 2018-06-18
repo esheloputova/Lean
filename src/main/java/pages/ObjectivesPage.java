@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class ObjectivesPage extends Page {
 
-
     @FindBys(@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])"))
     List<WebElement> listPluses;
 

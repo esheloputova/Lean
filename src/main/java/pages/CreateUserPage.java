@@ -184,10 +184,12 @@ public class CreateUserPage extends Page {
 //		chooseValueOfLanguageField.click();
 		acceptionField.click();
 
-		acceptPivacy();
+
 
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(createUser));
 		createUser.click();
+
+		acceptPivacy();
 
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
 		limitedProject.click();

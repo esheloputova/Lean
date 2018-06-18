@@ -29,7 +29,9 @@ public class GapsTests {
 	@Step ("Create stickies Gaps")
 	@Test (priority = -3)
 	public void createNewGaps() {
-		new MainPage().clickOnLoginButton();
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
 				.authorizationAnExistingUser(user1);

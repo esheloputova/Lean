@@ -30,7 +30,9 @@ public class CreateUserTest {
 	@Step ("Create new user. I have not registered a company yet")
 	@Test (priority = -1)
 	public void createUserNotRegisteredCompany() {
-		new MainPage().clickCreateUser();
+		new MainPage()
+				.clickOnAccept()
+				.clickCreateUser();
 		new CreateUserPage().createNewUser3();
 	}
 

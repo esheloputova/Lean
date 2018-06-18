@@ -288,7 +288,7 @@ public class BusinessModelPage extends Page {
 		for (WebElement x : listFirstStickies) {
 			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
-			attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//			attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
 			buttonSave.click();
 		}
 		return this;

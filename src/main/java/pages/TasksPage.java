@@ -190,7 +190,7 @@ public class TasksPage extends Page {
 			moreInformationSticky.click();
 			descriptionSticky.click();
 			descriptionSticky.sendKeys("It's description for this stickies");
-			attachedToThird.click();
+//			attachedToThird.click();
 			responsibleFirst.click();
 			costGroups.get(i).click();
 
@@ -213,7 +213,7 @@ public class TasksPage extends Page {
 			moreInformationSticky.click();
 			descriptionSticky.click();
 			descriptionSticky.sendKeys("It's description for this stickies");
-			attachedToThird.click();
+//			attachedToThird.click();
 			responsibleFirst.click();
 			costGroups.get(i).click();
 
@@ -236,7 +236,7 @@ public class TasksPage extends Page {
 			moreInformationSticky.click();
 			descriptionSticky.click();
 			descriptionSticky.sendKeys("It's description for this stickies");
-			attachedToThird.click();
+//			attachedToThird.click();
 			responsibleFirst.click();
 			costGroups.get(i).click();
 
@@ -259,7 +259,7 @@ public class TasksPage extends Page {
 			moreInformationSticky.click();
 			descriptionSticky.click();
 			descriptionSticky.sendKeys("It's description for this stickies");
-			attachedToThird.click();
+//			attachedToThird.click();
 			responsibleFirst.click();
 			costGroups.get(i).click();
 
@@ -286,7 +286,7 @@ public class TasksPage extends Page {
 			moreInformationSticky.click();
 			descriptionSticky.click();
 			descriptionSticky.sendKeys("It's description for this stickies");
-			attachedToThird.click();
+//			attachedToThird.click();
 			responsibleFirst.click();
 			costGroups.get(i).click();
 
