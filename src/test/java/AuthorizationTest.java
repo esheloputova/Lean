@@ -75,6 +75,7 @@ public class AuthorizationTest {
 				.clickOnAvatarPhoto();
 		new ProfilePage()
 				.clickSignOut();
+//		just
 	}
 
 }
