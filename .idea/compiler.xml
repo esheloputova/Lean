@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Lean" />
+        <module name="leanbusinessplatform.com" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="leanbusinessplatform.com" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

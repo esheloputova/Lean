@@ -26,12 +26,14 @@ public class ProfileActionsTest {
 
 	@Ignore
 	@Step ("Edit First Name")
-	@Test
+	@Test(priority = 1)
 	public void editFirstName() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//						.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+						.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.clickUserProfileButton()
@@ -40,14 +42,14 @@ public class ProfileActionsTest {
 	}
 
 	@Step ("Change Language on Norsk")
-	@Test(priority = 1)
+	@Test(priority = 2)
 	public void changeLanguageOnNorsk() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnAccept()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.changeLanguageOnNorsk();
@@ -55,7 +57,7 @@ public class ProfileActionsTest {
 	}
 
 	@Step ("Change Language on English")
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void changeLanguageOnEnglish() {
 //		new MainPage()
 //				.clickOnAccept()
