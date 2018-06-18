@@ -15,8 +15,13 @@ import java.util.Date;
  */
 public class CreateNewCaseForm extends Page {
 
+
+
 	@FindBy (xpath = "//input[@name='caseName']")
 	WebElement nameCase;
+
+	@FindBy (xpath = "//span[contains(@ng-click,'copy')]")
+	WebElement copyCase;
 
 	@FindBy (xpath = "//span[text() = 'Strategy and Project']")
 	private WebElement strategyAndProjectText;
@@ -80,6 +85,16 @@ public class CreateNewCaseForm extends Page {
 		return new CreateNewCaseForm();
 	}
 
+	public CreateNewCaseForm copyCase() {
+		copyCase.click();
+		nameCase.click();
+		nameCase.sendKeys("Test case copy");
+		createButton.click();
+		return new CreateNewCaseForm();
+	}
+
+
+
 	public MainBoardPage createNewUser1() {
 		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(developingCompany));
 		developingCompany.click();
@@ -100,6 +115,8 @@ public class CreateNewCaseForm extends Page {
 
 		return new MainBoardPage();
 	}
+
+
 
 
 }

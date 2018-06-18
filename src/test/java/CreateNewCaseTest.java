@@ -20,7 +20,6 @@ public class CreateNewCaseTest {
 //		Page.getDriver();
 //	}
 
-	@Title ("Creating new case")
 	@BeforeMethod
 	public void setUp() {
 		logger.info("Test STARTED");
@@ -29,11 +28,13 @@ public class CreateNewCaseTest {
 
 	}
 
-	@Title ("Possitive scenario")
+	@Title ("Creating new case")
 	@Step ("Creating new case")
 	@Test
 	public void createNewCase() {
-		new MainPage().clickOnLoginButton();
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
 				.authorizationAnExistingUser(user1);
@@ -41,17 +42,36 @@ public class CreateNewCaseTest {
 				.clickOnCasesText()
 				.clickNewCaseButton();
 		new CreateNewCaseForm()
-				.creatingNewCase()
-				.createNewUser1();
+				.creatingNewCase();
+//				.createNewUser1();
 	}
 
-	@AfterSuite
-	public void tearDown() {
-		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
+	@Title ("Copy case")
+	@Step ("Copy case")
+	@Test
+	public void copyCase() {
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+				.clickOnCasesText()
+				.clickNewCaseButton();
+		new CreateNewCaseForm()
+				.copyCase();
 	}
+
+
+//	@AfterSuite
+//	public void tearDown() {
+//		logger.info("Test   ENDED");
+////        Page.getDriver().quit();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
+//	}
+
 }
