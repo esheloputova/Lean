@@ -28,12 +28,11 @@ public class ResourcesTest {
 	@Step ("Create stickies Resources")
 	@Test (priority = -3)
 	public void createNewResources() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goResourcesfromToolBar();
 		new ResourcesPage()

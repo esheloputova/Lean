@@ -23,12 +23,11 @@ public class TasksTest {
 	@Step ("Create task all of Cost group")
 	@Test(priority = 1)
 	public void createTask() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goTasksfromToolBar();
 		new TasksPage()
@@ -85,7 +84,7 @@ public class TasksTest {
 	}
 
 	@Step ("Edit. Delete stickies Tasks")
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void editDeleteStickiesTasks() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -99,7 +98,7 @@ public class TasksTest {
 
 	@Title ("Tasks")
 	@Step ("Drag-and-drop stickies to DONE-CURRENT MONTH")
-	@Test(priority = 6)
+	@Test(priority = 5)
 	public void dragAndDropStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));

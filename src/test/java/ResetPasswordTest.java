@@ -31,7 +31,6 @@ public class ResetPasswordTest {
 	@Test (priority = 1)
 	public void resetPasswordAnExistingUser() {
 		new MainPage()
-				.clickOnAccept()
 				.clickOnLoginButton();
 		new LoginPage().clickOnFogotPasswordLink();
 		new PasswordResetForm()
@@ -42,7 +41,8 @@ public class ResetPasswordTest {
 	@Step ("Reset password is an invalid user")
 	@Test (priority = 2)
 	public void resetPasswordAnInvalidUser() {
-		new MainPage().clickOnLoginButton();
+		new MainPage()
+				.clickOnLoginButton();
 		new LoginPage().clickOnFogotPasswordLink();
 		new PasswordResetForm()
 				.checkUnAvailabilityButtonSendMessage();

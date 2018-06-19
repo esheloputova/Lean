@@ -5,13 +5,16 @@
     <test name="TestWithChrome">
         <parameter name="browser" value="chrome"/>
         <parameter name="url" value="http://new.leanbusinessplanner.com/"/>
+
         <classes>
-            <!--<class name="ResetPasswordTest"/>-->
-            <!--<class name="AuthorizationTest"/>-->
+
+            <class name="ResetPasswordTest"/>
+            <class name="AuthorizationTest"/>
 
             <!--<class name="CreateUserTest"/>-->
             <!--<class name="EditCasesTest"/>-->
 
+            <class name="PrepareDataTest"/>
             <class name="BusinessIdeaTest"/>
             <class name="BusinessModelTest"/>
 
@@ -23,6 +26,8 @@
             <class name="TasksTest"/>
             <class name="TestPageBusinessIdeaTest"/>
             <class name="TestsPageTests"/>
+            <class name="EditCasesTest"/>
+
         </classes>
     </test>
 

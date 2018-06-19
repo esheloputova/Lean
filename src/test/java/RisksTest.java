@@ -25,12 +25,11 @@ public class RisksTest {
     @Step("Create stickies in Risks")
     @Test(priority = -3)
     public void createStickiesRisks() {
-        new MainPage()
-                .clickOnAccept()
-                .clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage()
+//                .clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
@@ -39,7 +38,7 @@ public class RisksTest {
 
     @Title("Risks")
     @Step("Edit stickies in Risks")
-    @Test(priority = -2)
+    @Test(priority = -1)
     public void editStickiesRisks() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -56,7 +55,7 @@ public class RisksTest {
 
     @Title("Risks")
     @Step("Drag-and-drop stickies in Risks")
-    @Test(priority = -1)
+    @Test(priority = -2)
     public void dragANDdropStickiesRisks() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));

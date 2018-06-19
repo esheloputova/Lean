@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
@@ -54,6 +55,16 @@ public class PrepareDataTest {
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
 				.createBI();
+	}
+
+	@AfterSuite
+	public void tearDown() {
+//        logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
 
 }

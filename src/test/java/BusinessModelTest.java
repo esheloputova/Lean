@@ -25,12 +25,11 @@ public class BusinessModelTest {
 	@Step ("Create business model")
 	@Test (priority =1)
 	public void createNewBusinessModelTest() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()

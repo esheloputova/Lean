@@ -24,11 +24,11 @@ public class BusinessIdeaTest {
 	@Step ("Create stickies in BI")
 	@Test (priority = 1)
 	public void createStickiesBusinessIdeaTest() {
-		new MainPage()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
@@ -38,24 +38,18 @@ public class BusinessIdeaTest {
 	@Step ("Create New first Business idea")
 	@Test (priority = 2)
 	public void createNewBusinessIdeaTest() {
-        new MainPage().clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
 				.createBI();
 	}
 
-	@Step ("Create Second Business idea")
-	@Test (priority = 3)
-	public void createSecondBusinessIdeaTest() {
-		createNewBusinessIdeaTest();
-	}
-
 	@Step ("Edit Business ideas")
-	@Test (priority = -10)
+	@Test (priority = 3)
 	public void editBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -70,7 +64,7 @@ public class BusinessIdeaTest {
 
 
 	@Step ("Delete stickies of Business ideas")
-	@Test (priority = -5)
+	@Test (priority = 5)
 	public void deleteStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -85,7 +79,7 @@ public class BusinessIdeaTest {
 	}
 
 	@Step ("Drag-and-drop stickies of Business ideas")
-	@Test (priority = -6)
+	@Test (priority = 4)
 	public void dragAndDropStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -97,9 +91,8 @@ public class BusinessIdeaTest {
 				.gragAndDrop();
 	}
 
-	@Ignore
 	@Step ("Go to Business Model from Business ideas by link")
-	@Test (priority = 2)
+	@Test (priority = 6)
 	public void goBMFromBIByLink() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -111,9 +104,8 @@ public class BusinessIdeaTest {
 				.goToBM();
 	}
 
-	@Ignore
 	@Step ("Go to Tests from Business ideas by link")
-	@Test (priority = 3)
+	@Test (priority = 7)
 	public void goTestsFromBIByLink() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));

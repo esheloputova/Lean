@@ -20,48 +20,47 @@ public class EditCasesTest {
 
 	}
 
-	@Step ("Creating new case")
-	@Test (priority = 1)
-	public void createNewCase() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.clickOnCasesText()
-				.clickNewCaseButton();
-		new CreateNewCaseForm()
-				.creatingNewCase()
-				.createNewUserNewCase();
-	}
-
-	@Step ("Copy case")
-	@Test (priority = 2)
-	public void copyCase() {
+//	@Step ("Creating new case")
+//	@Test (priority = 1)
+//	public void createNewCase() {
 //		new MainPage()
 //				.clickOnAccept()
 //				.clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.clickOnCasesText()
-				.clickNewCaseButton();
-		new CreateNewCaseForm()
-				.copyCase();
-	}
+//		new MainBoardPage()
+//				.clickOnCasesText()
+//				.clickNewCaseButton();
+//		new CreateNewCaseForm()
+//				.creatingNewCase()
+//				.createNewUserNewCase();
+//	}
+//
+//	@Step ("Copy case")
+//	@Test (priority = 2)
+//	public void copyCase() {
+////		new MainPage()
+////				.clickOnAccept()
+////				.clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//		new MainBoardPage()
+//				.clickOnCasesText()
+//				.clickNewCaseButton();
+//		new CreateNewCaseForm()
+//				.copyCase();
+//	}
 
 	@Step ("Delete case")
 	@Test (priority = 3)
 	public void deleteCase() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.clickCaseSettingsButton()

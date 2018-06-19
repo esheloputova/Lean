@@ -24,10 +24,10 @@ public class TestsPageTests {
 	@Step ("Go to Business Model from Business ideas by link")
 	@Test
 	public void goTestsFromBIByLink() {
-		new MainPage().clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage().clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()

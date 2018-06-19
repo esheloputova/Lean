@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -28,12 +29,11 @@ public class ProfileActionsTest {
 	@Step ("Edit First Name")
 	@Test(priority = 1)
 	public void editFirstName() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-						.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//						.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.clickUserProfileButton()
@@ -71,6 +71,16 @@ public class ProfileActionsTest {
 				.changeLanguageOnEnglish();
 
 
+	}
+
+	@AfterSuite
+	public void tearDown() {
+//        logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
 
 

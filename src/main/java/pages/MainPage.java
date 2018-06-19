@@ -57,10 +57,12 @@ public class MainPage extends Page {
 	}
 
 	public LoginPage clickOnLoginButton() {
-		if (accept.isDisplayed()){
+		if (!Page.isNotElementExists("//a[@id='hs-eu-confirmation-button']")) {
 			accept.click();
+			loginButton.click();
+		} else {
+			loginButton.click();
 		}
-		loginButton.click();
 		return new LoginPage();
 
 	}
