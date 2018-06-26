@@ -22,7 +22,7 @@ public class ShareTest {
 
 	}
 
-	@Title ("Share")
+	@Title ("Old sharing")
 	@Step ("Invite viewer")
 	@Test (priority = 1)
 	public void inviteUserAsViewer() {
@@ -68,6 +68,8 @@ public class ShareTest {
 				.deleteInvite()
 				.backInvite();
 	}
+
+	@Title ("New sharing")
 
 	@AfterSuite
 	public void tearDown() {

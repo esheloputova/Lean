@@ -24,7 +24,7 @@ public class TestPageBusinessIdeaTest {
 
 	@Step ("Go to Business Model from Business ideas by link")
 	@Test
-	public void createTestForBusinessAdea() {
+	public void createTestForBusinessIdea() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()

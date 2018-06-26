@@ -8,77 +8,87 @@ import java.util.List;
 
 public class SharingPage extends Page {
 
-    @FindBy(xpath = "//input[@type='email']")
-    WebElement email;
+//    Beginning. Old sharing
 
-    @FindBys(@FindBy(xpath = "//lb-select[contains(@list, 'accessRolesWithoutOwner')]//option"))
-    List<WebElement> listAccessLevel;
+	@FindBy (xpath = "//input[@type='email']")
+	WebElement email;
 
-    @FindBys(@FindBy(xpath = "//lb-select[contains(@list, '$ctrl.personalRoles')]//option"))
-    List<WebElement> listRoleInCompany;
+	@FindBys (@FindBy (xpath = "//lb-select[contains(@list, 'accessRolesWithoutOwner')]//option"))
+	List<WebElement> listAccessLevel;
 
-    @FindBy(xpath = "//lb-select[contains(@list, 'accessRolesWithoutOwner')]//option[1]")
-    WebElement superDoer;
+	@FindBys (@FindBy (xpath = "//lb-select[contains(@list, '$ctrl.personalRoles')]//option"))
+	List<WebElement> listRoleInCompany;
 
-    @FindBy(xpath = "//lb-select[contains(@list, 'accessRolesWithoutOwner')]//option[2]")
-    WebElement viewer;
+	@FindBy (xpath = "//lb-select[contains(@list, 'accessRolesWithoutOwner')]//option[1]")
+	WebElement superDoer;
 
-    @FindBy(xpath = "//button[contains(@class, 'invite-btn')]")
-    WebElement inviteButton;
+	@FindBy (xpath = "//lb-select[contains(@list, 'accessRolesWithoutOwner')]//option[2]")
+	WebElement viewer;
 
-    @FindBy(xpath = "(//span[contains(@ng-click, 'onClickSend')])[2]")
-    WebElement sendLink;
+	@FindBy (xpath = "//button[contains(@class, 'invite-btn')]")
+	WebElement inviteButtonOld;
 
-    @FindBy(xpath = "//span[contains(@class, 'text-button')]")
-    WebElement backLink;
+	@FindBy (xpath = "(//span[contains(@ng-click, 'onClickSend')])[2]")
+	WebElement sendLink;
 
-    @FindBy(xpath = "(//img[@class='trash-icon'])[2]")
-    WebElement trash;
+	@FindBy (xpath = "//span[contains(@class, 'text-button')]")
+	WebElement backLink;
 
-    @FindBy(xpath = "//div[contains(@ng-class, 'btnPending')]")
-    WebElement ok;
+	@FindBy (xpath = "(//img[@class='trash-icon'])[2]")
+	WebElement trash;
 
-    @FindBy(xpath = "//div[contains(@ng-class, 'btnPending')]")
-    WebElement cancel;
+	@FindBy (xpath = "//div[contains(@ng-class, 'btnPending')]")
+	WebElement ok;
+
+	@FindBy (xpath = "//div[contains(@ng-class, 'btnPending')]")
+	WebElement cancel;
+//    End. Old sharing
+
+//	Beginning.  New sharing
+
+	@FindBy (xpath = "//button[contains(@class, 'mat-raised-button')]")
+	WebElement inviteButtonNew;
+
+//	End. New sharing
 
 
-    public SharingPage inviteUserAsViewer() {
-        email.click();
-        email.sendKeys("elena.sheloputova+1@yandex.ru");
-        viewer.click();
-        inviteButton.click();
+	public SharingPage inviteUserAsViewer() {
+		email.click();
+		email.sendKeys("elena.sheloputova+1@yandex.ru");
+		viewer.click();
+		inviteButtonOld.click();
 
-        return this;
-    }
+		return this;
+	}
 
-    public SharingPage inviteUserAsSuperDoer() {
-        email.click();
-        email.sendKeys("elena.sheloputova+2@yandex.ru");
-        superDoer.click();
-        inviteButton.click();
+	public SharingPage inviteUserAsSuperDoer() {
+		email.click();
+		email.sendKeys("elena.sheloputova+2@yandex.ru");
+		superDoer.click();
+		inviteButtonOld.click();
 
-        return this;
-    }
+		return this;
+	}
 
-    public SharingPage resendInvite() {
-        sendLink.click();
-        ok.click();
+	public SharingPage resendInvite() {
+		sendLink.click();
+		ok.click();
 
-        return this;
-    }
+		return this;
+	}
 
-    public SharingPage deleteInvite() {
-        trash.click();
-        ok.click();
+	public SharingPage deleteInvite() {
+		trash.click();
+		ok.click();
 
-        return this;
-    }
+		return this;
+	}
 
-    public MainBoardPage backInvite() {
-        backLink.click();
+	public MainBoardPage backInvite() {
+		backLink.click();
 
-        return new MainBoardPage();
-    }
+		return new MainBoardPage();
+	}
 
 
 }
