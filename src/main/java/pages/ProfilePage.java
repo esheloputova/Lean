@@ -1,13 +1,11 @@
 package pages;
 
-import junit.framework.Assert;
-import org.apache.xpath.operations.Equals;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.AssertJUnit;
 
 public class ProfilePage extends Page {
 
@@ -89,7 +87,7 @@ public class ProfilePage extends Page {
 	public MainBoardPage checkNameChange() {
 		String textPfofileDataChange = "Change the first name Sheloputova";
 		String getChangedFullName = profileData.getText();
-		Assert.assertTrue("Текст не изменился", getChangedFullName.equals(textPfofileDataChange));
+		AssertJUnit.assertTrue("Текст не изменился", getChangedFullName.equals(textPfofileDataChange));
 		return new MainBoardPage();
 	}
 
@@ -119,7 +117,7 @@ public class ProfilePage extends Page {
 //				.until(ExpectedConditions.stalenessOf(resource));
 		String getTextResource = resource.getText();
 		System.out.println(getTextResource);
-		Assert.assertTrue("Success", resourceTranslateEng.equals(getTextResource));
+		AssertJUnit.assertTrue("Success", resourceTranslateEng.equals(getTextResource));
 
 		return this;
 
@@ -136,7 +134,7 @@ public class ProfilePage extends Page {
 		String getTextResource = resource.getText();
 		System.out.println(getTextResource);
 
-		Assert.assertTrue("Success", resourceTranslateNor.equals(getTextResource));
+		AssertJUnit.assertTrue("Success", resourceTranslateNor.equals(getTextResource));
 
 		return this;
 

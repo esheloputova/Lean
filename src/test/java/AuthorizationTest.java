@@ -15,7 +15,7 @@ public class AuthorizationTest {
 	@BeforeMethod
 	public void setUp() {
 		logger.info("Test STARTED");
-		Page.getDriver();
+//		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 	}
 

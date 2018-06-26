@@ -77,7 +77,7 @@ public class MainBoardPage extends Page {
 
 
     public MainBoardPage clickOnAvatarPhoto() {
-        new WebDriverWait(getDriver(), 3).until(ExpectedConditions.visibilityOf(avatarPhoto));
+        new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(avatarPhoto));
         avatarPhoto.click();
 
         return this;

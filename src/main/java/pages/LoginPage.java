@@ -1,11 +1,9 @@
 package pages;
 
-import junit.framework.Assert;
 import models.User;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class LoginPage extends Page {
 
@@ -63,7 +61,7 @@ public class LoginPage extends Page {
     loginFormErrorAboutIncorrectNameOrPassword.click();
     String textError1 = loginFormErrorAboutIncorrectNameOrPassword.getText();
 
-    Assert.assertTrue("No error", textError1.equals(textIncorrectNameOrPassword));
+    Assert.assertTrue( textError1.equals(textIncorrectNameOrPassword));
     return this;
   }
 
@@ -79,7 +77,7 @@ public class LoginPage extends Page {
     loginFormLoginButton.submit();
 
     String textErrorEmail = loginFormErrorAboutInvalidEmail.getText();
-    Assert.assertTrue("No error", textErrorEmail.equals(textInvalidEmail));
+    Assert.assertTrue( textErrorEmail.equals(textInvalidEmail));
     return this;
   }
 
@@ -93,8 +91,8 @@ public class LoginPage extends Page {
     String textErrorMissingEmail = loginFormErrorAboutMissingEmail.getText();
     String textErrorMissingPassword = loginFormErrorAboutMissingPassword.getText();
 
-    Assert.assertTrue("No error", textErrorMissingEmail.equals(textMissingEmail));
-    Assert.assertTrue("No error", textErrorMissingPassword.equals(textMissingPasssword));
+    Assert.assertTrue( textErrorMissingEmail.equals(textMissingEmail));
+    Assert.assertTrue(textErrorMissingPassword.equals(textMissingPasssword));
     return this;
   }
 

@@ -1,9 +1,9 @@
 package pages;
 
 import configuration.ConfigProperties;
-import junit.framework.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class PasswordResetForm extends Page {
 
@@ -31,7 +31,7 @@ public class PasswordResetForm extends Page {
     passwordResetFormEmail.sendKeys(ConfigProperties.getTestProperty("anExistingLogin"));
     passwordResetFormSendMessageButton.submit();
     String textHelpPasswordSucced = passwordResetHelpText.getText();
-    Assert.assertTrue("No text", textHelpPasswordSucced.equals(textHelpPasswordResset));
+    Assert.assertTrue(textHelpPasswordSucced.equals(textHelpPasswordResset));
     passwordResetCloseButton.submit();
     return new MainPage();
   }
@@ -39,7 +39,7 @@ public class PasswordResetForm extends Page {
   public MainPage checkUnAvailabilityButtonSendMessage() {
     passwordResetFormEmail.click();
     passwordResetFormEmail.sendKeys(ConfigProperties.getTestProperty("invalidEmail"));
-    Assert.assertFalse("Button is unavailable", passwordResetFormSendMessageButton.isEnabled());
+    Assert.assertFalse(passwordResetFormSendMessageButton.isEnabled());
     passwordResetCloseCross.click();
     return new MainPage();
   }

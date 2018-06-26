@@ -9,12 +9,12 @@
         <classes>
 
             <!--<class name="ResetPasswordTest"/>-->
-            <!--<class name="AuthorizationTest"/>-->
+            <class name="AuthorizationTest"/>
 
             <!--<class name="CreateUserTest"/>-->
             <!--<class name="EditCasesTest"/>-->
 
-            <class name="PrepareDataTest"/>
+            <!--<class name="PrepareDataTest"/>-->
             <!--<class name="BusinessIdeaTest"/>-->
             <!--<class name="BusinessModelTest"/>-->
 

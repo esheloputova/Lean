@@ -14,7 +14,7 @@
         <allure.version>2.3</allure.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <buildDirectory>target</buildDirectory>
+        <!--<buildDirectory>target</buildDirectory>-->
     </properties>
 
 
@@ -55,11 +55,11 @@
             <scope>runtime</scope>
         </dependency>
 
-        <dependency>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-maven-plugin</artifactId>
-            <version>2.6</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ru.yandex.qatools.allure</groupId>-->
+            <!--<artifactId>allure-maven-plugin</artifactId>-->
+            <!--<version>2.6</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
@@ -104,7 +104,7 @@
     </dependencies>
 
     <build>
-        <directory>${buildDirectory}</directory>
+        <!--<directory>${buildDirectory}</directory>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -166,13 +166,12 @@
             </plugin>
 
             <plugin>
-                <groupId>ru.yandex.qatools.allure</groupId>
-                <artifactId>allure-maven-plugin</artifactId>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.9</version>
                 <configuration>
-                    <!--<reportDirectory>allure-results</reportDirectory>-->
                     <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
                 </configuration>
-                <version>2.6</version>
             </plugin>
 
             <!--<reporting>-->

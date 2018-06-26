@@ -59,8 +59,10 @@ public class MainPage extends Page {
 	public LoginPage clickOnLoginButton() {
 		if (!Page.isNotElementExists("//a[@id='hs-eu-confirmation-button']")) {
 			accept.click();
+			new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(loginButton));
 			loginButton.click();
 		} else {
+			new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(loginButton));
 			loginButton.click();
 		}
 		return new LoginPage();
