@@ -14,7 +14,8 @@ public class EditCasesTest {
 
 	@BeforeMethod
 	public void setUp() {
-		logger.info("Test STARTED");
+//		logger.info("Test STARTED");
+
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 

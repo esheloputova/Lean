@@ -14,6 +14,5 @@ public interface TestGroups {
 	String GAPS = "gaps";
 
 	String TESTS = "tests_page";
-	String PAYMENTREQ = "paymentreq";
 
 }
