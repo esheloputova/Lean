@@ -28,31 +28,31 @@ public class AuthorizationTest {
 				.authorizationAnExistingUser(user1);
 	}
 
-	@Step ("Authorization is not an existing user")
-	@Test (priority = 3)
-	public void authorizationNotAnExistingUser() {
-		new MainPage().clickOnLoginButton();
-		User user2 = new User(ConfigProperties.getTestProperty("notAnExistingLogin"), ConfigProperties.getTestProperty("inCorrectPassword"));
-		new LoginPage()
-				.authorizationNotAnExistingUser(user2);
-	}
-
-	@Step ("Invalid email")
-	@Test (priority = 2)
-	public void invalidEmail() {
-		new MainPage().clickOnLoginButton();
-		User user3 = new User(ConfigProperties.getTestProperty("invalidEmail"), ConfigProperties.getTestProperty("invalidPassword"));
-		new LoginPage()
-				.invalidEmail(user3);
-	}
-
-	@Step ("Missing email and password")
-	@Test (priority = 1)
-	public void missingEmailAndPasssword() {
-		new MainPage()
-				.clickOnLoginButton();
-		new LoginPage().missingEmailAndPassword();
-	}
+//	@Step ("Authorization is not an existing user")
+//	@Test (priority = 3)
+//	public void authorizationNotAnExistingUser() {
+//		new MainPage().clickOnLoginButton();
+//		User user2 = new User(ConfigProperties.getTestProperty("notAnExistingLogin"), ConfigProperties.getTestProperty("inCorrectPassword"));
+//		new LoginPage()
+//				.authorizationNotAnExistingUser(user2);
+//	}
+//
+//	@Step ("Invalid email")
+//	@Test (priority = 2)
+//	public void invalidEmail() {
+//		new MainPage().clickOnLoginButton();
+//		User user3 = new User(ConfigProperties.getTestProperty("invalidEmail"), ConfigProperties.getTestProperty("invalidPassword"));
+//		new LoginPage()
+//				.invalidEmail(user3);
+//	}
+//
+//	@Step ("Missing email and password")
+//	@Test (priority = 1)
+//	public void missingEmailAndPasssword() {
+//		new MainPage()
+//				.clickOnLoginButton();
+//		new LoginPage().missingEmailAndPassword();
+//	}
 
 	@AfterSuite
 	public void tearDown() {
