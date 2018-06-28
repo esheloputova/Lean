@@ -11,7 +11,7 @@
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
         <!--<allure.version>{latest-allure-version}</allure.version>-->
-        <allure.version>2.3</allure.version>
+        <allure-testng.version>2.6.0</allure-testng.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--<buildDirectory>target</buildDirectory>-->
@@ -65,6 +65,12 @@
             <groupId>ru.yandex.qatools.allure</groupId>
             <artifactId>allure-testng-adaptor</artifactId>
             <version>1.5.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.6.0</version>
         </dependency>
 
 
@@ -172,6 +178,9 @@
                 <configuration>
                     <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
                 </configuration>
+                <!--<configuration>-->
+                    <!--<reportVersion>2.6.0</reportVersion>>-->
+                <!--</configuration>-->
             </plugin>
 
             <!--<reporting>-->
