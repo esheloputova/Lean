@@ -1,6 +1,7 @@
 .idea/compiler.xml
 target/
 .idea/
+.allure/
 *.iml
 src/test/resources/report/
 report/

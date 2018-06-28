@@ -4,6 +4,7 @@ import org.apache.xpath.operations.String;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -44,9 +45,17 @@ public abstract class Page {
 //			}
 //			driver = new RemoteWebDriver(hostURL, caps);
 
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("start-maximized"); // open Browser in maximized mode
+            options.addArguments("disable-infobars"); // disabling infobars
+            options.addArguments("--disable-extensions"); // disabling extensions
+            options.addArguments("--disable-gpu"); // applicable to windows os only
+            options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+            options.addArguments("--no-sandbox"); // Bypass OS security model
 
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver");
-			driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver_linux64/chromedriver");
+			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}
