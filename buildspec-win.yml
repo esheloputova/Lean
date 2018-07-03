@@ -17,3 +17,7 @@ artifacts:
   files:
     - target/site/allure-maven-plugin/**/*
     - appspec.yml
+cache:
+  paths:
+    - 'C:/Program Files'
+    - 'C:/Program Files (x86)'
