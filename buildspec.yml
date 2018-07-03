@@ -21,4 +21,4 @@ phases:
 artifacts:
   files:
     - target/site/allure-maven-plugin/**/*
-    - appspec.yml 
+    - appspec.yml
