@@ -20,4 +20,4 @@ artifacts:
 cache:
   paths:
     - 'C:/Users/ContainerAdministrator/AppData/Local/Temp/chocolatey/**/*'
-    - 'C:/Users/ContainerAdministrator/.m2
+    - 'C:/Users/ContainerAdministrator/.m2/**/*'
