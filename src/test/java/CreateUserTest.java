@@ -1,4 +1,5 @@
 import configuration.ConfigProperties;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -6,7 +7,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class CreateUserTest {
 
 	@BeforeMethod
-	public void setUp() {
+	public void setUp(ITestContext context) {
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 	}

@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -18,7 +19,7 @@ public class GapsTests {
 
 	@Title ("Authorization")
 	@BeforeMethod
-	public void setUp() {
+	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));

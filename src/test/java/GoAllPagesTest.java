@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
@@ -12,7 +13,7 @@ public class GoAllPagesTest {
 
     @Title("Go to All Pages")
     @BeforeMethod
-    public void setUp() {
+    public void setUp(ITestContext context) {
         logger.info("Test STARTED");
         Page.getDriver();
         Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));

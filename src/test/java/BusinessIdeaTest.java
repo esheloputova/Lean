@@ -1,5 +1,6 @@
 import configuration.ConfigProperties;
 import models.User;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
@@ -9,15 +10,18 @@ import ru.yandex.qatools.allure.annotations.Title;
 /**
  * @author Elena_Sheloputova
  */
+
+@Listeners(MyTestListener.class)
 public class BusinessIdeaTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
 	@BeforeMethod
-	public void setUp() {
+	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		context.setAttribute("app", BusinessIdeaPage.class);
 
 	}
 

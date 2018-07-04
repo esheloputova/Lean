@@ -1,6 +1,8 @@
 package pages;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -366,5 +368,8 @@ public class BusinessIdeaPage extends Page {
 		return new BusinessIdeaPage();
 		}
 
+	public static byte[] takeScreenshot(){
+		return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+	}
 
 }
