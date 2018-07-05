@@ -1,5 +1,0 @@
-version: 0.0
-os: windows
-files:
-  - source: target/site/allure-maven-plugin
-    destination: C:\inetpub\com.nrg-soft.newlean.tests\deploy
