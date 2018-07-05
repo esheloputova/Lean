@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+      - echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
+      - apt-add-repository -y ppa:qameta/allure
+      - apt-get update -y
+      - apt-get install -y allure
+      - apt-get install -y google-chrome-beta
+  build:
+    commands:
+      - echo Build started on `date`
+      - chmod +x src/test/resources/webDriver/chromedriver_linux64/chromedriver
+      - mvn test
+      - mvn allure:report
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/site/allure-maven-plugin/**/*
+    - appspec.yml
