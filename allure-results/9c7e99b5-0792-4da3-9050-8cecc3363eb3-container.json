@@ -1,0 +1,1 @@
+{"uuid":"9c7e99b5-0792-4da3-9050-8cecc3363eb3","name":"AuthorizationTest.setUp","description":"","start":1530187369793,"stop":1530187378950,"children":["edbb296c-5bfc-4b65-adf6-de7af2dbc8f9"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","start":1530187369794,"stop":1530187378949}]}
