@@ -10,6 +10,8 @@ import ru.yandex.qatools.allure.annotations.Title;
 /**
  * @author Elena_Sheloputova
  */
+
+@Listeners(MyTestListener.class)
 public class BusinessModelTest {
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
@@ -19,18 +21,18 @@ public class BusinessModelTest {
 		logger.info("Test STARTED");
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
-
+		context.setAttribute("app",BusinessModelPage.class);
 	}
 
 	@Title ("Business model")
 	@Step ("Create business model")
 	@Test (priority =1)
 	public void createNewBusinessModelTest() {
-//		new MainPage()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessModel();
 		new BusinessModelPage()

@@ -4,12 +4,14 @@ import org.testng.annotations.*;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
 
+@Listeners(MyTestListener.class)
 public class CreateUserTest {
 
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		context.setAttribute("app", CreateUserPage.class);
 	}
 
 	@Step ("Create new user. I am developing an existing company")

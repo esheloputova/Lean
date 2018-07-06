@@ -3,6 +3,7 @@ import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import pages.*;
@@ -12,6 +13,8 @@ import ru.yandex.qatools.allure.annotations.Title;
 /**
  * @author Elena_Sheloputova
  */
+
+@Listeners(MyTestListener.class)
 public class ResourcesTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
@@ -22,6 +25,7 @@ public class ResourcesTest {
 		logger.info("Test STARTED");
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		context.setAttribute("app",ResourcesPage.class);
 
 	}
 

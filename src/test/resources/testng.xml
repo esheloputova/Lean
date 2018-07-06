@@ -15,10 +15,10 @@
             <!--<class name="EditCasesTest"/>-->
 
             <!--<class name="PrepareDataTest"/>-->
-            <!--<class name="BusinessIdeaTest"/>-->
-            <!--<class name="BusinessModelTest"/>-->
+            <class name="BusinessIdeaTest"/>
+            <class name="BusinessModelTest"/>
 
-            <!--<class name="ProfileActionsTest"/>-->
+            <class name="ProfileActionsTest"/>
             <!--<class name="GapsTests"/>-->
             <!--<class name="ObjectivesTest"/>-->
 

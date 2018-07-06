@@ -9,6 +9,8 @@ import ru.yandex.qatools.allure.annotations.Step;
 /**
  * @author Elena_Sheloputova
  */
+
+@Listeners(MyTestListener.class)
 public class EditCasesTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
@@ -19,6 +21,7 @@ public class EditCasesTest {
 
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		context.setAttribute("app",ProfilePage.class);
 
 	}
 

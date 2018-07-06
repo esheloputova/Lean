@@ -1,15 +1,13 @@
 import configuration.ConfigProperties;
 import models.User;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
+@Listeners(MyTestListener.class)
 public class RisksTest {
     final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
@@ -19,6 +17,7 @@ public class RisksTest {
         logger.info("Test STARTED");
         Page.getDriver();
         Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+        context.setAttribute("app",RisksPage.class);
 
     }
 

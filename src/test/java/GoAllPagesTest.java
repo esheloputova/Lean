@@ -7,6 +7,7 @@ import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
+@Listeners(MyTestListener.class)
 public class GoAllPagesTest {
 
     final static Logger logger = Logger.getLogger(AuthorizationTest.class);
@@ -17,6 +18,7 @@ public class GoAllPagesTest {
         logger.info("Test STARTED");
         Page.getDriver();
         Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+        context.setAttribute("app",MainBoardPage.class);
 
     }
 

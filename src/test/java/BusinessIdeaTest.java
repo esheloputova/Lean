@@ -28,11 +28,11 @@ public class BusinessIdeaTest {
 	@Step ("Create stickies in BI")
 	@Test (priority = 1)
 	public void createStickiesBusinessIdeaTest() {
-//		new MainPage()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
