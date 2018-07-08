@@ -48,14 +48,14 @@ public class TestPageBusinessIdeaTest {
 
 	}
 
-	@AfterSuite
-	public void tearDown() {
-		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
-	}
+//	@AfterSuite
+//	public void tearDown() {
+//		logger.info("Test   ENDED");
+////        Page.getDriver().quit();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
+//	}
 }
 

@@ -12,11 +12,10 @@ public class ObjectivesTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
-		Page.getDriver();
+
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 		context.setAttribute("app",ObjectivesPage.class);
 	}
@@ -117,13 +116,14 @@ public class ObjectivesTest {
 		new ObjectivesPage()
 				.dragANDdrap();
 	}
-	@AfterSuite
-	public void tearDown() {
-		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
-	}
+
+//	@AfterSuite
+//	public void tearDown() {
+//		logger.info("Test   ENDED");
+////        Page.getDriver().quit();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
+//	}
 }

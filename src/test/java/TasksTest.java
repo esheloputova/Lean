@@ -12,16 +12,14 @@ public class TasksTest {
 
 	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
-		Page.getDriver();
+
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 		context.setAttribute("app",TasksPage.class);
 	}
 
-	@Title("Objectives")
 	@Step ("Create task all of Cost group")
 	@Test(priority = 1)
 	public void createTask() {
@@ -42,7 +40,6 @@ public class TasksTest {
 	}
 
 
-	@Title ("Tasks")
 	@Step ("Edit. Deactivate stickies Tasks")
 	@Test(priority = 2)
 	public void editDeactivateStickiesObjectives() {
@@ -57,7 +54,6 @@ public class TasksTest {
 
 	}
 
-	@Ignore
 	@Step ("Edit. Activate stickies Tasks")
 	@Test(priority = 3)
 	public void editActivateStickiesTasks() {
@@ -112,13 +108,13 @@ public class TasksTest {
 				.dragANDdrapFromToDOToDoing()
 				.dragANDdrapFromMonthlyToDone();
 	}
-	@AfterSuite
-	public void tearDown() {
-		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
-	}
+//	@AfterSuite
+//	public void tearDown() {
+//		logger.info("Test   ENDED");
+////        Page.getDriver().quit();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
+//	}
 }

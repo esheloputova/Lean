@@ -11,17 +11,16 @@ import ru.yandex.qatools.allure.annotations.Title;
 public class RisksTest {
     final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-    @Title("Authorization")
+
     @BeforeMethod
     public void setUp(ITestContext context) {
         logger.info("Test STARTED");
-        Page.getDriver();
+
         Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
         context.setAttribute("app",RisksPage.class);
 
     }
 
-    @Title("Risks")
     @Step("Create stickies in Risks")
     @Test(priority = -3)
     public void createStickiesRisks() {
@@ -36,7 +35,6 @@ public class RisksTest {
                 .createRisksStickies();
     }
 
-    @Title("Risks")
     @Step("Edit stickies in Risks")
     @Test(priority = -1)
     public void editStickiesRisks() {
@@ -95,13 +93,13 @@ public class RisksTest {
                 .goTasks();
     }
 
-    @AfterSuite
-    public void tearDown() {
-        logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-        new MainBoardPage()
-                .clickOnAvatarPhoto();
-        new ProfilePage()
-                .clickSignOut();
-    }
+//    @AfterSuite
+//    public void tearDown() {
+//        logger.info("Test   ENDED");
+////        Page.getDriver().quit();
+//        new MainBoardPage()
+//                .clickOnAvatarPhoto();
+//        new ProfilePage()
+//                .clickSignOut();
+//    }
 }

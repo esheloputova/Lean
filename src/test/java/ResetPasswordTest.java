@@ -32,6 +32,7 @@ public class ResetPasswordTest {
 	@Test (priority = 1)
 	public void resetPasswordAnExistingUser() {
 		new MainPage()
+//				.clickOnAccept()
 				.clickOnLoginButton();
 		new LoginPage().clickOnFogotPasswordLink();
 		new PasswordResetForm()
@@ -43,6 +44,7 @@ public class ResetPasswordTest {
 	@Test (priority = 2)
 	public void resetPasswordAnInvalidUser() {
 		new MainPage()
+//				.clickOnAccept()
 				.clickOnLoginButton();
 		new LoginPage().clickOnFogotPasswordLink();
 		new PasswordResetForm()
