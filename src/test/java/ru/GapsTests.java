@@ -1,6 +1,7 @@
 package ru;
 
 import configuration.ConfigProperties;
+import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
@@ -27,24 +28,22 @@ public class GapsTests {
 
 	}
 
-	@Title ("Gaps")
 	@Step ("Create stickies Gaps")
-	@Test (priority = -3)
+	@Test (groups = {"positive"}, enabled=true)
 	public void createNewGaps() {
-//		new MainPage()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goGapsfromToolBar();
 		new GapsPage()
 				.createStickies();
 	}
 
-	@Title ("Gaps")
 	@Step ("Create Competitor and Sticky for Competitor in Gaps")
-	@Test (priority = -2)
+	@Test (groups = {"positive"}, dependsOnMethods = {"createNewGaps"}, enabled=true)
 	public void createCompetitorGaps() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -57,38 +56,27 @@ public class GapsTests {
 				.createStickiesCompetitor();
 	}
 
-	@Title ("Gaps")
-	@Step ("Edit stickies in Gaps. Deactivate")
-	@Test (priority = -1)
-	public void editDeactivateStickiesGaps() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goGapsfromToolBar();
-		new GapsPage()
-				.editDeactivateAllStikies();
-	}
+//	сделать деактивацию и активацию только первой стики
+//	@Step ("Edit stickies in Gaps. Deactivate")
+//	@Test (groups = {"positive"}, dependsOnMethods = {"createCompetitorGaps"}, enabled=true)
+//	public void editDeactivateStickiesGaps() {
+//		new MainBoardPage()
+//				.goGapsfromToolBar();
+//		new GapsPage()
+//				.editDeactivateAllStikies();
+//	}
+//
+//	@Step ("Edit stickies in Gaps. Activate")
+//	@Test (groups = {"positive"}, dependsOnMethods = {"editDeactivateStickiesGaps"}, enabled=true)
+//	public void editActivateStickiesGaps() {
+//		new MainBoardPage()
+//				.goGapsfromToolBar();
+//		new GapsPage()
+//				.editActivateAllStikies();
+//	}
 
-	@Title ("Gaps")
-	@Step ("Edit stickies in Gaps. Activate")
-	@Test (priority = 1)
-	public void editActivateStickiesGaps() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goGapsfromToolBar();
-		new GapsPage()
-				.editActivateAllStikies();
-
-	}
-
-	@Title ("Gaps")
 	@Step ("Edit stickies in Gaps. Edit")
-	@Test (priority = 2)
+	@Test (groups = {"positive"}, dependsOnMethods = {"createCompetitorGaps"}, enabled=true)
 	public void editEditStickiesGaps() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -100,9 +88,8 @@ public class GapsTests {
 				.editFirstStickyGap();
 	}
 
-	@Title ("Gaps")
 	@Step ("Edit stickies in Gaps. Delete")
-	@Test (priority = 3)
+	@Test (groups = {"positive"}, dependsOnMethods = {"editEditStickiesGaps"}, enabled=true)
 	public void editDeleteStickiesGaps() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -114,9 +101,8 @@ public class GapsTests {
 				.editDeleteFirstStickyGap();
 	}
 
-	@Title ("Gaps")
 	@Step ("Edit stickies in Competitor")
-	@Test (priority = 4)
+	@Test (groups = {"positive"}, dependsOnMethods = {"editDeleteStickiesGaps"}, enabled=true)
 	public void deleteCompetitorGaps() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -130,13 +116,13 @@ public class GapsTests {
 				.editCompetitorDelete();
 	}
 
-//	@AfterSuite
-//	public void tearDown() {
-//		logger.info("Test   ENDED");
-////        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 }

@@ -29,9 +29,8 @@ public class ResetPasswordTest {
 
 	}
 
-	@Title ("Possitive scenario")
 	@Step ("Reset password is an existing user")
-	@Test (priority = 1)
+	@Test (groups = {"positive"}, enabled = true)
 	public void resetPasswordAnExistingUser() {
 		new MainPage()
 //				.clickOnAccept()
@@ -41,9 +40,8 @@ public class ResetPasswordTest {
 				.ExistingUser();
 	}
 
-	@Title ("Negative scenario")
 	@Step ("Reset password is an invalid user")
-	@Test (priority = 2)
+	@Test (groups = {"negative"}, enabled = true)
 	public void resetPasswordAnInvalidUser() {
 		new MainPage()
 //				.clickOnAccept()

@@ -1,9 +1,10 @@
 package ru;
 
 import configuration.ConfigProperties;
+import models.User;
+import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
 import pages.*;
 import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -15,11 +16,11 @@ import ru.yandex.qatools.allure.annotations.Step;
 @Listeners(MyTestListener.class)
 public class EditCasesTest {
 
-	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(EditCasesTest.class);
 
 	@BeforeMethod
 	public void setUp(ITestContext context) {
-//		logger.info("Test STARTED");
+		logger.info("Test STARTED");
 
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 		context.setAttribute("app",ProfilePage.class);
@@ -62,11 +63,11 @@ public class EditCasesTest {
 	@Step ("Delete case")
 	@Test (groups = {"positive"}, enabled=true)
 	public void deleteCase() {
-//		new MainPage()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.clickCaseSettingsButton()
@@ -74,14 +75,14 @@ public class EditCasesTest {
 	}
 
 
-	@AfterSuite
+	@AfterClass
 	public void tearDown() {
 		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+        Page.getDriver().quit();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
 	}
 
 }

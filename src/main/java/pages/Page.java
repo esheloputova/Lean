@@ -1,5 +1,6 @@
 package pages;
 
+import configuration.ConfigProperties;
 import org.apache.xpath.operations.String;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -53,7 +54,7 @@ public abstract class Page {
             options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
             options.addArguments("--no-sandbox"); // Bypass OS security model
 
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", ConfigProperties.getTestProperty("chromeMac"));
 			//System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver_linux64/chromedriver");
 			driver = new ChromeDriver(options);
 			options.addArguments("start-maximized");

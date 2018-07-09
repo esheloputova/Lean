@@ -1,6 +1,7 @@
 package ru;
 
 import configuration.ConfigProperties;
+import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
@@ -26,31 +27,28 @@ public class ProfileActionsTest {
 		context.setAttribute("app",ProfilePage.class);
 	}
 
-	@Ignore
-	@Step ("Edit First Name")
-	@Test(priority = 1)
-	public void editFirstName() {
-//		new MainPage()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//						.authorizationAnExistingUser(user1);
-		new MainBoardPage().clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickUserProfileButton()
-				.changeName();
-
-	}
+//	@Step ("Edit First Name")
+//	@Test(groups = {"positive"}, enabled = true)
+//	public void editFirstName() {
+////		new MainPage()
+////				.clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////						.authorizationAnExistingUser(user1);
+//		new MainBoardPage().clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickUserProfileButton()
+//				.changeName();
+//	}
 
 	@Step ("Change Language on Norsk")
-	@Test(priority = 2)
+	@Test(groups = {"positive"}, enabled = true)
 	public void changeLanguageOnNorsk() {
-//		new MainPage()
-//				.clickOnAccept()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.changeLanguageOnNorsk();
@@ -58,7 +56,7 @@ public class ProfileActionsTest {
 	}
 
 	@Step ("Change Language on English")
-	@Test(priority = 3)
+	@Test(groups = {"positive"}, dependsOnMethods = {"changeLanguageOnNorsk"}, enabled = true)
 	public void changeLanguageOnEnglish() {
 //		new MainPage()
 //				.clickOnAccept()
@@ -74,15 +72,15 @@ public class ProfileActionsTest {
 
 	}
 
-//	@AfterSuite
-//	public void tearDown() {
-////        logger.info("Test   ENDED");
-////        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+	@AfterClass
+	public void tearDown() {
+        logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 
 
 }

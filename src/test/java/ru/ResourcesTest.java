@@ -1,12 +1,10 @@
 package ru;
 
 import configuration.ConfigProperties;
+import models.User;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import org.apache.log4j.Logger;
-import org.testng.annotations.Test;
 import pages.*;
 import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -32,22 +30,21 @@ public class ResourcesTest {
 	}
 
 	@Step ("Create stickies Resources")
-	@Test (priority = -3)
+	@Test (groups = {"positive"}, enabled = true)
 	public void createNewResources() {
-//		new MainPage()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goResourcesfromToolBar();
 		new ResourcesPage()
 				.createAllStickiesByDefault();
 	}
 
-	@Title ("Resources")
 	@Step ("Create stickies Resources")
-	@Test (priority = -2)
+	@Test (groups = {"positive"}, dependsOnMethods = {"createNewResources"}, enabled = true)
 	public void editResources() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -62,7 +59,7 @@ public class ResourcesTest {
 				.editDelete();
 	}
 
-	@AfterSuite
+	@AfterClass
 	public void tearDown() {
 		logger.info("Test   ENDED");
 //        Page.getDriver().quit();

@@ -1,6 +1,9 @@
 package ru;
 
+import configuration.ConfigProperties;
+import models.User;
 import org.testng.ITestContext;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -16,23 +19,22 @@ public class TestPageBusinessIdeaTest {
 
 	final static Logger logger = Logger.getLogger(TestPageBusinessIdeaTest.class);
 
-	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
 		Page.getDriver();
-//        Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+        Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 		context.setAttribute("app",TestsPage.class);
 
 	}
 
 	@Step ("Go to Business Model from Business ideas by link")
-	@Test
+	@Test(groups = {"positive"}, enabled = true)
 	public void createTestForBusinessIdea() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goTestsfromToolBar();
 		new TestsPage()
@@ -48,14 +50,15 @@ public class TestPageBusinessIdeaTest {
 
 	}
 
-//	@AfterSuite
-//	public void tearDown() {
-//		logger.info("Test   ENDED");
-////        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
+
 }
 

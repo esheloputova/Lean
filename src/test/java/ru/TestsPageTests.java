@@ -1,8 +1,10 @@
 package ru;
 
 import configuration.ConfigProperties;
+import models.User;
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -25,12 +27,12 @@ public class TestsPageTests {
 	}
 
 	@Step ("Go to Business Model from Business ideas by link")
-	@Test
+	@Test(groups = {"positive"}, enabled = true)
 	public void goTestsFromBIByLink() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage().clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
@@ -41,13 +43,14 @@ public class TestsPageTests {
 
 	}
 
-//	@AfterSuite
-//	public void tearDown() {
-//		logger.info("Test   ENDED");
-////        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
+
 }

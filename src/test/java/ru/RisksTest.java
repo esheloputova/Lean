@@ -1,6 +1,7 @@
 package ru;
 
 import configuration.ConfigProperties;
+import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
@@ -24,21 +25,34 @@ public class RisksTest {
     }
 
     @Step("Create stickies in Risks")
-    @Test(priority = -3)
+    @Test(groups = {"positive"}, enabled = true)
     public void createStickiesRisks() {
-//        new MainPage()
-//                .clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+        new MainPage()
+                .clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()
                 .createRisksStickies();
     }
 
+    @Step("Drag-and-drop stickies in Risks")
+    @Test(groups = {"positive"}, dependsOnMethods = {"createStickiesRisks"}, enabled = true)
+    public void dragANDdropStickiesRisks() {
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .goRisksfromToolBar();
+        new RisksPage()
+                .dragANDdrap();
+    }
+
     @Step("Edit stickies in Risks")
-    @Test(priority = -1)
+    @Test(groups = {"positive"}, dependsOnMethods = {"dragANDdropStickiesRisks"}, enabled = true)
     public void editStickiesRisks() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -53,23 +67,8 @@ public class RisksTest {
                 .editDeleteAllStickies();
     }
 
-    @Title("Risks")
-    @Step("Drag-and-drop stickies in Risks")
-    @Test(priority = -2)
-    public void dragANDdropStickiesRisks() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goRisksfromToolBar();
-        new RisksPage()
-                .dragANDdrap();
-    }
-
-    @Title("Risks")
     @Step("Add risk from helper")
-    @Test(priority = 1)
+    @Test(groups = {"positive"}, dependsOnMethods = {"editStickiesRisks"}, enabled = true)
     public void addRiskFromHelper() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -81,9 +80,8 @@ public class RisksTest {
                 .addRiskFromHelper();
     }
 
-    @Title("Risks")
     @Step("Go to Task from Risks")
-    @Test(priority = 2)
+    @Test(groups = {"positive"}, dependsOnMethods = {"addRiskFromHelper"}, enabled = true)
     public void goTaskStickiesRisks() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -95,13 +93,13 @@ public class RisksTest {
                 .goTasks();
     }
 
-//    @AfterSuite
-//    public void tearDown() {
-//        logger.info("Test   ENDED");
-////        Page.getDriver().quit();
-//        new MainBoardPage()
-//                .clickOnAvatarPhoto();
-//        new ProfilePage()
-//                .clickSignOut();
-//    }
+    @AfterClass
+    public void tearDown() {
+        logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+        new MainBoardPage()
+                .clickOnAvatarPhoto();
+        new ProfilePage()
+                .clickSignOut();
+    }
 }

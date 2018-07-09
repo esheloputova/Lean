@@ -1,6 +1,7 @@
 package ru;
 
 import configuration.ConfigProperties;
+import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
@@ -12,120 +13,114 @@ import ru.yandex.qatools.allure.annotations.Title;
 @Listeners(MyTestListener.class)
 public class ObjectivesTest {
 
-	final static Logger logger = Logger.getLogger(ObjectivesTest.class);
+    final static Logger logger = Logger.getLogger(ObjectivesTest.class);
 
-	@BeforeMethod
-	public void setUp(ITestContext context) {
-		logger.info("Test STARTED");
+    @BeforeMethod
+    public void setUp(ITestContext context) {
+        logger.info("Test STARTED");
 
-		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
-		context.setAttribute("app",ObjectivesPage.class);
-	}
+        Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+        context.setAttribute("app", ObjectivesPage.class);
+    }
 
-	@Title ("Objectives")
-	@Step ("Create stickies Objectives")
-	@Test(priority = -3)
-	public void createNewObjectives() {
-//		new MainPage()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.createStickyNumetic()
-				.createStickyMilestone()
-				.createStickyMoneySalesRevenue()
-				.createStickyMoneyNewEquity()
-				.createStickyMoneyNewGrants()
-				.createStickyMoneyNewCreditNewLoan()
-				.createStickyMoneyNewCreditNewOverfraft()
+    @Step("Create stickies Objectives")
+    @Test(groups = {"positive"}, enabled = true)
+    public void createNewObjectives() {
+        new MainPage()
+                .clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .goObjectivesfromToolBar();
+        new ObjectivesPage()
+                .createStickyNumetic()
+                .createStickyMilestone()
+                .createStickyMoneySalesRevenue()
+                .createStickyMoneyNewEquity()
+                .createStickyMoneyNewGrants()
+                .createStickyMoneyNewCreditNewLoan()
+                .createStickyMoneyNewCreditNewOverfraft()
 
-				.addSubObjectives();
-	}
+                .addSubObjectives();
+    }
 
-	@Title ("Objectives")
-	@Step ("Edit. Deactivate stickies Objectives")
-	@Test(priority = 1)
-	public void editDeactivateStickiesObjectives() {
+    @Step("Edit. Deactivate stickies Objectives")
+    @Test(groups = {"positive"}, dependsOnMethods = {"createNewObjectives"}, enabled = true)
+    public void editDeactivateStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.editDeactivateFirstStickyEveryBoard();
+        new MainBoardPage()
+                .goObjectivesfromToolBar();
+        new ObjectivesPage()
+                .editDeactivateFirstStickyEveryBoard();
 
-	}
+    }
 
-	@Title ("Objectives")
-	@Step ("Edit. Activate stickies Objectives")
-	@Test(priority = 2)
-	public void editStickiesObjectives() {
+    @Step("Edit. Activate stickies Objectives")
+    @Test(groups = {"positive"}, dependsOnMethods = {"editDeactivateStickiesObjectives"}, enabled = true)
+    public void editStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.editActivateFirstStickyEveryBoard();
+        new MainBoardPage()
+                .goObjectivesfromToolBar();
+        new ObjectivesPage()
+                .editActivateFirstStickyEveryBoard();
 
-	}
+    }
 
-	@Title ("Objectives")
-	@Step ("Edit. Edit, rename stickies Objectives")
-	@Test(priority = 3)
-	public void editRenameStickiesObjectives() {
+    @Step("Edit. Edit, rename stickies Objectives")
+    @Test(groups = {"positive"}, dependsOnMethods = {"editStickiesObjectives"}, enabled = true)
+    public void editRenameStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.editEditFirstStickyEveryBoard();
+        new MainBoardPage()
+                .goObjectivesfromToolBar();
+        new ObjectivesPage()
+                .editEditFirstStickyEveryBoard();
 
-	}
+    }
 
-	@Title ("Objectives")
-	@Step ("Edit. Delete stickies Objectives")
-	@Test(priority = 4)
-	public void editDeleteStickiesObjectives() {
+    @Step("Drag-and-drop stickies Objectives")
+    @Test(groups = {"positive"}, dependsOnMethods = {"editRenameStickiesObjectives"}, enabled = true)
+    public void dragAndDropStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.editDeleteFirstStickyEveryBoard();
+        new MainBoardPage()
+                .goObjectivesfromToolBar();
+        new ObjectivesPage()
+                .dragANDdrap();
+    }
 
-	}
-
-	@Title ("Objectives")
-	@Step ("Drag-and-drop stickies Objectives")
-	@Test(priority = 6)
-	public void dragAndDropStickiesObjectives() {
+    @Step("Edit. Delete stickies Objectives")
+    @Test(groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesObjectives"}, enabled = true)
+    public void editDeleteStickiesObjectives() {
 //		new MainPage().clickOnLoginButton();
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goObjectivesfromToolBar();
-		new ObjectivesPage()
-				.dragANDdrap();
-	}
+        new MainBoardPage()
+                .goObjectivesfromToolBar();
+        new ObjectivesPage()
+                .editDeleteFirstStickyEveryBoard();
 
-//	@AfterSuite
-//	public void tearDown() {
-//		logger.info("Test   ENDED");
-////        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+    }
+
+    @AfterClass
+    public void tearDown() {
+        logger.info("Test   ENDED");
+//        Page.getDriver().quit();
+        new MainBoardPage()
+                .clickOnAvatarPhoto();
+        new ProfilePage()
+                .clickSignOut();
+    }
 }
