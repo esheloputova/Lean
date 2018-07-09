@@ -1,37 +1,38 @@
+package ru;
+
 import configuration.ConfigProperties;
 import models.User;
+import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.Title;
 
 import static pages.Page.getDriver;
 
-@Listeners(MyTestListener.class)
+@Listeners (MyTestListener.class)
 
 public class AuthorizationTest {
-    final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
 
-    @BeforeSuite
-    public void setUp(ITestContext context) {
-        logger.info("Test STARTED");
+	@BeforeMethod
+	public void setUp(ITestContext context) {
+		logger.info("Test STARTED");
 //		Page.getDriver();
-        getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
-        context.setAttribute("app", LoginPage.class);
-    }
+		getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
+		context.setAttribute("app", LoginPage.class);
+	}
 
-    @Step("Authorization is an existing user")
-    @Test(priority = 4)
-    public void authorizationAnExistingUser() {
-        new MainPage()
-                .clickOnAccept()
-                .clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
-    }
+	@Step ("Authorization is an existing user")
+	@Test (groups = {"positive"}, enabled = true)
+	public void authorizationAnExistingUser() {
+		new MainPage()
+				.clickOnAccept()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
+	}
 
 //    @Step("Authorization is not an existing user")
 //    @Test(priority = 3)
@@ -60,15 +61,13 @@ public class AuthorizationTest {
 //        new LoginPage().missingEmailAndPassword();
 //    }
 
-//    @AfterSuite
-//    public void tearDown() {
-//        getDriver().navigate().refresh();
-////		logger.info("Test   ENDED");
-//        new MainBoardPage()
-//                .clickOnAvatarPhoto();
-//        new ProfilePage()
-//                .clickSignOut();
-//
-//    }
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 
 }

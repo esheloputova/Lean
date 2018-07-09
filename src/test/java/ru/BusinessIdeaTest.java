@@ -1,13 +1,13 @@
+package ru;
+
 import configuration.ConfigProperties;
 import models.User;
+import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
 import pages.*;
+import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.Title;
-
-import static pages.Page.getDriver;
 
 /**
  * @author Elena_Sheloputova
@@ -16,7 +16,7 @@ import static pages.Page.getDriver;
 @Listeners(MyTestListener.class)
 public class BusinessIdeaTest {
 
-	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(BusinessIdeaTest.class);
 
 	@BeforeMethod
 	public void setUp(ITestContext context) {
@@ -30,12 +30,12 @@ public class BusinessIdeaTest {
 	@Step ("Create stickies in BI")
 	@Test (groups = {"positive"}, enabled=true)
 	public void createStickiesBusinessIdeaTest() {
-//		new MainPage()
+		new MainPage()
 //				.clickOnAccept()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
@@ -128,13 +128,13 @@ public class BusinessIdeaTest {
 
 	}
 
-//	@AfterSuite
-//	public void tearDown() {
-//        logger.info("Test   ENDED");
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+	@AfterClass
+	public void tearDown() {
+        logger.info("Test   ENDED");
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 
 }

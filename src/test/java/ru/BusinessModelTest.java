@@ -1,9 +1,11 @@
+package ru;
+
 import configuration.ConfigProperties;
-import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
+import org.apache.log4j.Logger;
 import pages.*;
+import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
@@ -13,9 +15,8 @@ import ru.yandex.qatools.allure.annotations.Title;
 
 @Listeners(MyTestListener.class)
 public class BusinessModelTest {
-	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(BusinessModelTest.class);
 
-	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
@@ -25,7 +26,7 @@ public class BusinessModelTest {
 
 	@Title ("Business model")
 	@Step ("Create business model")
-	@Test (priority =1)
+	@Test (groups = {"positive"}, enabled=true)
 	public void createNewBusinessModelTest() {
 //		new MainPage()
 //				.clickOnLoginButton();
@@ -106,15 +107,15 @@ public class BusinessModelTest {
 				.goTests();
 	}
 
-	@AfterSuite
-	public void tearDown() {
-		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
-	}
+//	@AfterSuite
+//	public void tearDown() {
+//		logger.info("Test   ENDED");
+////        Page.getDriver().quit();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
+//	}
 
 
 }

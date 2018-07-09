@@ -1,11 +1,10 @@
+package ru;
+
 import configuration.ConfigProperties;
 import models.User;
+import org.apache.log4j.Logger;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
-import org.testng.log4testng.Logger;
+import org.testng.annotations.*;
 import pages.*;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -13,26 +12,26 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @author Elena_Sheloputova
  */
 
-@Listeners(MyTestListener.class)
+@Listeners (MyTestListener.class)
 public class PrepareDataTest {
 
-	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(PrepareDataTest.class);
 
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
 		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
-		context.setAttribute("app",MainBoardPage.class);
+		context.setAttribute("app", MainBoardPage.class);
 
 	}
 
 	//	Creating New Test case
 	@Step ("Creating new case")
-	@Test (priority = 1)
+	@Test (groups = {"positive"}, enabled = true)
 	public void createNewCase() {
 		new MainPage()
-				.clickOnAccept()
+//				.clickOnAccept()
 				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
@@ -47,15 +46,15 @@ public class PrepareDataTest {
 
 	//	Creating New BI
 	@Step ("Create stickies in BI")
-	@Test (priority = 2)
+	@Test (groups = {"positive"}, dependsOnMethods = {"createNewCase"}, enabled = true)
 	public void createStickiesBusinessIdeaTest() {
 		new MainBoardPage()
 				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
 				.createAllStickyByDefault();
-			}
+	}
 
-	@Test (priority = 3)
+	@Test (groups = {"positive"}, dependsOnMethods = {"createStickiesBusinessIdeaTest"}, enabled = true)
 	public void createBusinessIdeaTest() {
 		new MainBoardPage()
 				.clickOnBusinessIdea();
@@ -63,14 +62,13 @@ public class PrepareDataTest {
 				.createBI();
 	}
 
-//	@AfterSuite
-//	public void tearDown() {
-////        logger.info("Test   ENDED");
-////        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 
 }

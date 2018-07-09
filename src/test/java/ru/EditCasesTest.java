@@ -1,9 +1,11 @@
+package ru;
+
 import configuration.ConfigProperties;
-import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
+import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -58,7 +60,7 @@ public class EditCasesTest {
 //	}
 
 	@Step ("Delete case")
-	@Test (priority = 3)
+	@Test (groups = {"positive"}, enabled=true)
 	public void deleteCase() {
 //		new MainPage()
 //				.clickOnLoginButton();

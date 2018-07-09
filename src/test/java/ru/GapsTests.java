@@ -1,9 +1,11 @@
+package ru;
+
 import configuration.ConfigProperties;
-import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
+import org.apache.log4j.Logger;
 import pages.*;
+import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
@@ -14,9 +16,8 @@ import ru.yandex.qatools.allure.annotations.Title;
 @Listeners(MyTestListener.class)
 public class GapsTests {
 
-	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(GapsTests.class);
 
-	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");

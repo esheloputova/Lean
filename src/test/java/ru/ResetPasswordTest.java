@@ -1,11 +1,13 @@
+package ru;
+
 import configuration.ConfigProperties;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.log4testng.Logger;
+import org.apache.log4j.Logger;
 import pages.*;
+import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
@@ -16,7 +18,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 @Listeners(MyTestListener.class)
 public class ResetPasswordTest {
 
-	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(ResetPasswordTest.class);
 
 	@BeforeMethod
 	public void setUp(ITestContext context) {

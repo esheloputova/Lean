@@ -1,3 +1,5 @@
+package ru;
+
 import configuration.ConfigProperties;
 import models.User;
 import org.testng.annotations.BeforeMethod;

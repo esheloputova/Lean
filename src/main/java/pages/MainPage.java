@@ -53,7 +53,7 @@ public class MainPage extends Page {
     }
 
     public MainPage clickOnAccept() {
-        new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(accept));
+        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(accept));
         accept.click();
         return new MainPage();
     }
@@ -72,7 +72,7 @@ public class MainPage extends Page {
 
     public LoginPage clickOnLoginButton() {
 
-        new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(loginButton));
+        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
         loginButton.click();
 
         return new LoginPage();

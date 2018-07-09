@@ -1,3 +1,5 @@
+package ru;
+
 import configuration.ConfigProperties;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
@@ -15,7 +17,7 @@ public class CreateUserTest {
 	}
 
 	@Step ("Create new user. I am developing an existing company")
-	@Test (priority = -3)
+	@Test (groups = {"positive"}, enabled=true)
 	public void createUserWithDevelopingCompany(){
 		new MainPage()
 				.clickOnAccept()

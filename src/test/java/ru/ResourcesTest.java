@@ -1,12 +1,14 @@
+package ru;
+
 import configuration.ConfigProperties;
-import models.User;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import org.testng.log4testng.Logger;
 import pages.*;
+import ru.AuthorizationTest;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
@@ -17,7 +19,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 @Listeners(MyTestListener.class)
 public class ResourcesTest {
 
-	final static Logger logger = Logger.getLogger(AuthorizationTest.class);
+	final static Logger logger = Logger.getLogger(ResourcesTest.class);
 
 	@Title ("Authorization")
 	@BeforeMethod
@@ -29,7 +31,6 @@ public class ResourcesTest {
 
 	}
 
-	@Title ("Resources")
 	@Step ("Create stickies Resources")
 	@Test (priority = -3)
 	public void createNewResources() {
