@@ -68,8 +68,12 @@ public class GapsPage extends Page {
     @FindBy(xpath = "//div[contains(@class, 'item-bad')]")
     WebElement weaknessButton;
 
-    @FindBy(xpath = "(//button[@type='submit'])[2]")
+//    @FindBy(xpath = "(//button[@type='submit'])")
+//    WebElement gapsButtonSave;
+
+    @FindBy(xpath = "(//button[contains(@ng-click,'ctrl.onSubmit')])")
     WebElement gapsButtonSave;
+
 
 //	End. Actions in the form
 

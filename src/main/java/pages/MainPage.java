@@ -9,57 +9,57 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage extends Page {
 
-    @FindBy(xpath = "//p[text() = 'Create user']")
-    private WebElement createUserButton;
+	@FindBy (xpath = "//p[text() = 'Create user']")
+	private WebElement createUserButton;
 
-    @FindBy(xpath = "//span[text() = 'Login']")
-    private WebElement loginButtonOnToolBox;
+	@FindBy (xpath = "//span[text() = 'Login']")
+	private WebElement loginButtonOnToolBox;
 
-    @FindBy(xpath = "//p[contains(@class,'ng-binding') and contains(text(), 'Login')]")
-    private WebElement loginButton;
+	@FindBy (xpath = "//p[contains(@class,'ng-binding') and contains(text(), 'Login')]")
+	private WebElement loginButton;
 
-    @FindBy(xpath = "//p[contains(@class,'ng-binding') and contains(text(), 'About us')]")
-    private WebElement aboutUsButton;
+	@FindBy (xpath = "//p[contains(@class,'ng-binding') and contains(text(), 'About us')]")
+	private WebElement aboutUsButton;
 
-    @FindBy(xpath = "//p[contains(@class,'ng-binding') and contains(text(), 'Register')]")
-    private WebElement registerButton;
+	@FindBy (xpath = "//p[contains(@class,'ng-binding') and contains(text(), 'Register')]")
+	private WebElement registerButton;
 
 
-    @FindBy(xpath = "//span[text() = 'Strategy and Project']")
-    private WebElement strategyAndProjectLink;
+	@FindBy (xpath = "//span[text() = 'Strategy and Project']")
+	private WebElement strategyAndProjectLink;
 
-    @FindBy(xpath = "//span[text() = 'Strategy']")
-    private WebElement strategyLink;
+	@FindBy (xpath = "//span[text() = 'Strategy']")
+	private WebElement strategyLink;
 
-    @FindBy(xpath = "//span[text() = 'Project']")
-    private WebElement projectLink;
+	@FindBy (xpath = "//span[text() = 'Project']")
+	private WebElement projectLink;
 
-    @FindBy(xpath = "//span[text() = 'Customize']")
-    private WebElement customizeLink;
+	@FindBy (xpath = "//span[text() = 'Customize']")
+	private WebElement customizeLink;
 
-    @FindBy(xpath = "//input[@placeholder = 'E-Mail']")
-    private WebElement emailField;
+	@FindBy (xpath = "//input[@placeholder = 'E-Mail']")
+	private WebElement emailField;
 
-    @FindBy(xpath = "//a[@id='hs-eu-confirmation-button']")
-    WebElement accept;
+	@FindBy (xpath = "//a[@id='hs-eu-confirmation-button']")
+	WebElement accept;
 
-    @FindBy(xpath = "//a[@id='hs-eu-decline-button']")
-    WebElement decline;
+	@FindBy (xpath = "//a[@id='hs-eu-decline-button']")
+	WebElement decline;
 
-    public CreateUserPage clickCreateUser() {
-        createUserButton.click();
-        new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
-        return new CreateUserPage();
-    }
+	public CreateUserPage clickCreateUser() {
+		createUserButton.click();
+		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(emailField));
+		return new CreateUserPage();
+	}
 
-    public MainPage clickOnAccept() {
-        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(accept));
-        accept.click();
-        return new MainPage();
-    }
+	public MainPage clickOnAccept() {
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(accept));
+		accept.click();
+		return new MainPage();
+	}
 
 //	public LoginPage clickOnLoginButton() {
-//		if (!Page.isNotElementExists("//a[@id='hs-eu-confirmation-button']")) {
+//		if (!Page.elementExists("//a[@id='hs-eu-confirmation-button']")) {
 //			accept.click();
 //			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
 //			loginButton.click();
@@ -70,16 +70,32 @@ public class MainPage extends Page {
 //			return new LoginPage();
 //		}
 
-    public LoginPage clickOnLoginButton() {
+//    public LoginPage clickOnLoginButton() {
+//
+//        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
+//        loginButton.click();
+//
+//        return new LoginPage();
+//    }
 
-        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
-        loginButton.click();
+	public LoginPage clickOnLoginButton() {
 
-        return new LoginPage();
-    }
+		if (!Page.elementExists("//p[contains(@class,'ng-binding') and contains(text(), 'Login')]")) {
+			loginButton.click();
+		} else {
+			new MainBoardPage()
+					.clickOnAvatarPhoto();
+			new ProfilePage()
+					.clickSignOut();
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
+			loginButton.click();
+		}
+		return new LoginPage();
+	}
 
-    public static byte[] takeScreenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-    }
+
+	public static byte[] takeScreenshot() {
+		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	}
 
 }

@@ -149,13 +149,13 @@
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                     </argLine>
-                    <systemProperties>
-                        <allure.max.title.length>10000</allure.max.title.length>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
-                        </property>
-                    </systemProperties>
+                    <!--<systemProperties>-->
+                        <!--<allure.max.title.length>10000</allure.max.title.length>-->
+                        <!--<property>-->
+                            <!--<name>allure.results.directory</name>-->
+                            <!--<value>${project.build.directory}/allure-results</value>-->
+                        <!--</property>-->
+                    <!--</systemProperties>-->
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>

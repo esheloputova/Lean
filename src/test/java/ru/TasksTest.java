@@ -27,6 +27,7 @@ public class TasksTest {
     @Test(groups = {"positive"}, enabled = true)
     public void createTask() {
 		new MainPage()
+//                .clickOnAccept()
 				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
@@ -42,74 +43,73 @@ public class TasksTest {
         }
 
 
-    @Step("Edit. Deactivate stickies Tasks")
-    @Test(groups = {"positive"}, dependsOnMethods = {"createTask"}, enabled = true)
-    public void editDeactivateStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goTasksfromToolBar();
-        new TasksPage()
-                .editDeactivateFirstStickyEveryBoard();
+//    @Step("Edit. Deactivate stickies Tasks")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"createTask"}, enabled = true)
+//    public void editDeactivateStickiesObjectives() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goTasksfromToolBar();
+//        new TasksPage()
+//                .editDeactivateFirstStickyEveryBoard();
+//
+//    }
+//
+//    @Step("Edit. Activate stickies Tasks")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"editDeactivateStickiesObjectives"}, enabled = true)
+//    public void editActivateStickiesTasks() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goTasksfromToolBar();
+//        new TasksPage()
+//                .editActivateFirstStickyEveryBoard();
+//
+//    }
 
-    }
+//    @Step("Edit. Edit stickies Tasks")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"editActivateStickiesTasks"}, enabled = true)
+//    public void editEditStickiesTasks() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goTasksfromToolBar();
+//        new TasksPage()
+//                .editEditFirstStickyEveryBoard();
+//    }
 
-    @Step("Edit. Activate stickies Tasks")
-    @Test(groups = {"positive"}, dependsOnMethods = {"editDeactivateStickiesObjectives"}, enabled = true)
-    public void editActivateStickiesTasks() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goTasksfromToolBar();
-        new TasksPage()
-                .editActivateFirstStickyEveryBoard();
+//    @Step("Drag-and-drop stickies to DONE-CURRENT MONTH")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"editEditStickiesTasks"}, enabled = true)
+//    public void dragAndDropStickiesObjectives() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goTasksfromToolBar();
+//        new TasksPage()
+//                .dragANDdrapFromToDOToDoing()
+//                .dragANDdrapFromMonthlyToDone();
+//    }
 
-    }
-
-    @Step("Edit. Edit stickies Tasks")
-    @Test(groups = {"positive"}, dependsOnMethods = {"editActivateStickiesTasks"}, enabled = true)
-    public void editEditStickiesTasks() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goTasksfromToolBar();
-        new TasksPage()
-                .editEditFirstStickyEveryBoard();
-    }
-
-    @Title("Tasks")
-    @Step("Drag-and-drop stickies to DONE-CURRENT MONTH")
-    @Test(groups = {"positive"}, dependsOnMethods = {"editEditStickiesTasks"}, enabled = true)
-    public void dragAndDropStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goTasksfromToolBar();
-        new TasksPage()
-                .dragANDdrapFromToDOToDoing()
-                .dragANDdrapFromMonthlyToDone();
-    }
-
-    @Step("Edit. Delete stickies Tasks")
-    @Test(groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesObjectives"}, enabled = true)
-    public void editDeleteStickiesTasks() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goTasksfromToolBar();
-        new TasksPage()
-                .editDeleteFirstStickyEveryBoard();
-    }
+//    @Step("Edit. Delete stickies Tasks")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"editActivateStickiesTasks"}, enabled = true)
+//    public void editDeleteStickiesTasks() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goTasksfromToolBar();
+//        new TasksPage()
+//                .editDeleteFirstStickyEveryBoard();
+//    }
 
     @AfterClass
     public void tearDown() {

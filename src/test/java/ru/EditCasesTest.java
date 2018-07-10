@@ -64,6 +64,7 @@ public class EditCasesTest {
 	@Test (groups = {"positive"}, enabled=true)
 	public void deleteCase() {
 		new MainPage()
+//				.clickOnAccept()
 				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
@@ -78,11 +79,11 @@ public class EditCasesTest {
 	@AfterClass
 	public void tearDown() {
 		logger.info("Test   ENDED");
-        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+//        Page.getDriver().quit();
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
 
 }

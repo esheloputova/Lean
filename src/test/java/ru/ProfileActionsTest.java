@@ -13,7 +13,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @author Elena_Sheloputova
  */
 
-@Listeners(MyTestListener.class)
+@Listeners (MyTestListener.class)
 public class ProfileActionsTest {
 
 
@@ -24,7 +24,7 @@ public class ProfileActionsTest {
 		logger.info("Test STARTED");
 
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
-		context.setAttribute("app",ProfilePage.class);
+		context.setAttribute("app", ProfilePage.class);
 	}
 
 //	@Step ("Edit First Name")
@@ -42,9 +42,10 @@ public class ProfileActionsTest {
 //	}
 
 	@Step ("Change Language on Norsk")
-	@Test(groups = {"positive"}, enabled = true)
+	@Test (groups = {"positive"}, enabled = true)
 	public void changeLanguageOnNorsk() {
 		new MainPage()
+//				.clickOnAccept()
 				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
@@ -56,7 +57,7 @@ public class ProfileActionsTest {
 	}
 
 	@Step ("Change Language on English")
-	@Test(groups = {"positive"}, dependsOnMethods = {"changeLanguageOnNorsk"}, enabled = true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"changeLanguageOnNorsk"}, enabled = true)
 	public void changeLanguageOnEnglish() {
 //		new MainPage()
 //				.clickOnAccept()
@@ -65,21 +66,37 @@ public class ProfileActionsTest {
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
 
-		new MainBoardPage().clickOnAvatarPhoto();
+		new MainBoardPage()
+				.goMainPage()
+				.clickOnAvatarPhoto();
 		new ProfilePage()
 				.changeLanguageOnEnglish();
+	}
 
+	@Step ("Change Language on Norsk")
+	@Test (groups = {"positive"},dependsOnMethods = {"changeLanguageOnEnglish"}, enabled = true)
+	public void changeLanguageOnNorsk2() {
+//		new MainPage()
+//				.clickOnAccept()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
+		new MainBoardPage().clickOnAvatarPhoto();
+		new ProfilePage()
+				.changeLanguageOnNorsk();
 
 	}
 
+
 	@AfterClass
 	public void tearDown() {
-        logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+		logger.info("Test   ENDED");
+        Page.getDriver().quit();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
 	}
 
 

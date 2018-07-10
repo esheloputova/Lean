@@ -54,7 +54,7 @@ public abstract class Page {
             options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
             options.addArguments("--no-sandbox"); // Bypass OS security model
 
-			System.setProperty("webdriver.chrome.driver", ConfigProperties.getTestProperty("chromeMac"));
+			System.setProperty("webdriver.chrome.driver", ConfigProperties.getTestProperty("chromeWin"));
 			//System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver_linux64/chromedriver");
 			driver = new ChromeDriver(options);
 			options.addArguments("start-maximized");
@@ -92,7 +92,7 @@ public abstract class Page {
 		return action;
 	}
 
-	public static boolean isNotElementExists(java.lang.String xpath) {
+	public static boolean elementExists(java.lang.String xpath) {
 		return getDriver().findElements(By.xpath(xpath)).isEmpty();
 	}
 

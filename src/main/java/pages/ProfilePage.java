@@ -14,7 +14,7 @@ public class ProfilePage extends Page {
 	@FindBy (xpath = "//div[contains(@ng-class ,'helpingResources')]")
 	WebElement resource;
 
-	@FindBy (xpath = "//*[@id='profile-popover']//div[@class='profile-sh__footer']/div[text()='Sign Out']")
+	@FindBy (xpath = "//div[@ng-hide='$ctrl.hideSignOut']")
 	WebElement signOutButton;
 
 	@FindBy (xpath = "//div[contains(@ng-click, '$ctrl.onEdit()') and contains(text(), 'User profile')]")
@@ -59,7 +59,7 @@ public class ProfilePage extends Page {
 	WebElement profileData;
 
 	public MainPage clickSignOut() {
-		new WebDriverWait(getDriver(), 7).until(ExpectedConditions.visibilityOf(signOutButton));
+		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(signOutButton));
 		signOutButton.click();
 		return new MainPage();
 	}

@@ -70,21 +70,21 @@ public class BusinessIdeaTest {
 	}
 
 
-	@Step ("Drag-and-drop stickies of Business ideas")
-	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessIdeaTest"}, enabled=true)
-	public void dragAndDropStickiesBusinessIdeaTest() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.clickOnBusinessIdea();
-		new BusinessIdeaPage()
-				.gragAndDrop();
-	}
+//	@Step ("Drag-and-drop stickies of Business ideas")
+//	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessIdeaTest"}, enabled=true)
+//	public void dragAndDropStickiesBusinessIdeaTest() {
+////        new MainPage().clickOnLoginButton();
+////        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////        new LoginPage()
+////                .authorizationAnExistingUser(user1);
+//		new MainBoardPage()
+//				.clickOnBusinessIdea();
+//		new BusinessIdeaPage()
+//				.gragAndDrop();
+//	}
 
 	@Step ("Delete stickies of Business ideas")
-	@Test (groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesBusinessIdeaTest"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessIdeaTest"}, enabled=true)
 	public void deleteStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));

@@ -31,7 +31,9 @@ public class TestPageBusinessIdeaTest {
 	@Step ("Go to Business Model from Business ideas by link")
 	@Test(groups = {"positive"}, enabled = true)
 	public void createTestForBusinessIdea() {
-		new MainPage().clickOnLoginButton();
+		new MainPage()
+//				.clickOnAccept()
+				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
 				.authorizationAnExistingUser(user1);

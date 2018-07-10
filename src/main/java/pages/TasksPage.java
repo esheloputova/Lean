@@ -311,18 +311,16 @@ public class TasksPage extends Page {
 
 	}
 
-	public TasksPage dragANDdrapFromMonthlyToDone() {
-		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(monthlyCostsFirstSticky));
-		new Actions(getDriver()).clickAndHold(monthlyCostsFirstSticky).moveToElement(doneCurrentMonthFirstSticky).release().build().perform();
-//		actualCost.click();
-		saveActualCost.click();
-
-		finish.click();
-
-
-		return this;
-
-	}
+//	public TasksPage dragANDdrapFromMonthlyToDone() {
+//		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(monthlyCostsFirstSticky));
+//		new Actions(getDriver()).clickAndHold(monthlyCostsFirstSticky).moveToElement(doneCurrentMonthFirstSticky).release().build().perform();
+////		actualCost.click();
+//		saveActualCost.click();
+//
+//		finish.click();
+//
+//		return this;
+//	}
 
 	public TasksPage editDeactivateFirstStickyEveryBoard() {
 

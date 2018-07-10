@@ -124,7 +124,7 @@ public class RisksPage extends Page {
     public RisksPage addRiskFromHelper() {
         bmHelper.click();
         nameRisk.sendKeys("Risk from Helper");
-        attachToFirstRisk.click();
+//        attachToFirstRisk.click();
         goodOpportunity.click();
 //            chooseMediumProbability.click();
 //            chooseLowConsequence.click();
@@ -139,7 +139,7 @@ public class RisksPage extends Page {
 
             new Actions(driver).doubleClick(webElementBad).build().perform();
             nameRisk.sendKeys("Name of risk with Threats");
-            attachToFirstRisk.click();
+//            attachToFirstRisk.click();
             badThreats.click();
 //            chooseMediumProbability.click();
 //            chooseLowConsequence.click();

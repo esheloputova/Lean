@@ -44,75 +44,75 @@ public class ObjectivesTest {
 
                 .addSubObjectives();
     }
+//
+//    @Step("Edit. Deactivate stickies Objectives")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"createNewObjectives"}, enabled = true)
+//    public void editDeactivateStickiesObjectives() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goObjectivesfromToolBar();
+//        new ObjectivesPage()
+//                .editDeactivateFirstStickyEveryBoard();
+//
+//    }
 
-    @Step("Edit. Deactivate stickies Objectives")
-    @Test(groups = {"positive"}, dependsOnMethods = {"createNewObjectives"}, enabled = true)
-    public void editDeactivateStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goObjectivesfromToolBar();
-        new ObjectivesPage()
-                .editDeactivateFirstStickyEveryBoard();
+//    @Step("Edit. Activate stickies Objectives")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"editDeactivateStickiesObjectives"}, enabled = true)
+//    public void editStickiesObjectives() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goObjectivesfromToolBar();
+//        new ObjectivesPage()
+//                .editActivateFirstStickyEveryBoard();
+//
+//    }
 
-    }
+//    @Step("Edit. Edit, rename stickies Objectives")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"editStickiesObjectives"}, enabled = true)
+//    public void editRenameStickiesObjectives() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goObjectivesfromToolBar();
+//        new ObjectivesPage()
+//                .editEditFirstStickyEveryBoard();
+//
+//    }
 
-    @Step("Edit. Activate stickies Objectives")
-    @Test(groups = {"positive"}, dependsOnMethods = {"editDeactivateStickiesObjectives"}, enabled = true)
-    public void editStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goObjectivesfromToolBar();
-        new ObjectivesPage()
-                .editActivateFirstStickyEveryBoard();
+//    @Step("Drag-and-drop stickies Objectives")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"editRenameStickiesObjectives"}, enabled = true)
+//    public void dragAndDropStickiesObjectives() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goObjectivesfromToolBar();
+//        new ObjectivesPage()
+//                .dragANDdrap();
+//    }
 
-    }
-
-    @Step("Edit. Edit, rename stickies Objectives")
-    @Test(groups = {"positive"}, dependsOnMethods = {"editStickiesObjectives"}, enabled = true)
-    public void editRenameStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goObjectivesfromToolBar();
-        new ObjectivesPage()
-                .editEditFirstStickyEveryBoard();
-
-    }
-
-    @Step("Drag-and-drop stickies Objectives")
-    @Test(groups = {"positive"}, dependsOnMethods = {"editRenameStickiesObjectives"}, enabled = true)
-    public void dragAndDropStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goObjectivesfromToolBar();
-        new ObjectivesPage()
-                .dragANDdrap();
-    }
-
-    @Step("Edit. Delete stickies Objectives")
-    @Test(groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesObjectives"}, enabled = true)
-    public void editDeleteStickiesObjectives() {
-//		new MainPage().clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goObjectivesfromToolBar();
-        new ObjectivesPage()
-                .editDeleteFirstStickyEveryBoard();
-
-    }
+//    @Step("Edit. Delete stickies Objectives")
+//    @Test(groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesObjectives"}, enabled = true)
+//    public void editDeleteStickiesObjectives() {
+////		new MainPage().clickOnLoginButton();
+////		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////		new LoginPage()
+////				.authorizationAnExistingUser(user1);
+//        new MainBoardPage()
+//                .goObjectivesfromToolBar();
+//        new ObjectivesPage()
+//                .editDeleteFirstStickyEveryBoard();
+//
+//    }
 
     @AfterClass
     public void tearDown() {
