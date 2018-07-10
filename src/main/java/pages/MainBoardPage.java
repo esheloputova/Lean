@@ -62,7 +62,7 @@ public class MainBoardPage extends Page {
     @FindBy(xpath = "//span[(@class='ng-binding') and (text()='Select boards')]")
     WebElement selectboardsFromToolBar;
 
-    @FindBy(xpath = "//button[contains(@class,'md-button') and contains(text(),'new case')]")
+    @FindBy(xpath = "//button[contains(@ng-click,'ctrl.onCreateCase')]")
     WebElement newCaseButton;
 
     @FindBy(xpath = "//div[contains(@ng-class,'$ctrl.helpingIdeas') and contains(text(), 'Business Idea')]")
