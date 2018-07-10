@@ -31,7 +31,7 @@ public class PrepareDataTest {
 	@Test (groups = {"positive"}, enabled = true)
 	public void createNewCase() {
 		new MainPage()
-//				.clickOnAccept()
+				.clickOnAccept()
 				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
@@ -62,13 +62,13 @@ public class PrepareDataTest {
 				.createBI();
 	}
 
-	@AfterClass
+	@AfterMethod
 	public void tearDown() {
 		logger.info("Test   ENDED");
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
 	}
 
 }

@@ -64,13 +64,13 @@ public class AuthorizationTest {
 //        new LoginPage().missingEmailAndPassword();
 //    }
 
-	@AfterClass
+	@AfterMethod
 	public void tearDown() {
 		logger.info("Test   ENDED");
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
 	}
 
 }

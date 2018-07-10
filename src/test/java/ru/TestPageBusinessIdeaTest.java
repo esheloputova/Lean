@@ -3,10 +3,7 @@ package ru;
 import configuration.ConfigProperties;
 import models.User;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
 import ru.AuthorizationTest;
@@ -52,14 +49,14 @@ public class TestPageBusinessIdeaTest {
 
 	}
 
-	@AfterClass
+	@AfterMethod
 	public void tearDown() {
 		logger.info("Test   ENDED");
 //        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
 	}
 
 }

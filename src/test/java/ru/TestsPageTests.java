@@ -4,10 +4,7 @@ import configuration.ConfigProperties;
 import models.User;
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.*;
 import io.qameta.allure.Step;
 
@@ -43,14 +40,14 @@ public class TestsPageTests {
 
 	}
 
-	@AfterClass
+	@AfterMethod
 	public void tearDown() {
 		logger.info("Test   ENDED");
 //        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
 	}
 
 }
