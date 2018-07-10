@@ -57,9 +57,9 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>ru.yandex.qatools.allure</groupId>-->
-            <!--<artifactId>allure-maven-plugin</artifactId>-->
-            <!--<version>2.6</version>-->
+        <!--<groupId>ru.yandex.qatools.allure</groupId>-->
+        <!--<artifactId>allure-maven-plugin</artifactId>-->
+        <!--<version>2.6</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -129,10 +129,10 @@
                 <version>2.4</version>
                 <configuration>
                     <!--<archive>-->
-                        <!--<manifest>-->
-                            <!--<addClasspath>true</addClasspath>-->
-                            <!--<mainClass>com.kriloleg.design.Start</mainClass>-->
-                        <!--</manifest>-->
+                    <!--<manifest>-->
+                    <!--<addClasspath>true</addClasspath>-->
+                    <!--<mainClass>com.kriloleg.design.Start</mainClass>-->
+                    <!--</manifest>-->
                     <!--</archive>-->
                     <archive>
                         <manifestFile>${basedir}/META-INF/MANIFEST.MF</manifestFile>
@@ -149,13 +149,13 @@
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                     </argLine>
-                    <!--<systemProperties>-->
-                        <!--<allure.max.title.length>10000</allure.max.title.length>-->
-                        <!--<property>-->
-                            <!--<name>allure.results.directory</name>-->
-                            <!--<value>${project.build.directory}/allure-results</value>-->
-                        <!--</property>-->
-                    <!--</systemProperties>-->
+                    <systemProperties>
+                        <allure.max.title.length>10000</allure.max.title.length>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
@@ -189,13 +189,13 @@
             <!--<excludeDefaults>true</excludeDefaults>-->
             <!--<plugins>-->
             <plugin>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-maven-plugin</artifactId>
-            <configuration>
-            <!--<reportDirectory>allure-results</reportDirectory>-->
-            <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
-            </configuration>
-            <version>2.6</version>
+                <groupId>ru.yandex.qatools.allure</groupId>
+                <artifactId>allure-maven-plugin</artifactId>
+                <configuration>
+                    <!--<reportDirectory>allure-results</reportDirectory>-->
+                    <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
+                </configuration>
+                <version>2.6</version>
             </plugin>
         </plugins>
         <!--</reporting>-->

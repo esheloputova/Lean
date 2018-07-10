@@ -82,7 +82,9 @@ public class ProfileActionsTest {
 //		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //		new LoginPage()
 //				.authorizationAnExistingUser(user1);
-		new MainBoardPage().clickOnAvatarPhoto();
+		new MainBoardPage()
+				.goMainPage()
+				.clickOnAvatarPhoto();
 		new ProfilePage()
 				.changeLanguageOnNorsk();
 
