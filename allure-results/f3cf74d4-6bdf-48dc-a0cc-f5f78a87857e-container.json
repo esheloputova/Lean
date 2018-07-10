@@ -1,1 +1,0 @@
-{"uuid":"f3cf74d4-6bdf-48dc-a0cc-f5f78a87857e","name":"Lean","start":1530187369685,"stop":1530187384767,"children":["78ca326e-9abc-4ecb-a00a-3a296d41ac89"],"afters":[{"name":"tearDown","status":"passed","stage":"finished","description":"","start":1530187381761,"stop":1530187384767}]}
