@@ -1,6 +1,8 @@
 package pages;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -225,7 +227,7 @@ public class BusinessIdeaPage extends Page {
 	public BusinessIdeaPage deleteAllStickiesBIFirst() {
 		for (int i = 0; i < allStickyWhatMakesYouUniqueColumn.size(); i++) {
 			allStickyWhatMakesYouUniqueColumn.get(i).click();
-			if (!Page.isNotElementExists("//div[@class='button button-remove ng-scope']")) {
+			if (!Page.elementExists("//div[@class='button button-remove ng-scope']")) {
 				deleteSticky.click();
 			} else {
 				closeForm.click();
@@ -237,7 +239,7 @@ public class BusinessIdeaPage extends Page {
 	public BusinessIdeaPage deleteAllStickiesBISecond() {
 		for (int i = 0; i < allStickyWhatProblemWillYouSolveColumn.size(); i++) {
 			allStickyWhatProblemWillYouSolveColumn.get(i).click();
-			if (!Page.isNotElementExists("//div[@class='button button-remove ng-scope']")) {
+			if (!Page.elementExists("//div[@class='button button-remove ng-scope']")) {
 				deleteSticky.click();
 			} else {
 				closeForm.click();
@@ -249,7 +251,7 @@ public class BusinessIdeaPage extends Page {
 	public BusinessIdeaPage deleteAllStickiesBIThird() {
 		for (int i = 0; i < allStickyWhoWillHaveThisProblemColumn.size(); i++) {
 			allStickyWhoWillHaveThisProblemColumn.get(i).click();
-			if (!Page.isNotElementExists("//div[@class='button button-remove ng-scope']")) {
+			if (!Page.elementExists("//div[@class='button button-remove ng-scope']")) {
 				deleteSticky.click();
 			} else {
 				closeForm.click();
@@ -366,5 +368,8 @@ public class BusinessIdeaPage extends Page {
 		return new BusinessIdeaPage();
 		}
 
+	public static byte[] takeScreenshot(){
+		return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+	}
 
 }

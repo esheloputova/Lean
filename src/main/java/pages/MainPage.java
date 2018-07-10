@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -51,22 +53,49 @@ public class MainPage extends Page {
 	}
 
 	public MainPage clickOnAccept() {
-		new WebDriverWait(getDriver(), 4).until(ExpectedConditions.visibilityOf(accept));
+		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(accept));
 		accept.click();
 		return new MainPage();
 	}
 
+//	public LoginPage clickOnLoginButton() {
+//		if (!Page.elementExists("//a[@id='hs-eu-confirmation-button']")) {
+//			accept.click();
+//			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
+//			loginButton.click();
+//		} else {
+//			new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(loginButton));
+//			loginButton.click();
+//		}
+//			return new LoginPage();
+//		}
+
+//    public LoginPage clickOnLoginButton() {
+//
+//        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
+//        loginButton.click();
+//
+//        return new LoginPage();
+//    }
+
 	public LoginPage clickOnLoginButton() {
-		if (!Page.isNotElementExists("//a[@id='hs-eu-confirmation-button']")) {
-			accept.click();
-			new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(loginButton));
+
+		if (!Page.elementExists("//p[contains(@class,'ng-binding') and contains(text(), 'Login')]")) {
 			loginButton.click();
 		} else {
-			new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(loginButton));
+			new MainBoardPage()
+					.clickOnAvatarPhoto();
+			new ProfilePage()
+					.clickSignOut();
+			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
 			loginButton.click();
 		}
 		return new LoginPage();
+	}
 
+
+	public static byte[] takeScreenshot() {
+		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 	}
 
 }

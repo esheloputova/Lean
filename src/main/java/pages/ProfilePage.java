@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +14,7 @@ public class ProfilePage extends Page {
 	@FindBy (xpath = "//div[contains(@ng-class ,'helpingResources')]")
 	WebElement resource;
 
-	@FindBy (xpath = "//*[@id='profile-popover']//div[@class='profile-sh__footer']/div[text()='Sign Out']")
+	@FindBy (xpath = "//div[@ng-hide='$ctrl.hideSignOut']")
 	WebElement signOutButton;
 
 	@FindBy (xpath = "//div[contains(@ng-click, '$ctrl.onEdit()') and contains(text(), 'User profile')]")
@@ -57,7 +59,7 @@ public class ProfilePage extends Page {
 	WebElement profileData;
 
 	public MainPage clickSignOut() {
-		new WebDriverWait(getDriver(), 7).until(ExpectedConditions.visibilityOf(signOutButton));
+		new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(signOutButton));
 		signOutButton.click();
 		return new MainPage();
 	}
@@ -140,5 +142,8 @@ public class ProfilePage extends Page {
 
 	}
 
+	public static byte[] takeScreenshot(){
+		return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+	}
 
 }

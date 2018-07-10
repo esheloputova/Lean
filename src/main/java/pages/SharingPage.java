@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -88,6 +90,10 @@ public class SharingPage extends Page {
 		backLink.click();
 
 		return new MainBoardPage();
+	}
+
+	public static byte[] takeScreenshot(){
+		return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 	}
 
 

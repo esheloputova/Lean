@@ -1,9 +1,19 @@
 package pages;
 
+import io.qameta.allure.Attachment;
 import models.User;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class LoginPage extends Page {
 
@@ -33,7 +43,12 @@ public class LoginPage extends Page {
   WebElement loginFormErrorAboutMissingPassword;
 
 
-
+//  private void waitforelementandclick(By element)
+//  {
+//    WebElement myDynamicElement = (new WebDriverWait(driver, 10))
+//            .until(ExpectedConditions.elementToBeClickable(element));
+//    myDynamicElement.click();
+//  }
 
 
   public MainBoardPage authorizationAnExistingUser(User user) {
@@ -101,5 +116,11 @@ public class LoginPage extends Page {
     return new PasswordResetForm();
 
   }
+
+
+  public static byte[] takeScreenshot(){
+    return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+  }
+
 
 }

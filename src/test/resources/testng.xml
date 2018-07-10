@@ -8,25 +8,26 @@
 
         <classes>
 
-            <!--<class name="ResetPasswordTest"/>-->
-            <class name="AuthorizationTest"/>
+            <class name="ru.AuthorizationTest"/>
+            <class name="ru.ResetPasswordTest"/>
 
-            <!--<class name="CreateUserTest"/>-->
-            <!--<class name="EditCasesTest"/>-->
+            <!--<class name="ru.CreateUserTest"/>-->
 
-            <!--<class name="PrepareDataTest"/>-->
-            <!--<class name="BusinessIdeaTest"/>-->
-            <!--<class name="BusinessModelTest"/>-->
+            <class name="ru.PrepareDataTest"/>
 
-            <!--<class name="ProfileActionsTest"/>-->
-            <!--<class name="GapsTests"/>-->
-            <!--<class name="ObjectivesTest"/>-->
+            <class name="ru.BusinessIdeaTest"/>
+            <class name="ru.BusinessModelTest"/>
+            <class name="ru.GapsTests"/>
+            <class name="ru.ObjectivesTest"/>
+            <class name="ru.RisksTest"/>
+            <class name="ru.TasksTest"/>
 
-            <!--<class name="RisksTest"/>-->
-            <!--<class name="TasksTest"/>-->
-            <!--<class name="TestPageBusinessIdeaTest"/>-->
-            <!--<class name="TestsPageTests"/>-->
-            <!--<class name="EditCasesTest"/>-->
+            <class name="ru.TestPageBusinessIdeaTest"/>
+            <class name="ru.TestsPageTests"/>
+
+            <class name="ru.EditCasesTest"/>
+            <class name="ru.ProfileActionsTest"/>
+
 
         </classes>
     </test>

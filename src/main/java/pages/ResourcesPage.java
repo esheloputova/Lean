@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -197,5 +199,9 @@ public class ResourcesPage extends Page {
 
 		return this;
 
+	}
+
+	public static byte[] takeScreenshot(){
+		return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 	}
 }

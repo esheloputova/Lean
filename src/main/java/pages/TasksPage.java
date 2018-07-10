@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -309,18 +311,16 @@ public class TasksPage extends Page {
 
 	}
 
-	public TasksPage dragANDdrapFromMonthlyToDone() {
-		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(monthlyCostsFirstSticky));
-		new Actions(getDriver()).clickAndHold(monthlyCostsFirstSticky).moveToElement(doneCurrentMonthFirstSticky).release().build().perform();
-//		actualCost.click();
-		saveActualCost.click();
-
-		finish.click();
-
-
-		return this;
-
-	}
+//	public TasksPage dragANDdrapFromMonthlyToDone() {
+//		new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(monthlyCostsFirstSticky));
+//		new Actions(getDriver()).clickAndHold(monthlyCostsFirstSticky).moveToElement(doneCurrentMonthFirstSticky).release().build().perform();
+////		actualCost.click();
+//		saveActualCost.click();
+//
+//		finish.click();
+//
+//		return this;
+//	}
 
 	public TasksPage editDeactivateFirstStickyEveryBoard() {
 
@@ -384,4 +384,7 @@ public class TasksPage extends Page {
 
 	}
 
+	public static byte[] takeScreenshot(){
+		return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+	}
 }

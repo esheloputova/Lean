@@ -1,6 +1,8 @@
 package pages;
 
 import configuration.ConfigProperties;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -42,5 +44,9 @@ public class PasswordResetForm extends Page {
     Assert.assertFalse(passwordResetFormSendMessageButton.isEnabled());
     passwordResetCloseCross.click();
     return new MainPage();
+  }
+
+  public static byte[] takeScreenshot(){
+    return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
   }
 }

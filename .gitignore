@@ -2,6 +2,7 @@
 target/
 .idea/
 .allure/
+allure-results/
 *.iml
 src/test/resources/report/
 report/
