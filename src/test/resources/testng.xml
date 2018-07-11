@@ -22,8 +22,8 @@
             <class name="ru.RisksTest"/>
             <class name="ru.TasksTest"/>
 
-            <class name="ru.TestPageBusinessIdeaTest"/>
-            <class name="ru.TestsPageTests"/>
+            <!--<class name="ru.TestPageBusinessIdeaTest"/>-->
+            <!--<class name="ru.TestsPageTests"/>-->
 
             <class name="ru.EditCasesTest"/>
             <class name="ru.ProfileActionsTest"/>

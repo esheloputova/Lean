@@ -34,7 +34,7 @@ public class BusinessModelTest {
 		new LoginPage()
 				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessModel();
+				.goBMfromToolBar();
 		new BusinessModelPage()
 				.createBIStickiesBM1()
 				.createAllStickiesBM1()
@@ -49,7 +49,7 @@ public class BusinessModelTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessModel();
+				.goBMfromToolBar();
 		new BusinessModelPage()
 				.editNameStickiesBM()
 				.deactivateStickiesBM()
@@ -86,7 +86,7 @@ public class BusinessModelTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessModel();
+				.goBMfromToolBar();
 		new BusinessModelPage()
 				.goGaps();
 	}
@@ -99,7 +99,7 @@ public class BusinessModelTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessModel();
+				.goBMfromToolBar();
 		new BusinessModelPage()
 				.goTests();
 	}

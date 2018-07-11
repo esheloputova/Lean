@@ -37,7 +37,7 @@ public class BusinessIdeaTest {
 		new LoginPage()
 				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.createAllStickiesBI();
 	}
@@ -50,7 +50,7 @@ public class BusinessIdeaTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.createBI();
 	}
@@ -63,7 +63,7 @@ public class BusinessIdeaTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.editBI()
 				.deleteBI();
@@ -91,7 +91,7 @@ public class BusinessIdeaTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.deleteAllStickiesBIFirst()
 				.deleteAllStickiesBISecond()
@@ -108,7 +108,7 @@ public class BusinessIdeaTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.goToBM();
 	}
@@ -121,7 +121,7 @@ public class BusinessIdeaTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.goToFirstTab()
 				.goToTests();

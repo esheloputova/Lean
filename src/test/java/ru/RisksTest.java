@@ -97,13 +97,13 @@ public class RisksTest {
 				.goTasks();
 	}
 
-//	@AfterClass
-//	public void tearDown() {
-//		logger.info("Test   ENDED");
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
-//	}
+	@AfterClass
+	public void tearDown() {
+		logger.info("Test   ENDED");
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+	}
 
 }

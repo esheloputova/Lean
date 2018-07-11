@@ -71,24 +71,11 @@ public class ProfileActionsTest {
 				.clickOnAvatarPhoto();
 		new ProfilePage()
 				.changeLanguageOnEnglish();
-	}
-
-	@Step ("Change Language on Norsk")
-	@Test (groups = {"positive"},dependsOnMethods = {"changeLanguageOnEnglish"}, enabled = true)
-	public void changeLanguageOnNorsk2() {
-//		new MainPage()
-//				.clickOnAccept()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goMainPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.changeLanguageOnNorsk();
+				.goMainPage();
 
 	}
+
 
 
 	@AfterClass
