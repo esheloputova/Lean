@@ -91,18 +91,18 @@ public class BusinessModelTest {
 				.goGaps();
 	}
 
-	@Step ("Go to Tests from BM")
-	@Test(groups = {"positive"}, dependsOnMethods = {"goGaps"}, enabled=true)
-	public void goTests() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goBMfromToolBar();
-		new BusinessModelPage()
-				.goTests();
-	}
+//	@Step ("Go to Tests from BM")
+//	@Test(groups = {"positive"}, dependsOnMethods = {"goGaps"}, enabled=true)
+//	public void goTests() {
+////        new MainPage().clickOnLoginButton();
+////        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////        new LoginPage()
+////                .authorizationAnExistingUser(user1);
+//		new MainBoardPage()
+//				.goBMfromToolBar();
+//		new BusinessModelPage()
+//				.goTests();
+//	}
 
 	@AfterClass
 	public void tearDown() {
