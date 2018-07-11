@@ -311,10 +311,10 @@ public class BusinessIdeaPage extends Page {
 		chooseStick32.click();
 		buttonSaveIdea.click();
 
-		//change color
-		firsrTab.click();
-		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(changeColorSecond));
-		changeColorSecond.click();
+//		//change color
+//		firsrTab.click();
+//		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(changeColorSecond));
+//		changeColorSecond.click();
 
 		return new BusinessIdeaPage();
 	}

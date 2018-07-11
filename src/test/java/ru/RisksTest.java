@@ -63,8 +63,23 @@ public class RisksTest {
 //				.addRiskFromHelper();
 //	}
 
-	@Step ("Edit stickies in Risks")
+	@Step ("Go to Task from Risks")
 	@Test (groups = {"positive"}, dependsOnMethods = {"createStickiesRisks"}, enabled = true)
+
+	public void goTaskStickiesRisks() {
+//        new MainPage()
+////		        .clickOnAccept()
+//		        .clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.goRisksfromToolBar();
+		new RisksPage()
+				.goTasks();
+	}
+	@Step ("Edit stickies in Risks")
+	@Test (groups = {"positive"}, dependsOnMethods = {"goTaskStickiesRisks"}, enabled = true)
 	public void editStickiesRisks() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -80,22 +95,6 @@ public class RisksTest {
 	}
 
 
-
-	@Step ("Go to Task from Risks")
-	@Test (groups = {"positive"}, dependsOnMethods = {"editStickiesRisks"}, enabled = true)
-
-	public void goTaskStickiesRisks() {
-//        new MainPage()
-////		        .clickOnAccept()
-//		        .clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goRisksfromToolBar();
-		new RisksPage()
-				.goTasks();
-	}
 
 	@AfterClass
 	public void tearDown() {

@@ -24,6 +24,7 @@ public abstract class Page {
 
 	}
 
+
 	public static WebDriver getDriver() {
 		if (driver == null) {
 //
