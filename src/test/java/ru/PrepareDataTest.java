@@ -49,7 +49,7 @@ public class PrepareDataTest {
 	@Test (groups = {"positive"}, dependsOnMethods = {"createNewCase"}, enabled = true)
 	public void createStickiesBusinessIdeaTest() {
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.createAllStickyByDefault();
 	}
@@ -57,7 +57,7 @@ public class PrepareDataTest {
 	@Test (groups = {"positive"}, dependsOnMethods = {"createStickiesBusinessIdeaTest"}, enabled = true)
 	public void createBusinessIdeaTest() {
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.createBI();
 	}
