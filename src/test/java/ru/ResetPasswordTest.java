@@ -33,7 +33,7 @@ public class ResetPasswordTest {
 	@Test (groups = {"positive"}, enabled = true)
 	public void resetPasswordAnExistingUser() {
 		new MainPage()
-//				.clickOnAccept()
+				.clickOnAccept()
 				.clickOnLoginButton();
 		new LoginPage().clickOnFogotPasswordLink();
 		new PasswordResetForm()

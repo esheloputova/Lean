@@ -8,7 +8,7 @@
 
         <classes>
 
-            <class name="ru.AuthorizationTest"/>
+            <!--<class name="ru.AuthorizationTest"/>-->
             <class name="ru.ResetPasswordTest"/>
 
             <!--<class name="ru.CreateUserTest"/>-->
@@ -26,7 +26,7 @@
             <!--<class name="ru.TestsPageTests"/>-->
 
             <class name="ru.EditCasesTest"/>
-            <class name="ru.ProfileActionsTest"/>
+            <!--<class name="ru.ProfileActionsTest"/>-->
 
 
         </classes>

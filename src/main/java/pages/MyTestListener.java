@@ -21,14 +21,14 @@ public class MyTestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-//        LoginPage app = (LoginPage) iTestResult.getTestContext().getAttribute("LoginPage");
+        LoginPage app = (LoginPage) iTestResult.getTestContext().getAttribute("LoginPage");
         saveScreenshot(LoginPage.takeScreenshot()) ;
-        saveScreenshot(BusinessIdeaPage.takeScreenshot());
-        saveScreenshot(BusinessModelPage.takeScreenshot());
+//        saveScreenshot(BusinessIdeaPage.takeScreenshot());
+//        saveScreenshot(BusinessModelPage.takeScreenshot());
 
     }
 
-    @Attachment(value = "Page screenshot", type = "image/png")
+    @Attachment(value = "Screenshot", type = "image/png")
     public byte[] saveScreenshot(byte[] screenShot){
         return screenShot;
     }
