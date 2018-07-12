@@ -7,8 +7,8 @@ import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
 import ru.AuthorizationTest;
-import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.Title;
+import io.qameta.allure.Step;
+
 
 /**
  * @author Elena_Sheloputova
@@ -19,7 +19,6 @@ public class ResourcesTest {
 
 	final static Logger logger = Logger.getLogger(ResourcesTest.class);
 
-	@Title ("Authorization")
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");

@@ -7,7 +7,7 @@ import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
 import ru.AuthorizationTest;
-import ru.yandex.qatools.allure.annotations.Step;
+import io.qameta.allure.Step;
 
 /**
  * @author Elena_Sheloputova

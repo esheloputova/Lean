@@ -31,8 +31,6 @@ public class BusinessIdeaPage extends Page {
 	List<WebElement> allStickyWhoWillHaveThisProblemColumn;
 
 
-
-
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][1]")
 	WebElement clickStick1;
 

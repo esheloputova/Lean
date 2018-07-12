@@ -62,11 +62,11 @@
         <!--<version>2.6</version>-->
         <!--</dependency>-->
 
-        <dependency>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-testng-adaptor</artifactId>
-            <version>1.5.4</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ru.yandex.qatools.allure</groupId>-->
+            <!--<artifactId>allure-testng-adaptor</artifactId>-->
+            <!--<version>1.5.4</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -159,13 +159,13 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <!--<value>ru.yandex.qatools.allure.junit.AllureRunListener</value>-->
-                            <value>ru.yandex.qatools.allure.testng.AllureTestListener</value>
-                        </property>
-                    </properties>
+                    <!--<properties>-->
+                        <!--<property>-->
+                            <!--<name>listener</name>-->
+                            <!--&lt;!&ndash;<value>ru.yandex.qatools.allure.junit.AllureRunListener</value>&ndash;&gt;-->
+                            <!--<value>ru.yandex.qatools.allure.testng.AllureTestListener</value>-->
+                        <!--</property>-->
+                    <!--</properties>-->
                 </configuration>
                 <dependencies>
                     <dependency>

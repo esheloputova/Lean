@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 import org.apache.log4j.Logger;
 import pages.*;
 import ru.AuthorizationTest;
-import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.Title;
+import io.qameta.allure.Step;
+
 
 @Listeners(MyTestListener.class)
 public class TestPageBusinessIdeaTest {

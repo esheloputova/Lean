@@ -1,14 +1,15 @@
 package ru;
 
 import configuration.ConfigProperties;
+import io.qameta.allure.Step;
 import models.User;
 import org.testng.ITestContext;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import pages.*;
-import ru.AuthorizationTest;
-import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.Title;
 
 @Listeners(MyTestListener.class)
 public class ShareTest {
@@ -25,7 +26,6 @@ public class ShareTest {
 
 	}
 
-	@Title ("Old sharing")
 	@Step ("Invite viewer")
 	@Test (priority = 1)
 	public void inviteUserAsViewer() {
@@ -72,7 +72,6 @@ public class ShareTest {
 				.backInvite();
 	}
 
-	@Title ("New sharing")
 
 	@AfterSuite
 	public void tearDown() {

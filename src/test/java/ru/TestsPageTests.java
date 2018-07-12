@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.*;
-import ru.yandex.qatools.allure.annotations.Step;
+import io.qameta.allure.Step;
 
 @Listeners(MyTestListener.class)
 public class TestsPageTests {

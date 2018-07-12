@@ -7,15 +7,14 @@ import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
 import ru.AuthorizationTest;
-import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.Title;
+import io.qameta.allure.Step;
+
 
 @Listeners (MyTestListener.class)
 public class GoAllPagesTest {
 
 	final static Logger logger = Logger.getLogger(GoAllPagesTest.class);
 
-	@Title ("Go to All Pages")
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");

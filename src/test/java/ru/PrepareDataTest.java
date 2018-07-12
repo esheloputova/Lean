@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
-import ru.yandex.qatools.allure.annotations.Step;
+import io.qameta.allure.Step;
 
 /**
  * @author Elena_Sheloputova
