@@ -6,7 +6,6 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
-import ru.AuthorizationTest;
 import io.qameta.allure.Step;
 
 
@@ -32,7 +31,7 @@ public class GapsTests {
 	@Test (groups = {"positive"}, enabled=true)
 	public void createNewGaps() {
 		new MainPage()
-//				.clickOnAccept()
+				.clickOnAccept()
 				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
@@ -53,7 +52,7 @@ public class GapsTests {
 		new MainBoardPage()
 				.goGapsfromToolBar();
 		new GapsPage()
-				.createCompetitor()
+				.createCompetitorByAdd()
 				.createStickiesCompetitor();
 	}
 

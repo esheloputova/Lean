@@ -79,6 +79,7 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//a[text() = 'models']")
 	WebElement linkModels;
 
+//	Form of creating
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement businessIdeaButtonSave;
 

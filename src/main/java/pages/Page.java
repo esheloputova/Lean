@@ -6,8 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.stqa.selenium.factory.WebDriverPool;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +29,7 @@ public abstract class Page {
 
 	public static WebDriver getDriver() {
 		if (driver == null) {
-//
+
 //			DesiredCapabilities caps = new DesiredCapabilities();
 //			//Properties property = new Properties();
 //			String browserName = System.getProperty("browser", "");
@@ -44,20 +46,21 @@ public abstract class Page {
 //			}
 //			driver = new RemoteWebDriver(hostURL, caps);
 
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("start-maximized"); // open Browser in maximized mode
-            options.addArguments("disable-infobars"); // disabling infobars
-            options.addArguments("--disable-extensions"); // disabling extensions
-            options.addArguments("--disable-gpu"); // applicable to windows os only
-            options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-            options.addArguments("--no-sandbox"); // Bypass OS security model
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("start-maximized"); // open Browser in maximized mode
+			options.addArguments("disable-infobars"); // disabling infobars
+			options.addArguments("--disable-extensions"); // disabling extensions
+			options.addArguments("--disable-gpu"); // applicable to windows os only
+			options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+			options.addArguments("--no-sandbox"); // Bypass OS security model
 
 			System.setProperty("webdriver.chrome.driver", ConfigProperties.getTestProperty("chrome"));
 			//System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver_linux64/chromedriver");
 			driver = new ChromeDriver(options);
-			options.addArguments("start-maximized");
-//			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+//			driver = WebDriverPool.DEFAULT.getDriver(new ChromeOptions());
 		}
 
 		return driver;
