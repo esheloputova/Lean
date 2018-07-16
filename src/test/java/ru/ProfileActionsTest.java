@@ -44,12 +44,12 @@ public class ProfileActionsTest {
 	@Step ("Change Language on Norsk")
 	@Test (groups = {"positive"}, enabled = true)
 	public void changeLanguageOnNorsk() {
-		new MainPage()
+//		new MainPage()
 //				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.changeLanguageOnNorsk();
@@ -77,11 +77,10 @@ public class ProfileActionsTest {
 	}
 
 
-
-	@AfterClass
+	@AfterMethod
 	public void tearDown() {
 		logger.info("Test   ENDED");
-        Page.getDriver().quit();
+//        Page.getDriver().quit();
 //		new MainBoardPage()
 //				.clickOnAvatarPhoto();
 //		new ProfilePage()

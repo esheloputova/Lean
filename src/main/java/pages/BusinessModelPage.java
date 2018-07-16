@@ -152,7 +152,7 @@ public class BusinessModelPage extends Page {
 		return new TestsPage();
 	}
 
-
+// Create stickies by double click
 	public BusinessModelPage createAllStickiesBM1() {
 
 		businessModelWhoCanHelpYou.click();
@@ -251,7 +251,7 @@ public class BusinessModelPage extends Page {
 		return this;
 	}
 
-	public BusinessModelPage deactivateStickiesBM() {
+	public BusinessModelPage deactivateFirstStickiesBM() {
 		for (WebElement x : listFirstStickies) {
 			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();
@@ -262,7 +262,7 @@ public class BusinessModelPage extends Page {
 		return this;
 	}
 
-	public BusinessModelPage activateStickiesBM() {
+	public BusinessModelPage activateFirstStickiesBM() {
 		for (WebElement x : listFirstStickies) {
 			new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(x));
 			x.click();

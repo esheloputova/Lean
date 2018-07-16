@@ -1,13 +1,17 @@
 package ru;
 
 import configuration.ConfigProperties;
-import models.User;
-import org.testng.ITestContext;
-import org.testng.annotations.*;
-import org.apache.log4j.Logger;
-import pages.*;
-import ru.AuthorizationTest;
 import io.qameta.allure.Step;
+import org.apache.log4j.Logger;
+import org.testng.ITestContext;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import pages.MainBoardPage;
+import pages.MyTestListener;
+import pages.ObjectivesPage;
+import pages.Page;
 
 @Listeners(MyTestListener.class)
 public class ObjectivesTest {
@@ -25,11 +29,11 @@ public class ObjectivesTest {
     @Step("Create stickies Objectives")
     @Test(groups = {"positive"}, enabled = true)
     public void createNewObjectives() {
-        new MainPage()
-                .clickOnLoginButton();
-        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-        new LoginPage()
-                .authorizationAnExistingUser(user1);
+//        new MainPage()
+//                .clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goObjectivesfromToolBar();
         new ObjectivesPage()

@@ -53,7 +53,7 @@ public class ResetPasswordTest {
 	}
 
 	@AfterMethod
-	public void loggerr() {
+	public void logging() {
 		logger.info("Test   ENDED");
 	}
 }

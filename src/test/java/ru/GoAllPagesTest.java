@@ -31,17 +31,17 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Business Idea")
-	@Test (priority = -1)
+	@Test (groups = {"positive"}, enabled=true)
 	public void goBIfromToolBar() {
-		new MainPage()
-				.clickOnLoginButton();
-		login();
+//		new MainPage()
+//				.clickOnLoginButton();
+//		login();
 		new MainBoardPage()
 				.goBIfromToolBar();
 	}
 
 	@Step ("Go to Business Model")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goBMfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -49,7 +49,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Objectives")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goObjectivesfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -57,7 +57,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Risks")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goRisksfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -65,7 +65,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Resources")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goResourcesfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -73,7 +73,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Gaps")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goGapsfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -81,7 +81,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Tests")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goTestsfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -89,7 +89,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Tasks")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goTasksfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -97,21 +97,21 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Share")
-	@Test
+	@Test(groups = {"positive"}, enabled=true)
 	public void goSharefromToolBar() {
 //        login();
 		new MainBoardPage()
 				.goSharefromToolBar();
 	}
 
-	@AfterSuite
+	@AfterMethod
 	public void tearDown() {
 		logger.info("Test   ENDED");
 //        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
 	}
 }
 

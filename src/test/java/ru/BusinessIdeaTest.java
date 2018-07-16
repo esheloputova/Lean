@@ -21,21 +21,19 @@ public class BusinessIdeaTest {
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
-//		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 		context.setAttribute("app", BusinessIdeaPage.class);
-
 	}
 
 	@Step ("Create stickies in BI")
 	@Test (groups = {"positive"}, enabled=true)
 	public void createStickiesBusinessIdeaTest() {
-		new MainPage()
+//		new MainPage()
 //				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goBIfromToolBar();
 		new BusinessIdeaPage()
@@ -55,33 +53,33 @@ public class BusinessIdeaTest {
 				.createBI();
 	}
 
-	@Step ("Edit Business ideas")
+
+	@Step ("Drag-and-drop stickies of Business ideas")
 	@Test (groups = {"positive"}, dependsOnMethods = {"createNewBusinessIdeaTest"}, enabled=true)
-	public void editBusinessIdeaTest() {
+	public void dragAndDropStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.goBIfromToolBar();
+				.clickOnBusinessIdea();
 		new BusinessIdeaPage()
-				.editBI()
-				.deleteBI();
+				.gragAndDrop();
 	}
 
-
-//	@Step ("Drag-and-drop stickies of Business ideas")
-//	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessIdeaTest"}, enabled=true)
-//	public void dragAndDropStickiesBusinessIdeaTest() {
-////        new MainPage().clickOnLoginButton();
-////        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-////        new LoginPage()
-////                .authorizationAnExistingUser(user1);
-//		new MainBoardPage()
-//				.clickOnBusinessIdea();
-//		new BusinessIdeaPage()
-//				.gragAndDrop();
-//	}
+    @Step ("Edit Business ideas + Delete")
+    @Test (groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesBusinessIdeaTest"}, enabled=true)
+    public void editBusinessIdeaTest() {
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
+        new MainBoardPage()
+                .goBIfromToolBar();
+        new BusinessIdeaPage()
+                .editBI()
+                .deleteBI();
+    }
 
 	@Step ("Delete stickies of Business ideas")
 	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessIdeaTest"}, enabled=true)

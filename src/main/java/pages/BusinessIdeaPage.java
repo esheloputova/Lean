@@ -188,12 +188,13 @@ public class BusinessIdeaPage extends Page {
 		return this;
 	}
 
+//	Create sticky by double click
 	public BusinessIdeaPage createAllStickiesBI() {
 		whatMakesYouUniqueColumn.click();
 		new Actions(driver).doubleClick(whatMakesYouUniqueColumn).build().perform();
 		nameOfSticky.click();
 		nameOfSticky.sendKeys("What makes you unique?");
-//		attachmentFile.sendKeys("/Users/elenasheloputova/IdeaProjects/MyfirstProjectTest/Lean/src/main/resources/Attachment.zip");
+//		attachmentFile.sendKeys("src/test/resources/Attachment");
 		moreInformationSticky.click();
 		descriptionSticky.click();
 		descriptionSticky.sendKeys("Here you should add? AT_" + timeStamp);
@@ -322,17 +323,14 @@ public class BusinessIdeaPage extends Page {
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
 		new Actions(getDriver()).dragAndDrop(chooseStick12, chooseStick32).perform();
-//		getDriver().navigate().refresh();
 
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick21));
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
 		new Actions(getDriver()).dragAndDrop(chooseStick32, chooseStick21).perform();
-//		getDriver().navigate().refresh();
 
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick32));
 		new Actions(getDriver()).dragAndDrop(chooseStick22, chooseStick22).perform();
-//		getDriver().navigate().refresh();
 
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick12));
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(chooseStick22));

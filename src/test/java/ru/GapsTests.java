@@ -21,7 +21,6 @@ public class GapsTests {
 	@BeforeMethod
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
-		Page.getDriver();
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
 		context.setAttribute("app",GapsPage.class);
 
@@ -30,12 +29,12 @@ public class GapsTests {
 	@Step ("Create stickies Gaps")
 	@Test (groups = {"positive"}, enabled=true)
 	public void createNewGaps() {
-		new MainPage()
-//				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+////				.clickOnAccept()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goGapsfromToolBar();
 		new GapsPage()

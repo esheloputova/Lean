@@ -63,12 +63,12 @@ public class EditCasesTest {
 	@Step ("Delete case")
 	@Test (groups = {"positive"}, enabled=true)
 	public void deleteCase() {
-		new MainPage()
-//				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+////				.clickOnAccept()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage().clickOnAvatarPhoto();
 		new ProfilePage()
 				.clickCaseSettingsButton()

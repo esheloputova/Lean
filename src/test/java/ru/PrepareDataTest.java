@@ -30,12 +30,12 @@ public class PrepareDataTest {
 	@Step ("Creating new case")
 	@Test (groups = {"positive"}, enabled = true)
 	public void createNewCase() {
-		new MainPage()
-				.clickOnAccept()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+////				.clickOnAccept()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.clickOnCasesText()
 				.clickNewCaseButton();

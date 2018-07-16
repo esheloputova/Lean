@@ -5,10 +5,7 @@ import io.qameta.allure.Step;
 import models.User;
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.*;
 
 /**
@@ -29,11 +26,12 @@ public class BusinessModelTest {
 	@Step ("Create business model")
 	@Test (groups = {"positive"}, enabled=true)
 	public void createNewBusinessModelTest() {
-		new MainPage()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+////                .clickOnAccept()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goBMfromToolBar();
 		new BusinessModelPage()
@@ -42,10 +40,15 @@ public class BusinessModelTest {
 				.createAllStickiesBM2();
 	}
 
-	@Step ("Edit stickies business model from creating form")
+	@Step ("Edit stickies business model from creating form" +
+            "Edit name" +
+            "Activate/ Deactivate" +
+            "Drag-and-drop" )
 	@Test(groups = {"positive"}, dependsOnMethods = {"createNewBusinessModelTest"}, enabled=true)
 	public void editBusinessModelTest() {
-//        new MainPage().clickOnLoginButton();
+//        new MainPage()
+//                .clickOnAccept()
+//                .clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
@@ -53,8 +56,8 @@ public class BusinessModelTest {
 				.goBMfromToolBar();
 		new BusinessModelPage()
 				.editNameStickiesBM()
-				.deactivateStickiesBM()
-				.activateStickiesBM()
+				.deactivateFirstStickiesBM()
+				.activateFirstStickiesBM()
 				.addMoreInformationStickiesBM()
 //				.addAttachesBM()
 //				.deleteAttachesBM()
@@ -92,18 +95,18 @@ public class BusinessModelTest {
 				.goGaps();
 	}
 
-//	@Step ("Go to Tests from BM")
-//	@Test(groups = {"positive"}, dependsOnMethods = {"goGaps"}, enabled=true)
-//	public void goTests() {
-////        new MainPage().clickOnLoginButton();
-////        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-////        new LoginPage()
-////                .authorizationAnExistingUser(user1);
-//		new MainBoardPage()
-//				.goBMfromToolBar();
-//		new BusinessModelPage()
-//				.goTests();
-//	}
+	@Step ("Go to Tests from BM")
+	@Test(groups = {"positive"}, dependsOnMethods = {"goGaps"}, enabled=true)
+	public void goTests() {
+//        new MainPage().clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.goBMfromToolBar();
+		new BusinessModelPage()
+				.goTests();
+	}
 
 	@AfterMethod
 	public void tearDown() {

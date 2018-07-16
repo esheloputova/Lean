@@ -31,11 +31,11 @@ public class ResourcesTest {
 	@Step ("Create stickies Resources")
 	@Test (groups = {"positive"}, enabled = true)
 	public void createNewResources() {
-		new MainPage()
-				.clickOnLoginButton();
-		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-		new LoginPage()
-				.authorizationAnExistingUser(user1);
+//		new MainPage()
+//				.clickOnLoginButton();
+//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//		new LoginPage()
+//				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goResourcesfromToolBar();
 		new ResourcesPage()
