@@ -25,12 +25,12 @@ public class RisksTest {
     @Step("Create stickies in Risks")
     @Test(groups = {"positive"}, enabled = true)
     public void createStickiesRisks() {
-//        new MainPage()
-////				.clickOnAccept()
-//                .clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
+        new MainPage()
+//				.clickOnAccept()
+                .clickOnLoginButton();
+        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+        new LoginPage()
+                .authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goRisksfromToolBar();
         new RisksPage()

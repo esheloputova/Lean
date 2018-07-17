@@ -26,12 +26,12 @@ public class TasksTest {
     @Step("Create task all of Cost group")
     @Test(groups = {"positive"}, enabled = true)
     public void createTask() {
-//		new MainPage()
-////                .clickOnAccept()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+		new MainPage()
+//                .clickOnAccept()
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
         new MainBoardPage()
                 .goTasksfromToolBar();
         new TasksPage()

@@ -33,15 +33,15 @@ public class GoAllPagesTest {
 	@Step ("Go to Business Idea")
 	@Test (groups = {"positive"}, enabled=true)
 	public void goBIfromToolBar() {
-//		new MainPage()
-//				.clickOnLoginButton();
+		new MainPage()
+				.clickOnLoginButton();
 //		login();
 		new MainBoardPage()
 				.goBIfromToolBar();
 	}
 
 	@Step ("Go to Business Model")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goBIfromToolBar"}, enabled=true)
 	public void goBMfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -49,7 +49,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Objectives")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goBMfromToolBar"}, enabled=true)
 	public void goObjectivesfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -57,7 +57,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Risks")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goObjectivesfromToolBar"}, enabled=true)
 	public void goRisksfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -65,7 +65,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Resources")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goRisksfromToolBar"}, enabled=true)
 	public void goResourcesfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -73,7 +73,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Gaps")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goResourcesfromToolBar"}, enabled=true)
 	public void goGapsfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -81,7 +81,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Tests")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goGapsfromToolBar"}, enabled=true)
 	public void goTestsfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -89,7 +89,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Tasks")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goTestsfromToolBar"}, enabled=true)
 	public void goTasksfromToolBar() {
 //        login();
 		new MainBoardPage()
@@ -97,7 +97,7 @@ public class GoAllPagesTest {
 	}
 
 	@Step ("Go to Share")
-	@Test(groups = {"positive"}, enabled=true)
+	@Test(groups = {"positive"},  dependsOnMethods = {"goTasksfromToolBar"}, enabled=true)
 	public void goSharefromToolBar() {
 //        login();
 		new MainBoardPage()

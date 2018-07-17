@@ -28,12 +28,12 @@ public class BusinessIdeaTest {
 	@Step ("Create stickies in BI")
 	@Test (groups = {"positive"}, enabled=true)
 	public void createStickiesBusinessIdeaTest() {
-//		new MainPage()
+		new MainPage()
 //				.clickOnAccept()
-//				.clickOnLoginButton();
-//		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//		new LoginPage()
-//				.authorizationAnExistingUser(user1);
+				.clickOnLoginButton();
+		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+		new LoginPage()
+				.authorizationAnExistingUser(user1);
 		new MainBoardPage()
 				.goBIfromToolBar();
 		new BusinessIdeaPage()
