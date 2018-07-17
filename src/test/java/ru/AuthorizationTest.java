@@ -4,6 +4,7 @@ import configuration.ConfigProperties;
 import io.qameta.allure.Step;
 import models.User;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -70,6 +71,7 @@ public class AuthorizationTest {
 //				.clickOnAvatarPhoto();
 //		new ProfilePage()
 //				.clickSignOut();
+
     }
 
 }

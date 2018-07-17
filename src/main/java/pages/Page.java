@@ -49,7 +49,10 @@ public abstract class Page {
 
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("start-maximized"); // open Browser in maximized mode
+
 			options.addArguments("disable-infobars"); // disabling infobars
+			options.addArguments("user-data-dir=src/test/resources/webDriver/");
+
 			options.addArguments("--disable-extensions"); // disabling extensions
 			options.addArguments("--disable-gpu"); // applicable to windows os only
 			options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
@@ -61,7 +64,9 @@ public abstract class Page {
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 //			driver = WebDriverPool.DEFAULT.getDriver(new ChromeOptions());
+
 		}
+
 
 		return driver;
 
@@ -96,6 +101,7 @@ public abstract class Page {
 	public static boolean elementExists(java.lang.String xpath) {
 		return getDriver().findElements(By.xpath(xpath)).isEmpty();
 	}
+
 
 
 }

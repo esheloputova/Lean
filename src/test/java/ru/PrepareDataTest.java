@@ -31,7 +31,7 @@ public class PrepareDataTest {
 	@Test (groups = {"positive"}, enabled = true)
 	public void createNewCase() {
 		new MainPage()
-//				.clickOnAccept()
+				.clickOnAccept()
 				.clickOnLoginButton();
 		User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 		new LoginPage()
