@@ -4,10 +4,7 @@ import configuration.ConfigProperties;
 import io.qameta.allure.Step;
 import models.User;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 import pages.*;
 
@@ -73,13 +70,10 @@ public class ShareTest {
 	}
 
 
-	@AfterSuite
-	public void tearDown() {
+	@AfterMethod
+	public void logging() {
 		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+
 	}
+
 }

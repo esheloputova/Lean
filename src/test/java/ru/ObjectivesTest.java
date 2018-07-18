@@ -5,10 +5,7 @@ import io.qameta.allure.Step;
 import models.User;
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.*;
 
 @Listeners(MyTestListener.class)
@@ -116,12 +113,18 @@ public class ObjectivesTest {
 //    }
 
     @AfterMethod
-    public void tearDown() {
+    public void logging() {
         logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-//        new MainBoardPage()
-//                .clickOnAvatarPhoto();
-//        new ProfilePage()
-//                .clickSignOut();
+
     }
+
+    @AfterClass
+    public void tearDown() {
+        new MainBoardPage()
+                .clickOnAvatarPhoto();
+        new ProfilePage()
+                .clickSignOut();
+
+    }
+
 }

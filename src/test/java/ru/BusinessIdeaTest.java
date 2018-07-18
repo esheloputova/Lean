@@ -6,14 +6,13 @@ import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
-import ru.AuthorizationTest;
 import io.qameta.allure.Step;
 
 /**
  * @author Elena_Sheloputova
  */
 
-@Listeners(MyTestListener.class)
+@Listeners (MyTestListener.class)
 public class BusinessIdeaTest {
 
 	final static Logger logger = Logger.getLogger(BusinessIdeaTest.class);
@@ -26,7 +25,7 @@ public class BusinessIdeaTest {
 	}
 
 	@Step ("Create stickies in BI")
-	@Test (groups = {"positive"}, enabled=true)
+	@Test (groups = {"positive"}, enabled = true)
 	public void createStickiesBusinessIdeaTest() {
 		new MainPage()
 //				.clickOnAccept()
@@ -41,7 +40,7 @@ public class BusinessIdeaTest {
 	}
 
 	@Step ("Create New first Business idea")
-	@Test (groups = {"positive"}, dependsOnMethods = {"createStickiesBusinessIdeaTest"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"createStickiesBusinessIdeaTest"}, enabled = true)
 	public void createNewBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -55,7 +54,7 @@ public class BusinessIdeaTest {
 
 
 	@Step ("Drag-and-drop stickies of Business ideas")
-	@Test (groups = {"positive"}, dependsOnMethods = {"createNewBusinessIdeaTest"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"createNewBusinessIdeaTest"}, enabled = true)
 	public void dragAndDropStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -67,22 +66,39 @@ public class BusinessIdeaTest {
 				.gragAndDrop();
 	}
 
-    @Step ("Edit Business ideas + Delete")
-    @Test (groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesBusinessIdeaTest"}, enabled=true)
-    public void editBusinessIdeaTest() {
+	@Step ("Edit Business ideas + Delete")
+	@Test(groups = {"positive"}, dependsOnMethods = {"dragAndDropStickiesBusinessIdeaTest"}, enabled = true)
+	public void editBusinessIdeaTest() {
+//        new MainPage()
+//		        .clickOnAccept()
+//		        .clickOnLoginButton();
+//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+//        new LoginPage()
+//                .authorizationAnExistingUser(user1);
+		new MainBoardPage()
+				.goBIfromToolBar();
+		new BusinessIdeaPage()
+				.editBI();
+	}
+
+
+	@Step ("Delete Business idea")
+	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessIdeaTest"}, enabled = true)
+	public void deleteBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
-        new MainBoardPage()
-                .goBIfromToolBar();
-        new BusinessIdeaPage()
-                .editBI()
-                .deleteBI();
-    }
+		new MainBoardPage()
+				.goBIfromToolBar();
+		new BusinessIdeaPage()
+				.deleteBI();
+	}
+
+
 
 	@Step ("Delete stickies of Business ideas")
-	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessIdeaTest"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"deleteBusinessIdeaTest"}, enabled = true)
 	public void deleteStickiesBusinessIdeaTest() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -97,9 +113,8 @@ public class BusinessIdeaTest {
 	}
 
 
-
 	@Step ("Go to Business Model from Business ideas by link")
-	@Test (groups = {"positive"}, dependsOnMethods = {"deleteStickiesBusinessIdeaTest"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"deleteStickiesBusinessIdeaTest"}, enabled = true)
 	public void goBMFromBIByLink() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -112,7 +127,7 @@ public class BusinessIdeaTest {
 	}
 
 	@Step ("Go to Tests from Business ideas by link")
-	@Test (groups = {"positive"}, dependsOnMethods = {"goBMFromBIByLink"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"goBMFromBIByLink"}, enabled = true)
 	public void goTestsFromBIByLink() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -127,12 +142,19 @@ public class BusinessIdeaTest {
 	}
 
 	@AfterMethod
-	public void tearDown() {
-        logger.info("Test   ENDED");
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+	public void logging() {
+		logger.info("Test   ENDED");
+
 	}
+
+	@AfterClass
+	public void tearDown() {
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+
+	}
+
 
 }

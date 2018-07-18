@@ -6,7 +6,6 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
-import ru.AuthorizationTest;
 import io.qameta.allure.Step;
 
 
@@ -35,7 +34,7 @@ public class GoAllPagesTest {
 	public void goBIfromToolBar() {
 		new MainPage()
 				.clickOnLoginButton();
-//		login();
+		login();
 		new MainBoardPage()
 				.goBIfromToolBar();
 	}
@@ -105,13 +104,19 @@ public class GoAllPagesTest {
 	}
 
 	@AfterMethod
-	public void tearDown() {
+	public void logging() {
 		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+
 	}
+
+	@AfterClass
+	public void tearDown() {
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+
+	}
+
 }
 

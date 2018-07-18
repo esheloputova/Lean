@@ -306,9 +306,11 @@ public class BusinessIdeaPage extends Page {
 		firsrTab.click();
 		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(firstEdit));
 		firstEdit.click();
-		chooseStick12.click();
-		chooseStick22.click();
-		chooseStick32.click();
+//		chooseStick12.click();
+//		chooseStick22.click();
+//		chooseStick32.click();
+
+		new WebDriverWait(getDriver(), 2).until(ExpectedConditions.visibilityOf(buttonSaveIdea));
 		buttonSaveIdea.click();
 
 //		//change color

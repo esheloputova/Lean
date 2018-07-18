@@ -6,7 +6,6 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
-import ru.AuthorizationTest;
 import io.qameta.allure.Step;
 
 /**
@@ -67,24 +66,25 @@ public class ProfileActionsTest {
 //				.authorizationAnExistingUser(user1);
 
 		new MainBoardPage()
-				.goMainPage()
 				.clickOnAvatarPhoto();
 		new ProfilePage()
 				.changeLanguageOnEnglish();
-		new MainBoardPage()
-				.goMainPage();
 
 	}
 
+	@Test (groups = {"positive"}, dependsOnMethods = {"changeLanguageOnNorsk"}, enabled = true)
+	public void logout() {
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+
+	}
 
 	@AfterMethod
-	public void tearDown() {
+	public void logging() {
 		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+
 	}
 
 

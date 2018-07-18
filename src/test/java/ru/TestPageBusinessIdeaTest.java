@@ -6,7 +6,6 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
-import ru.AuthorizationTest;
 import io.qameta.allure.Step;
 
 
@@ -50,14 +49,21 @@ public class TestPageBusinessIdeaTest {
 	}
 
 	@AfterMethod
-	public void tearDown() {
+	public void logging() {
 		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+
 	}
+
+	@AfterClass
+	public void tearDown() {
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+
+	}
+
+
 
 }
 

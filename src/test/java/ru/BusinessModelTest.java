@@ -12,7 +12,7 @@ import pages.*;
  * @author Elena_Sheloputova
  */
 
-@Listeners(MyTestListener.class)
+@Listeners (MyTestListener.class)
 public class BusinessModelTest {
 	final static Logger logger = Logger.getLogger(BusinessModelTest.class);
 
@@ -20,11 +20,11 @@ public class BusinessModelTest {
 	public void setUp(ITestContext context) {
 		logger.info("Test STARTED");
 		Page.getDriver().get(ConfigProperties.getTestProperty("urlnewlean"));
-		context.setAttribute("app",BusinessModelPage.class);
+		context.setAttribute("app", BusinessModelPage.class);
 	}
 
 	@Step ("Create business model")
-	@Test (groups = {"positive"}, enabled=true)
+	@Test (groups = {"positive"}, enabled = true)
 	public void createNewBusinessModelTest() {
 		new MainPage()
 //                .clickOnAccept()
@@ -41,10 +41,10 @@ public class BusinessModelTest {
 	}
 
 	@Step ("Edit stickies business model from creating form" +
-            "Edit name" +
-            "Activate/ Deactivate" +
-            "Drag-and-drop" )
-	@Test(groups = {"positive"}, dependsOnMethods = {"createNewBusinessModelTest"}, enabled=true)
+			"Edit name" +
+			"Activate/ Deactivate" +
+			"Drag-and-drop")
+	@Test (groups = {"positive"}, dependsOnMethods = {"createNewBusinessModelTest"}, enabled = true)
 	public void editBusinessModelTest() {
 //        new MainPage()
 //                .clickOnAccept()
@@ -83,7 +83,7 @@ public class BusinessModelTest {
 //	}
 
 	@Step ("Go to Gaps from BM")
-	@Test(groups = {"positive"}, dependsOnMethods = {"editBusinessModelTest"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"editBusinessModelTest"}, enabled = true)
 	public void goGaps() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -96,7 +96,7 @@ public class BusinessModelTest {
 	}
 
 	@Step ("Go to Tests from BM")
-	@Test(groups = {"positive"}, dependsOnMethods = {"goGaps"}, enabled=true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"goGaps"}, enabled = true)
 	public void goTests() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
@@ -109,14 +109,19 @@ public class BusinessModelTest {
 	}
 
 	@AfterMethod
-	public void tearDown() {
+	public void logging() {
 		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+
 	}
 
+
+	@AfterClass
+	public void tearDown() {
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+
+	}
 
 }

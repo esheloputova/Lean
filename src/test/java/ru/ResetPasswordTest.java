@@ -55,6 +55,8 @@ public class ResetPasswordTest {
 	@AfterMethod
 	public void logging() {
 		logger.info("Test   ENDED");
+
 	}
+
 }
 

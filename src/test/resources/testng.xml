@@ -8,14 +8,14 @@
 
         <classes>
 
-            <!--<class name="ru.ResetPasswordTest"/>-->
-            <!--<class name="ru.AuthorizationTest"/>-->
-            <!--<class name="ru.ProfileActionsTest"/>-->
+            <class name="ru.ResetPasswordTest"/>
+            <class name="ru.AuthorizationTest"/>
+            <class name="ru.ProfileActionsTest"/>
 
             <!--<class name="ru.CreateUserTest"/>-->
 
             <class name="ru.PrepareDataTest"/>
-            <!--<class name="ru.GoAllPagesTest"/>-->
+            <class name="ru.GoAllPagesTest"/>
 
             <class name="ru.BusinessIdeaTest"/>
             <class name="ru.ResourcesTest"/>

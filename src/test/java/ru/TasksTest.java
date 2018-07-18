@@ -6,7 +6,6 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.apache.log4j.Logger;
 import pages.*;
-import ru.AuthorizationTest;
 import io.qameta.allure.Step;
 
 
@@ -111,13 +110,21 @@ public class TasksTest {
 //                .editDeleteFirstStickyEveryBoard();
 //    }
 
-    @AfterMethod
-    public void tearDown() {
-        logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-//        new MainBoardPage()
-//                .clickOnAvatarPhoto();
-//        new ProfilePage()
-//                .clickSignOut();
-    }
+	@AfterMethod
+	public void logging() {
+		logger.info("Test   ENDED");
+
+	}
+
+	@AfterClass
+	public void tearDown() {
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+
+	}
+
+
+
 }

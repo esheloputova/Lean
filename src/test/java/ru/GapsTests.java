@@ -116,12 +116,19 @@ public class GapsTests {
 	}
 
 	@AfterMethod
-	public void tearDown() {
+	public void logging() {
 		logger.info("Test   ENDED");
-//        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+
 	}
+
+	@AfterClass
+	public void tearDown() {
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
+
+	}
+
+
 }

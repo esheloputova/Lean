@@ -70,20 +70,20 @@ public class MainPage extends Page {
 //			return new LoginPage();
 //		}
 
-//    public LoginPage clickOnLoginButton() {
-//
-//        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
-//        loginButton.click();
-//
-//        return new LoginPage();
-//    }
+    public LoginPage clickOnLoginButton() {
 
-	public LoginPage clickOnLoginButton() {
-		if (!Page.elementExists("//p[contains(@class,'ng-binding') and contains(text(), 'Login')]")) {
-			loginButton.click();
-		}
-		return new LoginPage();
-	}
+        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOf(loginButton));
+        loginButton.click();
+
+        return new LoginPage();
+    }
+
+//	public LoginPage clickOnLoginButton() {
+//		if (!Page.elementExists("//p[contains(@class,'ng-binding') and contains(text(), 'Login')]")) {
+//			loginButton.click();
+//		}
+//		return new LoginPage();
+//	}
 
 
 	public static byte[] takeScreenshot() {

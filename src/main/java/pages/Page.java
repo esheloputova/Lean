@@ -51,7 +51,7 @@ public abstract class Page {
 			options.addArguments("start-maximized"); // open Browser in maximized mode
 
 			options.addArguments("disable-infobars"); // disabling infobars
-			options.addArguments("user-data-dir=src/test/resources/webDriver/");
+//			options.addArguments("user-data-dir=src/test/resources/webDriver/");
 
 			options.addArguments("--disable-extensions"); // disabling extensions
 			options.addArguments("--disable-gpu"); // applicable to windows os only
@@ -61,7 +61,7 @@ public abstract class Page {
 			System.setProperty("webdriver.chrome.driver", ConfigProperties.getTestProperty("chrome"));
 			//System.setProperty("webdriver.chrome.driver", "src/test/resources/webDriver/chromedriver_linux64/chromedriver");
 			driver = new ChromeDriver(options);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 //			driver = WebDriverPool.DEFAULT.getDriver(new ChromeOptions());
 
