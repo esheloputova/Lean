@@ -10,7 +10,7 @@
 
             <class name="ru.ResetPasswordTest"/>
             <class name="ru.AuthorizationTest"/>
-            <class name="ru.ProfileActionsTest"/>
+            <!--<class name="ru.ProfileActionsTest"/>-->
 
             <!--<class name="ru.CreateUserTest"/>-->
 
