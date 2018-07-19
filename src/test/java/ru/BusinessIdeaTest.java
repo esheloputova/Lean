@@ -97,24 +97,24 @@ public class BusinessIdeaTest {
 
 
 
-	@Step ("Delete stickies of Business ideas")
-	@Test (groups = {"positive"}, dependsOnMethods = {"deleteBusinessIdeaTest"}, enabled = true)
-	public void deleteStickiesBusinessIdeaTest() {
-//        new MainPage().clickOnLoginButton();
-//        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
-//        new LoginPage()
-//                .authorizationAnExistingUser(user1);
-		new MainBoardPage()
-				.goBIfromToolBar();
-		new BusinessIdeaPage()
-				.deleteAllStickiesBIFirst()
-				.deleteAllStickiesBISecond()
-				.deleteAllStickiesBIThird();
-	}
+//	@Step ("Delete stickies of Business ideas")
+//	@Test (groups = {"positive"}, dependsOnMethods = {"deleteBusinessIdeaTest"}, enabled = true)
+//	public void deleteStickiesBusinessIdeaTest() {
+////        new MainPage().clickOnLoginButton();
+////        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
+////        new LoginPage()
+////                .authorizationAnExistingUser(user1);
+//		new MainBoardPage()
+//				.goBIfromToolBar();
+//		new BusinessIdeaPage()
+//				.deleteAllStickiesBIFirst()
+//				.deleteAllStickiesBISecond()
+//				.deleteAllStickiesBIThird();
+//	}
 
 
 	@Step ("Go to Business Model from Business ideas by link")
-	@Test (groups = {"positive"}, dependsOnMethods = {"deleteStickiesBusinessIdeaTest"}, enabled = true)
+	@Test (groups = {"positive"}, dependsOnMethods = {"deleteBusinessIdeaTest"}, enabled = true)
 	public void goBMFromBIByLink() {
 //        new MainPage().clickOnLoginButton();
 //        User user1 = new User(ConfigProperties.getTestProperty("anExistingLogin"), ConfigProperties.getTestProperty("correctPassword"));
