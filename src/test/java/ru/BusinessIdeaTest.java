@@ -61,7 +61,7 @@ public class BusinessIdeaTest {
 //        new LoginPage()
 //                .authorizationAnExistingUser(user1);
 		new MainBoardPage()
-				.clickOnBusinessIdea();
+				.goBIfromToolBar();
 		new BusinessIdeaPage()
 				.gragAndDrop();
 	}
