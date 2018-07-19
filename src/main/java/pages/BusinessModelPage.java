@@ -61,7 +61,7 @@ public class BusinessModelPage extends Page {
 	WebElement firstStickyBusinessModelWhoWillBeYourFirstCustomers;
 
 
-	@FindBy (xpath = "//input[(@type='text') and (@name='title')]")
+	@FindBy (xpath = "//input[@qa-name='sticky-input-dialog']")
 	WebElement fieldOfInputBusinessModel;
 
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__idea-cell ng-scope'])[1]")
@@ -73,47 +73,47 @@ public class BusinessModelPage extends Page {
 	@FindBy (xpath = "(//div[@class = 'grid__cell business-items__idea-cell ng-scope'])[3]")
 	WebElement businessModelIdea3WhoWillHaveThisProblem;
 
-	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[1]")
+	@FindBy (xpath = "(//button[@qa-name='add-new-idea-button'])[1]")
 	WebElement firstPlusBI;
 
-	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
+	@FindBy (xpath = "(//button[@qa-name='add-new-idea-button'])[2]")
 	WebElement secondPlusBI;
 
-	@FindBy (xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[3]")
+	@FindBy (xpath = "(//button[@qa-name='add-new-idea-button'])[3]")
 	WebElement thirdPlusBI;
 
 	// Beginning. Actions in the form
 
-	@FindBy (xpath = "//button[@type='submit']")
+	@FindBy (xpath = "//button[@qa-name='save-sticky-button']")
 	WebElement buttonSave;
-	@FindBy (xpath = "//div[@class='button button-remove ng-scope']")
+	@FindBy (xpath = "//div[@qa-name='delete-button-dialog']")
 	WebElement deleteSticky;
 
 	@FindBy (xpath = "//div[@class='button button-deactivate ng-scope']")
 	WebElement deactivateSticky;
 
-	@FindBy (xpath = "//div[@class='button button-activate ng-scope']")
+	@FindBy (xpath = "//div[@qa-name='activate-sticky-dialog-button']")
 	WebElement activateSticky;
 
-	@FindBy (xpath = "//span[contains(@class,'button-more') and (text()='more')]")
+	@FindBy (xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
 	WebElement moreInformationSticky;
 
-	@FindBy (xpath = "//textarea[contains(@ng-model,'description')]")
+	@FindBy (xpath = "//textarea[@qa-name='description-text-area']")
 	WebElement descriptionSticky;
 
-	@FindBy (xpath = "//span[contains(@class,'button-more') and (text()='less')]")
+	@FindBy (xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
 	WebElement lessInformationSticky;
 
-	@FindBy (xpath = "//input[@type ='file']")
+	@FindBy (xpath = "//input[@qa-name='attach-file-input']")
 	WebElement attachmentFile;
 
 	@FindBy (xpath = "//div[contains(@class, 'dialog-close')]")
 	WebElement closeForm;
 
-	@FindBy (xpath = "//input[(@type='text') and (@name='title')]")
+	@FindBy (xpath = "//input[@qa-name='sticky-input-dialog']")
 	WebElement fieldOfInputBM;
 
-	@FindBy (xpath = "//div[@title = 'Remove attach']")
+	@FindBy (xpath = "//div[@qa-name='remove-attach-file-button']")
 	WebElement removeAttach;
 	//	End. Actions in the form
 

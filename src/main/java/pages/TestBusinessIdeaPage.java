@@ -31,7 +31,7 @@ public class TestBusinessIdeaPage extends Page {
     @FindBy(xpath = "//div[(@class='md-container md-ink-ripple')]")
     WebElement na;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[@qa-name='save-sticky-button']")
     WebElement saveButton;
 
     @FindBy(xpath = "//div[@ng-click='$ctrl.goBack()']")
@@ -54,34 +54,34 @@ public class TestBusinessIdeaPage extends Page {
 
 
     // Beginning. Actions in the form
-    @FindBy(xpath = "//div[@class='button button-remove ng-scope']")
+    @FindBy(xpath = "//div[@qa-name='delete-button-dialog']")
     WebElement deleteSticky;
 
     @FindBy(xpath = "//div[@class='button button-deactivate ng-scope']")
     WebElement deactivateSticky;
 
-    @FindBy(xpath = "//div[@class='button button-activate ng-scope']")
+    @FindBy(xpath = "//div[@qa-name='activate-sticky-dialog-button']")
     WebElement activateSticky;
 
-    @FindBy(xpath = "//span[contains(@class,'button-more') and (text()='more')]")
+    @FindBy(xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
     WebElement moreInformationSticky;
 
-    @FindBy(xpath = "//textarea[contains(@ng-model,'description')]")
+    @FindBy(xpath = "//textarea[@qa-name='description-text-area']")
     WebElement descriptionSticky;
 
-    @FindBy(xpath = "//span[contains(@class,'button-more') and (text()='less')]")
+    @FindBy(xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
     WebElement lessInformationSticky;
 
-    @FindBy(xpath = "//input[@type ='file']")
+    @FindBy(xpath = "//input[@qa-name='attach-file-input']")
     WebElement attachmentFile;
 
     @FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
     WebElement closeForm;
 
-    @FindBy(xpath = "//input[(@type='text') and (@name='title')]")
+    @FindBy(xpath = "//input[@qa-name='sticky-input-dialog']")
     WebElement fieldOfInputBM;
 
-    @FindBy(xpath = "//div[@title = 'Remove attach']")
+    @FindBy(xpath = "//div[@qa-name='remove-attach-file-button']")
     WebElement removeAttach;
 
     @FindBy(xpath = "(//button[contains(@class, 'md-raised') and (@type='button')])[2]")

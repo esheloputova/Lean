@@ -24,10 +24,10 @@ public class GapsPage extends Page {
 	WebElement buttonPlusTheSecond;
 
 
-	@FindBy (xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]")
+	@FindBy (xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[1]")
 	WebElement gapsAddStickies;
 
-	@FindBy (xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]")
+	@FindBy (xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[2]")
 	WebElement competitorAddStickies;
 
 
@@ -36,25 +36,25 @@ public class GapsPage extends Page {
 	@FindBy (xpath = "//input[@name='title']")
 	WebElement nameGaps;
 
-	@FindBy (xpath = "//div[@class='button button-remove ng-scope']")
+	@FindBy (xpath = "//div[@qa-name='delete-button-dialog']")
 	WebElement deleteSticky;
 
 	@FindBy (xpath = "//div[@class='button button-deactivate ng-scope']")
 	WebElement deactivateSticky;
 
-	@FindBy (xpath = "//div[@class='button button-activate ng-scope']")
+	@FindBy (xpath = "//div[@qa-name='activate-sticky-dialog-button']")
 	WebElement activateSticky;
 
-	@FindBy (xpath = "//span[contains(@class,'button-more') and (text()='more')]")
+	@FindBy (xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
 	WebElement moreInformationSticky;
 
-	@FindBy (xpath = "//textarea[contains(@ng-model,'description')]")
+	@FindBy (xpath = "//textarea[@qa-name='description-text-area']")
 	WebElement descriptionSticky;
 
-	@FindBy (xpath = "//span[contains(@class,'button-more') and (text()='less')]")
+	@FindBy (xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
 	WebElement lessInformationSticky;
 
-	@FindBy (xpath = "//input[@type ='file']")
+	@FindBy (xpath = "//input[@qa-name='attach-file-input']")
 	WebElement attachmentFile;
 
 	@FindBy (xpath = "//div[contains(@class, 'dialog-close')]")
@@ -66,13 +66,13 @@ public class GapsPage extends Page {
 	@FindBy (xpath = "//select[@ng-model='$ctrl.currentOption']/optgroup[@label='What will make you unique?']/option[1]")
 	WebElement chooseBusinessModelCard;
 
-	@FindBy (xpath = "//div[contains(@class, 'item-good')]")
+	@FindBy (xpath = "//div[@qa-name='strength-button']")
 	WebElement strengthButton;
 
-	@FindBy (xpath = "//div[contains(@class, 'item-bad')]")
+	@FindBy (xpath = "//div[@qa-name='weakness-button']")
 	WebElement weaknessButton;
 
-//    @FindBy(xpath = "(//button[@type='submit'])")
+//    @FindBy(xpath = "(//button[@qa-name='save-sticky-button'])")
 //    WebElement gapsButtonSave;
 
 	@FindBy (xpath = "(//button[contains(@ng-click,'ctrl.onSubmit')])")

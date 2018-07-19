@@ -49,34 +49,34 @@ public class RisksPage extends Page {
     @FindBy(xpath = "(//select[@ng-model='$ctrl.currentOption'])[4]/option[3]")
     WebElement chooseLowConsequence;
 
-    @FindBy(xpath = "//div[contains(@class, 'item-good')]")
+    @FindBy(xpath = "//div[@qa-name='strength-button']")
     WebElement goodOpportunity;
 
-    @FindBy(xpath = "//div[contains(@class, 'item-good')]")
+    @FindBy(xpath = "//div[@qa-name='strength-button']")
     WebElement badThreats;
 
     @FindBy(xpath = "//div[@class='button button-deactivate ng-scope']")
     WebElement deactivateRisk;
 
-    @FindBy(xpath = "//div[@class='button button-activate ng-scope']")
+    @FindBy(xpath = "//div[@qa-name='activate-sticky-dialog-button']")
     WebElement activateRisk;
 
-    @FindBy(xpath = "//span[contains(@class,'button-more') and (text()='more')]")
+    @FindBy(xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
     WebElement moreInformationRisk;
 
-    @FindBy(xpath = "//textarea[contains(@ng-model,'description')]")
+    @FindBy(xpath = "//textarea[@qa-name='description-text-area']")
     WebElement descriptionRisk;
 
-    @FindBy(xpath = "//span[contains(@class,'button-more') and (text()='less')]")
+    @FindBy(xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
     WebElement lessInformationRisk;
 
-    @FindBy(xpath = "//input[@type ='file']")
+    @FindBy(xpath = "//input[@qa-name='attach-file-input']")
     WebElement attachmentFile;
 
     @FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
     WebElement closeForm;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[@qa-name='save-sticky-button']")
     WebElement buttonSaveRisk;
     //    End
 

@@ -18,16 +18,16 @@ import java.util.List;
  * @author Elena_Sheloputova
  */
 public class BusinessIdeaPage extends Page {
-	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]")
+	@FindBy(xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[1]")
 	WebElement whatMakesYouUniqueColumn;
 
-	@FindBys(@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]/idea-sticky"))
+	@FindBys(@FindBy(xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[1]/idea-sticky"))
 	List<WebElement> allStickyWhatMakesYouUniqueColumn;
 
-	@FindBys(@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]/idea-sticky"))
+	@FindBys(@FindBy(xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[2]/idea-sticky"))
 	List<WebElement> allStickyWhatProblemWillYouSolveColumn;
 
-	@FindBys(@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]/idea-sticky"))
+	@FindBys(@FindBy(xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[3]/idea-sticky"))
 	List<WebElement> allStickyWhoWillHaveThisProblemColumn;
 
 
@@ -40,7 +40,7 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[1]//idea-sticky[@ng-model='item'][2]//div[@ng-dblclick ='$event.stopPropagation();']")
 	WebElement chooseStick12;
 
-	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]//idea-sticky[@ng-model='item'][1]")
+	@FindBy(xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[2]//idea-sticky[@qa-name='sticky-click-area'][1]")
 	WebElement editStick2;
 
 	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]//idea-sticky[@ng-model='item'][1]//div[@ng-dblclick ='$event.stopPropagation();']")
@@ -61,7 +61,7 @@ public class BusinessIdeaPage extends Page {
 	WebElement chooseStick32;
 
 
-	@FindBy(xpath = "//input[(@type='text') and contains(@placeholder, 'Give the new idea name')]")
+	@FindBy(xpath = "//div[@qa-name='give-new-idea-name-input']")
 	WebElement giveNameIdea;
 
 	@FindBy(xpath = "//span[(@class='ng-binding ng-scope') and contains(text(), 'add')]")
@@ -80,13 +80,13 @@ public class BusinessIdeaPage extends Page {
 	WebElement linkModels;
 
 //	Form of creating
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "//button[@qa-name='save-sticky-button']")
 	WebElement businessIdeaButtonSave;
 
-	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[2]")
+	@FindBy(xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[2]")
 	WebElement whatProblemWillYouSolveColumn;
 
-	@FindBy(xpath = "(//board-box-stickies[@ng-model='box.stickies'])[3]")
+	@FindBy(xpath = "(//board-box-stickies[@qa-name='add-sticky-box'])[3]")
 	WebElement whoWillHaveThisProblemColumn;
 
 	@FindBy(xpath = "(//span[@class='fa fa-caret-down'])[1]")
@@ -95,7 +95,7 @@ public class BusinessIdeaPage extends Page {
 
 // Beginning. Actions in the form
 
-	@FindBy(xpath = "//input[(@type='text') and (@name='title')]")
+	@FindBy(xpath = "//input[@qa-name='sticky-input-dialog']")
 	WebElement nameOfSticky;
 
 	@FindBy(xpath = "//div[@qa-name='delete-button-dialog']")
@@ -104,19 +104,19 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//div[@class='button button-deactivate ng-scope']")
 	WebElement deactivateSticky;
 
-	@FindBy(xpath = "//div[@class='button button-activate ng-scope']")
+	@FindBy(xpath = "//div[@qa-name='activate-sticky-dialog-button']")
 	WebElement activateSticky;
 
-	@FindBy(xpath = "//span[contains(@class,'button-more') and (text()='more')]")
+	@FindBy(xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
 	WebElement moreInformationSticky;
 
-	@FindBy(xpath = "//textarea[contains(@ng-model,'description')]")
+	@FindBy(xpath = "//textarea[@qa-name='description-text-area']")
 	WebElement descriptionSticky;
 
-	@FindBy(xpath = "//span[contains(@class,'button-more') and (text()='less')]")
+	@FindBy(xpath = "//span[@qa-name='more-less-span-sticky-dialog']")
 	WebElement lessInformationSticky;
 
-	@FindBy(xpath = "//input[@type ='file']")
+	@FindBy(xpath = "//input[@qa-name='attach-file-input']")
 	WebElement attachmentFile;
 
 	@FindBy(xpath = "//div[@qa-name='close-dialog']")
@@ -129,10 +129,10 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//div[@class='select-btn'])[1]")
 	WebElement firsrTab;
 
-	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[1]")
+	@FindBy(xpath = "(//span[@qa-name='business-ideas-sticky-open-popover'])[1]")
 	WebElement firstDeactivateActivate;
 
-	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[2]")
+	@FindBy(xpath = "(//span[@qa-name='business-ideas-sticky-open-popover'])[2]")
 	WebElement firstRename;
 
 	@FindBy(xpath = "(//input[@ng-model = 'idea.title'])[2]")
@@ -141,10 +141,10 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "(//input[@ng-model = 'idea.title'])[1]")
 	WebElement goAllCards;
 
-	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[3]")
+	@FindBy(xpath = "(//span[@qa-name='business-ideas-sticky-open-popover'])[3]")
 	WebElement firstDelete;
 
-	@FindBy(xpath = "(//span[(@class = 'title ng-binding')])[4]")
+	@FindBy(xpath = "(//span[@qa-name='business-ideas-sticky-open-popover'])[4]")
 	WebElement firstEdit;
 
 	@FindBy(xpath = "//div[contains(@class, 'btn-save')]")
@@ -159,16 +159,16 @@ public class BusinessIdeaPage extends Page {
 
 	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
-	@FindBys(@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])"))
+	@FindBys(@FindBy(xpath = "(//button[@qa-name='add-new-idea-button'])"))
 	List<WebElement> listPluses;
 
-	@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[1]")
+	@FindBy(xpath = "(//button[@qa-name='add-new-idea-button'])[1]")
 	WebElement firstPlus;
 
-	@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[2]")
+	@FindBy(xpath = "(//button[@qa-name='add-new-idea-button'])[2]")
 	WebElement secondPlus;
 
-	@FindBy(xpath = "(//button[(@type='button') and (@aria-label='Add new card')])[3]")
+	@FindBy(xpath = "(//button[@qa-name='add-new-idea-button'])[3]")
 	WebElement thirdPlus;
 
 	public BusinessIdeaPage createAllStickyByDefault() {
