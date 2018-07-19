@@ -98,7 +98,7 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//input[(@type='text') and (@name='title')]")
 	WebElement nameOfSticky;
 
-	@FindBy(xpath = "//div[@class='button button-remove ng-scope']")
+	@FindBy(xpath = "//div[@qa-name='delete-button-dialog']")
 	WebElement deleteSticky;
 
 	@FindBy(xpath = "//div[@class='button button-deactivate ng-scope']")
@@ -119,7 +119,7 @@ public class BusinessIdeaPage extends Page {
 	@FindBy(xpath = "//input[@type ='file']")
 	WebElement attachmentFile;
 
-	@FindBy(xpath = "//div[contains(@class, 'dialog-close')]")
+	@FindBy(xpath = "//div[@qa-name='close-dialog']")
 	WebElement closeForm;
 //	End. Actions in the form
 
@@ -227,7 +227,7 @@ public class BusinessIdeaPage extends Page {
 	public BusinessIdeaPage deleteAllStickiesBIFirst() {
 		for (int i = 0; i < allStickyWhatMakesYouUniqueColumn.size(); i++) {
 			allStickyWhatMakesYouUniqueColumn.get(i).click();
-			if (!Page.elementExists("//div[@class='button button-remove ng-scope']")) {
+			if (!Page.elementExists("//div[@qa-name='delete-button-dialog']")) {
 				deleteSticky.click();
 			} else {
 				closeForm.click();
@@ -239,7 +239,7 @@ public class BusinessIdeaPage extends Page {
 	public BusinessIdeaPage deleteAllStickiesBISecond() {
 		for (int i = 0; i < allStickyWhatProblemWillYouSolveColumn.size(); i++) {
 			allStickyWhatProblemWillYouSolveColumn.get(i).click();
-			if (!Page.elementExists("//div[@class='button button-remove ng-scope']")) {
+			if (!Page.elementExists("//div[@qa-name='delete-button-dialog']")) {
 				deleteSticky.click();
 			} else {
 				closeForm.click();
@@ -251,7 +251,7 @@ public class BusinessIdeaPage extends Page {
 	public BusinessIdeaPage deleteAllStickiesBIThird() {
 		for (int i = 0; i < allStickyWhoWillHaveThisProblemColumn.size(); i++) {
 			allStickyWhoWillHaveThisProblemColumn.get(i).click();
-			if (!Page.elementExists("//div[@class='button button-remove ng-scope']")) {
+			if (!Page.elementExists("//div[@qa-name='delete-button-dialog']")) {
 				deleteSticky.click();
 			} else {
 				closeForm.click();
