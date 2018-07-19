@@ -10,12 +10,13 @@
 
             <class name="ru.ResetPasswordTest"/>
             <class name="ru.AuthorizationTest"/>
+
             <!--<class name="ru.ProfileActionsTest"/>-->
 
             <!--<class name="ru.CreateUserTest"/>-->
 
             <class name="ru.PrepareDataTest"/>
-            <class name="ru.GoAllPagesTest"/>
+
 
             <class name="ru.BusinessIdeaTest"/>
             <class name="ru.ResourcesTest"/>
@@ -31,6 +32,7 @@
             <!--<class name="ru.TestsPageTests"/>-->
 
             <class name="ru.EditCasesTest"/>
+            <class name="ru.GoAllPagesTest"/>
 
         </classes>
     </test>

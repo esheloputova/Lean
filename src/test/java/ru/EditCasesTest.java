@@ -79,11 +79,11 @@ public class EditCasesTest {
 	@AfterMethod
 	public void tearDown() {
 		logger.info("Test   ENDED");
-        Page.getDriver().quit();
-//		new MainBoardPage()
-//				.clickOnAvatarPhoto();
-//		new ProfilePage()
-//				.clickSignOut();
+
+		new MainBoardPage()
+				.clickOnAvatarPhoto();
+		new ProfilePage()
+				.clickSignOut();
 	}
 
 }

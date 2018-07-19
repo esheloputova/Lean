@@ -111,10 +111,12 @@ public class GoAllPagesTest {
 
 	@AfterClass
 	public void tearDown() {
-		new MainBoardPage()
-				.clickOnAvatarPhoto();
-		new ProfilePage()
-				.clickSignOut();
+//		new MainBoardPage()
+//				.clickOnAvatarPhoto();
+//		new ProfilePage()
+//				.clickSignOut();
+		logger.info("All Tests   ENDED");
+		Page.getDriver().quit();
 
 	}
 
